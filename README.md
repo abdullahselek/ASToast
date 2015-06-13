@@ -3,6 +3,6 @@ A Swift extension for using Android style Toast notifications. You may call ASTo
 
 Screenshots
 
-![single_toast](https://github.com/abdullahselek/ASToast/images/astoast_singletoast.png)
-![image_toast](https://github.com/abdullahselek/ASToast/images/astoast_image_title_text_toast.png)
-![activity_toast](https://github.com/abdullahselek/ASToast/images/astoast_activity.png)
+![single_toast](https://github.com/abdullahselek/ASToast/blob/master/images/astoast_singletoast.png)
+![image_toast](https://github.com/abdullahselek/ASToast/blob/master/images/astoast_image_title_text_toast.png)
+![activity_toast](https://github.com/abdullahselek/ASToast/blob/master/images/astoast_activity.png)
