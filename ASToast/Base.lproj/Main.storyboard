@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ASToast" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sH0-94-ssp">
+                                <rect key="frame" x="10" y="40" width="140" height="60"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="3KK-Mb-lAZ"/>
+                                    <constraint firstAttribute="height" constant="60" id="SHN-XD-EIN"/>
+                                </constraints>
+                                <state key="normal" title="Make toast">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ySJ-as-kGn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="RWl-uf-kja">
+                                <rect key="frame" x="170" y="40" width="140" height="60"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="bZ1-QL-czO"/>
+                                    <constraint firstAttribute="width" constant="140" id="cK4-sH-veX"/>
+                                </constraints>
+                                <state key="normal" title="Make toast with a title">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TA5-Jo-n1a"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Roz-uE-Gb4">
+                                <rect key="frame" x="10" y="120" width="140" height="60"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="QQL-r8-lWC"/>
+                                    <constraint firstAttribute="height" constant="60" id="x4S-Wk-AQR"/>
+                                </constraints>
+                                <state key="normal" title="Make Make toast with an image">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pb9-lH-9Ef"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="c9P-lw-ovq">
+                                <rect key="frame" x="170" y="120" width="140" height="60"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="WUL-nD-bWS"/>
+                                    <constraint firstAttribute="width" constant="140" id="yc3-d2-ggA"/>
+                                </constraints>
+                                <state key="normal" title="Make toast with an image &amp; title">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HuJ-RV-gQf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="iCM-Al-jZP">
+                                <rect key="frame" x="10" y="200" width="140" height="60"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="9p3-l0-caP"/>
+                                    <constraint firstAttribute="height" constant="60" id="U02-FZ-lMf"/>
+                                </constraints>
+                                <state key="normal" title="Show a custom view as toast">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DxO-6A-ePh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="cgt-8w-IDx">
+                                <rect key="frame" x="170" y="200" width="140" height="60"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="36l-zo-spA"/>
+                                    <constraint firstAttribute="width" constant="140" id="CbO-1O-8B1"/>
+                                </constraints>
+                                <state key="normal" title="Show an image view as toast at point (110,110)">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wih-5c-6bK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J4F-KS-NDq">
+                                <rect key="frame" x="90" y="280" width="140" height="60"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="Lat-Tb-f7h"/>
+                                    <constraint firstAttribute="height" constant="60" id="lh0-KN-XwD"/>
+                                </constraints>
+                                <state key="normal" title="Show Activity">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xJO-pR-KlP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="c9P-lw-ovq" secondAttribute="trailing" constant="10" id="0J9-jL-sOa"/>
+                            <constraint firstItem="iCM-Al-jZP" firstAttribute="top" secondItem="Roz-uE-Gb4" secondAttribute="bottom" constant="20" id="63p-Br-MM8"/>
+                            <constraint firstItem="sH0-94-ssp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="Acn-Wl-aWr"/>
+                            <constraint firstAttribute="trailing" secondItem="RWl-uf-kja" secondAttribute="trailing" constant="10" id="AoQ-jS-wLe"/>
+                            <constraint firstAttribute="trailing" secondItem="cgt-8w-IDx" secondAttribute="trailing" constant="10" id="Aui-vq-gGH"/>
+                            <constraint firstItem="c9P-lw-ovq" firstAttribute="top" secondItem="RWl-uf-kja" secondAttribute="bottom" constant="20" id="BPG-Kt-EeQ"/>
+                            <constraint firstItem="J4F-KS-NDq" firstAttribute="top" secondItem="cgt-8w-IDx" secondAttribute="bottom" constant="20" id="Cow-Yx-gJh"/>
+                            <constraint firstItem="Roz-uE-Gb4" firstAttribute="top" secondItem="sH0-94-ssp" secondAttribute="bottom" constant="20" id="DGs-uV-c6P"/>
+                            <constraint firstItem="Roz-uE-Gb4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="SVe-vB-911"/>
+                            <constraint firstItem="RWl-uf-kja" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="hNY-b5-lb5"/>
+                            <constraint firstItem="sH0-94-ssp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="nTJ-pH-86r"/>
+                            <constraint firstAttribute="centerX" secondItem="J4F-KS-NDq" secondAttribute="centerX" id="oPp-AP-IHh"/>
+                            <constraint firstItem="cgt-8w-IDx" firstAttribute="top" secondItem="c9P-lw-ovq" secondAttribute="bottom" constant="20" id="vAG-Bo-9FC"/>
+                            <constraint firstItem="iCM-Al-jZP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="yVB-mO-yAV"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="480"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
