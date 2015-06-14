@@ -31,7 +31,7 @@ A Swift extension for using Android style Toast notifications. You may call ASTo
 	// Show activity indicator
 	self.view.makeToastActivity()
 	
-# MIT Licence
+# MIT License
 	
 	Copyright (c) 2015 Abdullah Selek
 
