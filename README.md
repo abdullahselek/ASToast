@@ -1,13 +1,13 @@
 # ASToast
 A Swift extension for using Android style Toast notifications. You may call ASToast methods directly from your view objects.
 
-Screenshots
+# Screenshots
 
 ![single_toast](https://github.com/abdullahselek/ASToast/blob/master/images/astoast_singletoast.png)
 ![image_toast](https://github.com/abdullahselek/ASToast/blob/master/images/astoast_image_title_text_toast.png)
 ![activity_toast](https://github.com/abdullahselek/ASToast/blob/master/images/astoast_activity.png)
 
-Example Usage
+# Example Usage
 
 	// make a toast with single text
     self.view.makeToast("Single text toast")
@@ -31,7 +31,7 @@ Example Usage
 	// Show activity indicator
 	self.view.makeToastActivity()
 	
-MIT Licence
+# MIT Licence
 	
 	Copyright (c) 2015 Abdullah Selek
 
@@ -53,7 +53,7 @@ MIT Licence
 	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 	SOFTWARE.
 
-Credits
+# Credits
 
 	Inspired from Charles Scalesse (scalessec). Improved and all coded in new programming 
 	language Swift.
