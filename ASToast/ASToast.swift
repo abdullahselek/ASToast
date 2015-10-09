@@ -67,22 +67,22 @@ extension UIView {
     }
     
     func makeToast(message: String, duration: NSTimeInterval, position: AnyObject?) {
-        var toastView = self.toastView(message, title: "",  image: nil)
+        let toastView = self.toastView(message, title: "",  image: nil)
         self.showToast(toastView, duration: duration, position: position)
     }
     
     func makeToast(message: String, duration: NSTimeInterval, position: AnyObject?, title: String) {
-        var toastView = self.toastView(message, title: title, image: nil)
+        let toastView = self.toastView(message, title: title, image: nil)
         self.showToast(toastView, duration: duration, position: position)
     }
     
     func makeToast(message: String, duration: NSTimeInterval, position: AnyObject?, image: UIImage!) {
-        var toastView = self.toastView(message, title: "", image: image)
+        let toastView = self.toastView(message, title: "", image: image)
         self.showToast(toastView, duration: duration, position: position)
     }
     
     func makeToast(message: String, duration: NSTimeInterval, position: AnyObject?, title: String, image: UIImage!) {
-        var toastView = self.toastView(message, title: title, image: image)
+        let toastView = self.toastView(message, title: title, image: image)
         self.showToast(toastView, duration: duration, position: position)
     }
     
@@ -101,7 +101,7 @@ extension UIView {
         toastView.alpha = Constants.ASToastViewAlpha
         
         if Constants.ASToastHidesOnTap {
-            var tapRecognizer: UITapGestureRecognizer! = UITapGestureRecognizer(target: toastView, action: "handleToastTapped:")
+            let tapRecognizer: UITapGestureRecognizer! = UITapGestureRecognizer(target: toastView, action: "handleToastTapped:")
             toastView.addGestureRecognizer(tapRecognizer)
             toastView.userInteractionEnabled = true
             toastView.exclusiveTouch = true
@@ -111,7 +111,7 @@ extension UIView {
         
         self.addSubview(toastView)
         
-        UIView.animateWithDuration(Constants.ASToastDuration, delay: 0.0, options: UIViewAnimationOptions.CurveEaseInOut | UIViewAnimationOptions.AllowUserInteraction, animations: { () -> Void in
+        UIView.animateWithDuration(Constants.ASToastDuration, delay: 0.0, options: [UIViewAnimationOptions.CurveEaseInOut, UIViewAnimationOptions.AllowUserInteraction], animations: { () -> Void in
             toastView.alpha = 1.0
         }) { (Bool) -> Void in
             
@@ -119,7 +119,7 @@ extension UIView {
     }
     
     private func hideToast(toastView: UIView!) {
-        UIView.animateWithDuration(Constants.ASToastFadeDuration, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn | UIViewAnimationOptions.BeginFromCurrentState, animations: { () -> Void in
+        UIView.animateWithDuration(Constants.ASToastFadeDuration, delay: 0.0, options: [UIViewAnimationOptions.CurveEaseIn, UIViewAnimationOptions.BeginFromCurrentState], animations: { () -> Void in
             toastView.alpha = 0.0
         }) { (Bool) -> Void in
             toastView.removeFromSuperview()
@@ -137,8 +137,8 @@ extension UIView {
         var titleLabel: UILabel!
         var imageView: UIImageView!
         
-        var toastView: UIView! = UIView()
-        toastView.autoresizingMask = UIViewAutoresizing.FlexibleLeftMargin | UIViewAutoresizing.FlexibleRightMargin | UIViewAutoresizing.FlexibleTopMargin | UIViewAutoresizing.FlexibleBottomMargin
+        let toastView: UIView! = UIView()
+        toastView.autoresizingMask = [UIViewAutoresizing.FlexibleLeftMargin, UIViewAutoresizing.FlexibleRightMargin, UIViewAutoresizing.FlexibleTopMargin, UIViewAutoresizing.FlexibleBottomMargin]
         toastView.layer.cornerRadius = Constants.ASToastCornerRadius
         
         // check if shadow needed
@@ -184,8 +184,8 @@ extension UIView {
             titleLabel.text = title
             
             // set size the title label according to the lenth of title text
-            var maxSizeTitle = CGSizeMake((self.bounds.size.width * Constants.ASToastMaxWidth) - imageWidth, self.bounds.size.height * Constants.ASToastMaxHeight)
-            var expectedSizeTitle: CGSize! = sizeForString(title, font: titleLabel.font, constrainedSize: maxSizeTitle, lineBreakMode: titleLabel.lineBreakMode)
+            let maxSizeTitle = CGSizeMake((self.bounds.size.width * Constants.ASToastMaxWidth) - imageWidth, self.bounds.size.height * Constants.ASToastMaxHeight)
+            let expectedSizeTitle: CGSize! = sizeForString(title, font: titleLabel.font, constrainedSize: maxSizeTitle, lineBreakMode: titleLabel.lineBreakMode)
             titleLabel.frame = CGRectMake(0.0, 0.0, expectedSizeTitle.width, expectedSizeTitle.height)
         }
         
@@ -201,8 +201,8 @@ extension UIView {
             messageLabel.text = message
 
             // set size the message label according to the lenth of message text
-            var maxSizeMessage = CGSizeMake((self.bounds.size.width * Constants.ASToastMaxWidth) - imageWidth, self.bounds.size.height * Constants.ASToastMaxHeight)
-            var expectedSizeMessage: CGSize! = sizeForString(message, font: messageLabel.font, constrainedSize: maxSizeMessage, lineBreakMode: messageLabel.lineBreakMode)
+            let maxSizeMessage = CGSizeMake((self.bounds.size.width * Constants.ASToastMaxWidth) - imageWidth, self.bounds.size.height * Constants.ASToastMaxHeight)
+            let expectedSizeMessage: CGSize! = sizeForString(message, font: messageLabel.font, constrainedSize: maxSizeMessage, lineBreakMode: messageLabel.lineBreakMode)
             messageLabel.frame = CGRectMake(0.0, 0.0, expectedSizeMessage.width, expectedSizeMessage.height)
         }
         
@@ -236,12 +236,12 @@ extension UIView {
             messageTop = 0.0
         }
         
-        var longerWidth = max(titleWidth, messageWidth)
-        var longerLeft = max(titleLeft, messageLeft)
+        let longerWidth = max(titleWidth, messageWidth)
+        let longerLeft = max(titleLeft, messageLeft)
         
         // toastView frames
-        var toastViewWidth = max(imageWidth + (Constants.ASToastHorizontalPadding * 2), (longerLeft + longerWidth + Constants.ASToastHorizontalPadding))
-        var toastViewHeight = max(messageTop + messageHeight + Constants.ASToastVerticalPadding, (imageHeight + (Constants.ASToastVerticalPadding * 2)))
+        let toastViewWidth = max(imageWidth + (Constants.ASToastHorizontalPadding * 2), (longerLeft + longerWidth + Constants.ASToastHorizontalPadding))
+        let toastViewHeight = max(messageTop + messageHeight + Constants.ASToastVerticalPadding, (imageHeight + (Constants.ASToastVerticalPadding * 2)))
         
         toastView.frame = CGRectMake(0.0, 0.0, toastViewWidth, toastViewHeight)
         
@@ -284,8 +284,7 @@ extension UIView {
         activityView.center = centerPointForPosition(position, toastView: activityView)
         activityView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(Constants.ASToastOpacity)
         activityView.alpha = Constants.ASToastViewAlpha
-        activityView.autoresizingMask = UIViewAutoresizing.FlexibleLeftMargin | UIViewAutoresizing.FlexibleRightMargin |
-            UIViewAutoresizing.FlexibleTopMargin | UIViewAutoresizing.FlexibleBottomMargin
+        activityView.autoresizingMask = [UIViewAutoresizing.FlexibleLeftMargin, UIViewAutoresizing.FlexibleRightMargin, UIViewAutoresizing.FlexibleTopMargin, UIViewAutoresizing.FlexibleBottomMargin]
         activityView.layer.cornerRadius = Constants.ASToastCornerRadius
         
         if Constants.ASToastDisplayShadow {
@@ -295,7 +294,7 @@ extension UIView {
             activityView.layer.shadowOffset = Constants.ASToastShadowOffset
         }
         
-        var activityIndicatorView: UIActivityIndicatorView! = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
+        let activityIndicatorView: UIActivityIndicatorView! = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
         activityIndicatorView.center = CGPointMake(activityView.bounds.size.width / 2, activityView.bounds.size.height / 2)
         activityView.addSubview(activityIndicatorView)
         activityIndicatorView.startAnimating()
@@ -309,7 +308,7 @@ extension UIView {
     
     func hideToastActivity() {
         if activityView != nil {
-            UIView.animateWithDuration(Constants.ASToastFadeDuration, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn | UIViewAnimationOptions.BeginFromCurrentState, animations: { () -> Void in
+            UIView.animateWithDuration(Constants.ASToastFadeDuration, delay: 0.0, options: [UIViewAnimationOptions.CurveEaseIn, UIViewAnimationOptions.BeginFromCurrentState], animations: { () -> Void in
                 activityView.alpha = 0.0
             }, completion: { (Bool) -> Void in
                 activityView.removeFromSuperview()
@@ -328,7 +327,7 @@ extension UIView {
                     return CGPointMake(self.bounds.size.width / 2, self.bounds.size.height / 2)
                 }
             } else if point!.isKindOfClass(NSValue) {
-                return point!.CGPointValue()
+                return point!.CGPointValue
             }
         }
         
@@ -338,10 +337,10 @@ extension UIView {
     
     private func sizeForString(text: NSString, font: UIFont, constrainedSize: CGSize, lineBreakMode: NSLineBreakMode) -> CGSize {
         if text.respondsToSelector("boundingRectWithSize:options:attributes:context:") {
-            var paragraphStyle: NSMutableParagraphStyle! = NSMutableParagraphStyle()
+            let paragraphStyle: NSMutableParagraphStyle! = NSMutableParagraphStyle()
             paragraphStyle.lineBreakMode = lineBreakMode
-            var attributes: Dictionary = [NSFontAttributeName: font, NSParagraphStyleAttributeName: paragraphStyle]
-            var boundingRect: CGRect! = text.boundingRectWithSize(constrainedSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: attributes, context: nil)
+            let attributes: Dictionary = [NSFontAttributeName: font, NSParagraphStyleAttributeName: paragraphStyle]
+            let boundingRect: CGRect! = text.boundingRectWithSize(constrainedSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: attributes, context: nil)
             return CGSizeMake(boundingRect.size.width, boundingRect.size.height)
         }
         

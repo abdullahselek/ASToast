@@ -44,19 +44,19 @@ class ViewController: UIViewController {
             break
         case 4:
             // Show a custom view as toast
-            var customView: UIView! = UIView(frame: CGRectMake(0.0, 0.0, 200.0, 300.0))
-            customView.autoresizingMask = UIViewAutoresizing.FlexibleLeftMargin | UIViewAutoresizing.FlexibleRightMargin | UIViewAutoresizing.FlexibleTopMargin | UIViewAutoresizing.FlexibleBottomMargin
+            let customView: UIView! = UIView(frame: CGRectMake(0.0, 0.0, 200.0, 300.0))
+            customView.autoresizingMask = [UIViewAutoresizing.FlexibleLeftMargin, UIViewAutoresizing.FlexibleRightMargin, UIViewAutoresizing.FlexibleTopMargin, UIViewAutoresizing.FlexibleBottomMargin]
             customView.backgroundColor = UIColor.greenColor()
 
             self.view.showToast(customView, duration: NSTimeInterval(3.0), position: ASToastPosition.ASToastPositionCenter.rawValue)
             break
         case 5:
             // Show an imageView as toast, on center at point (110,110)
-            var toastImageView: UIImageView! = UIImageView(image: UIImage(named: "apple_logo"))
+            let toastImageView: UIImageView! = UIImageView(image: UIImage(named: "apple_logo"))
             self.view.showToast(toastImageView, duration: NSTimeInterval(3.0), position: NSValue(CGPoint: CGPointMake(110, 110)))
             break;
         case 6:
-            var button: UIButton! = sender as! UIButton
+            let button: UIButton! = sender as! UIButton
             if !isShowingActivity {
                 self.view.makeToastActivity()
                 button.setTitle("Hide Activity", forState: UIControlState.Normal)
