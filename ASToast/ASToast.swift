@@ -101,13 +101,13 @@ extension UIView {
         toastView.alpha = Constants.ASToastViewAlpha
         
         if Constants.ASToastHidesOnTap {
-            let tapRecognizer: UITapGestureRecognizer! = UITapGestureRecognizer(target: toastView, action: "handleToastTapped:")
+            let tapRecognizer: UITapGestureRecognizer! = UITapGestureRecognizer(target: toastView, action: #selector(UIView.handleToastTapped(_:)))
             toastView.addGestureRecognizer(tapRecognizer)
             toastView.userInteractionEnabled = true
             toastView.exclusiveTouch = true
         }
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(duration, target: self, selector: "toastTimerDidFinish:", userInfo: toastView, repeats: false)
+        timer = NSTimer.scheduledTimerWithTimeInterval(duration, target: self, selector: #selector(UIView.toastTimerDidFinish(_:)), userInfo: toastView, repeats: false)
         
         self.addSubview(toastView)
         
@@ -336,7 +336,7 @@ extension UIView {
     }
     
     private func sizeForString(text: NSString, font: UIFont, constrainedSize: CGSize, lineBreakMode: NSLineBreakMode) -> CGSize {
-        if text.respondsToSelector("boundingRectWithSize:options:attributes:context:") {
+        if text.respondsToSelector(#selector(NSString.boundingRectWithSize(_:options:attributes:context:))) {
             let paragraphStyle: NSMutableParagraphStyle! = NSMutableParagraphStyle()
             paragraphStyle.lineBreakMode = lineBreakMode
             let attributes: Dictionary = [NSFontAttributeName: font, NSParagraphStyleAttributeName: paragraphStyle]
