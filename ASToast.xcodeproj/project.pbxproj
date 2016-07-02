@@ -13,8 +13,8 @@
 		A446C42F1B28979C00C891AF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A446C42E1B28979C00C891AF /* Images.xcassets */; };
 		A446C4321B28979C00C891AF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A446C4301B28979C00C891AF /* LaunchScreen.xib */; };
 		A446C43E1B28979C00C891AF /* ASToastTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A446C43D1B28979C00C891AF /* ASToastTests.swift */; };
-		A446C4481B2897F500C891AF /* ASToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = A446C4471B2897F500C891AF /* ASToast.swift */; };
 		A446C44A1B28981800C891AF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A446C4491B28981800C891AF /* QuartzCore.framework */; };
+		A4CC19F71D27C9F00078E4C2 /* ASToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CC19F61D27C9F00078E4C2 /* ASToast.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,9 +38,8 @@
 		A446C4371B28979C00C891AF /* ASToastTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ASToastTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A446C43C1B28979C00C891AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A446C43D1B28979C00C891AF /* ASToastTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASToastTests.swift; sourceTree = "<group>"; };
-		A446C4471B2897F500C891AF /* ASToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASToast.swift; sourceTree = "<group>"; };
 		A446C4491B28981800C891AF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		A4CC19F31D27C7930078E4C2 /* ASToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASToast.h; sourceTree = "<group>"; };
+		A4CC19F61D27C9F00078E4C2 /* ASToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ASToast.swift; path = Source/ASToast.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,8 +83,7 @@
 		A446C4241B28979C00C891AF /* ASToast */ = {
 			isa = PBXGroup;
 			children = (
-				A4CC19F31D27C7930078E4C2 /* ASToast.h */,
-				A446C4471B2897F500C891AF /* ASToast.swift */,
+				A4CC19F41D27C9D20078E4C2 /* Source */,
 				A446C4271B28979C00C891AF /* AppDelegate.swift */,
 				A446C4291B28979C00C891AF /* ViewController.swift */,
 				A446C42B1B28979C00C891AF /* Main.storyboard */,
@@ -119,6 +117,14 @@
 				A446C43C1B28979C00C891AF /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A4CC19F41D27C9D20078E4C2 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				A4CC19F61D27C9F00078E4C2 /* ASToast.swift */,
+			);
+			name = Source;
 			sourceTree = "<group>";
 		};
 		A4DA525E1B2C8FA800F3E5FB /* Frameworks */ = {
@@ -232,7 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A446C42A1B28979C00C891AF /* ViewController.swift in Sources */,
-				A446C4481B2897F500C891AF /* ASToast.swift in Sources */,
+				A4CC19F71D27C9F00078E4C2 /* ASToast.swift in Sources */,
 				A446C4281B28979C00C891AF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
