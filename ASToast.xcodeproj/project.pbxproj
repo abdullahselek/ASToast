@@ -40,6 +40,7 @@
 		A446C43D1B28979C00C891AF /* ASToastTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASToastTests.swift; sourceTree = "<group>"; };
 		A446C4471B2897F500C891AF /* ASToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASToast.swift; sourceTree = "<group>"; };
 		A446C4491B28981800C891AF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A4CC19F31D27C7930078E4C2 /* ASToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASToast.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,12 +84,13 @@
 		A446C4241B28979C00C891AF /* ASToast */ = {
 			isa = PBXGroup;
 			children = (
+				A4CC19F31D27C7930078E4C2 /* ASToast.h */,
+				A446C4471B2897F500C891AF /* ASToast.swift */,
 				A446C4271B28979C00C891AF /* AppDelegate.swift */,
 				A446C4291B28979C00C891AF /* ViewController.swift */,
 				A446C42B1B28979C00C891AF /* Main.storyboard */,
 				A446C42E1B28979C00C891AF /* Images.xcassets */,
 				A446C4301B28979C00C891AF /* LaunchScreen.xib */,
-				A446C4471B2897F500C891AF /* ASToast.swift */,
 				A446C4251B28979C00C891AF /* Supporting Files */,
 			);
 			path = ASToast;
