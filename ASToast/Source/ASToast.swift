@@ -58,41 +58,41 @@ enum ASToastPosition: String {
 private var timer: NSTimer!
 private var activityView: UIView!
 
-extension UIView {
+public extension UIView {
     
     // MARK: Make toast methods
     
-    func makeToast(message: String) {
+    public func makeToast(message: String) {
         makeToast(message, duration: Constants.ASToastDuration, position: nil)
     }
     
-    func makeToast(message: String, duration: NSTimeInterval, position: AnyObject?) {
+    public func makeToast(message: String, duration: NSTimeInterval, position: AnyObject?) {
         let toastView = self.toastView(message, title: "",  image: nil)
         self.showToast(toastView, duration: duration, position: position)
     }
     
-    func makeToast(message: String, duration: NSTimeInterval, position: AnyObject?, title: String) {
+    public func makeToast(message: String, duration: NSTimeInterval, position: AnyObject?, title: String) {
         let toastView = self.toastView(message, title: title, image: nil)
         self.showToast(toastView, duration: duration, position: position)
     }
     
-    func makeToast(message: String, duration: NSTimeInterval, position: AnyObject?, image: UIImage!) {
+    public func makeToast(message: String, duration: NSTimeInterval, position: AnyObject?, image: UIImage!) {
         let toastView = self.toastView(message, title: "", image: image)
         self.showToast(toastView, duration: duration, position: position)
     }
     
-    func makeToast(message: String, duration: NSTimeInterval, position: AnyObject?, title: String, image: UIImage!) {
+    public func makeToast(message: String, duration: NSTimeInterval, position: AnyObject?, title: String, image: UIImage!) {
         let toastView = self.toastView(message, title: title, image: image)
         self.showToast(toastView, duration: duration, position: position)
     }
     
     // MARK: Toast view main methods
     
-    func showToast(toastView: UIView!) {
+    public func showToast(toastView: UIView!) {
         showToast(toastView, duration: Constants.ASToastDuration, position: nil)
     }
     
-    func showToast(toastView: UIView!, duration: NSTimeInterval!, position: AnyObject?) {
+    public func showToast(toastView: UIView!, duration: NSTimeInterval!, position: AnyObject?) {
         createAndShowToast(toastView, duration: duration, position: position)
     }
     
@@ -275,7 +275,7 @@ extension UIView {
     
     // MARK: Toast activity methods
     
-    func makeToastActivity() {
+    public func makeToastActivity() {
         makeToastActivity(Constants.ASToastActivityDefaultPosition.rawValue)
     }
     
@@ -306,7 +306,7 @@ extension UIView {
         }, completion: nil)
     }
     
-    func hideToastActivity() {
+    public func hideToastActivity() {
         if activityView != nil {
             UIView.animateWithDuration(Constants.ASToastFadeDuration, delay: 0.0, options: [UIViewAnimationOptions.CurveEaseIn, UIViewAnimationOptions.BeginFromCurrentState], animations: { () -> Void in
                 activityView.alpha = 0.0
