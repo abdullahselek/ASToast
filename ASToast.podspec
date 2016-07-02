@@ -2,14 +2,14 @@ Pod::Spec.new do |s|
 
     s.name                = 'ASToast'
     s.version             = '0.0.4'
-    s.summary             = 'Custom view for Android style toasts for iOS'
+    s.summary             = 'A Swift extension for using Android style Toast notifications'
     s.homepage            = 'https://github.com/abdullahselek/ASToast'
     s.license             = {
         :type => 'MIT',
         :file => 'LICENSE'
     }
     s.author              = {
-        'YOURNAME' => 'Abdullah SELEK'
+        'Abdullah Selek' => 'abdullahselek@yahoo.com'
     }
     s.source              = {
         :git => 'https://github.com/abdullahselek/ASToast.git',
