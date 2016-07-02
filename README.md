@@ -7,6 +7,29 @@ A Swift extension for using Android style Toast notifications. You may call ASTo
 ![image_toast](https://github.com/abdullahselek/ASToast/blob/master/images/astoast_image_title_text_toast.png)
 ![activity_toast](https://github.com/abdullahselek/ASToast/blob/master/images/astoast_activity.png)
 
+# Requirements
+iOS 8.0+
+
+# CocoaPods
+
+CocoaPods is a dependency manager for Cocoa projects. You can install it with the following command:
+	
+	$ gem install cocoapods
+
+To integrate ASToast into your Xcode project using CocoaPods, specify it in your Podfile:
+
+	source 'https://github.com/CocoaPods/Specs.git'
+	platform :ios, '8.0'
+	use_frameworks!
+
+	target '<Your Target Name>' do
+    	pod 'ASToast', '~> 0.0.4'
+	end
+
+Then, run the following command:
+
+	$ pod install
+
 # Example Usage
 
 	// make a toast with single text
