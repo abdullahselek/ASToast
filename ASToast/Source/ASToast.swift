@@ -31,6 +31,9 @@ import QuartzCore
 
 // MARK: Constants
 
+/**
+  * Default toast constants
+ */
 struct Constants {
     // duration of view on screen
     static let ASToastDuration = NSTimeInterval(3)
@@ -69,7 +72,10 @@ struct Constants {
     static let ASToastActivityDefaultPosition = ASToastPosition.ASToastPositionCenter
 }
 
-enum ASToastPosition: String {
+/**
+  * Toast positions
+ */
+public enum ASToastPosition: String {
     case ASToastPositionTop = "ASToastPositionTop",
     ASToastPositionCenter = "ASToastPositionCenter",
     ASToastPositionBotom = "ASToastPositionBotom"
@@ -82,25 +88,62 @@ public extension UIView {
     
     // MARK: Make toast methods
     
+    /**
+      * Show a toast with given string
+      *
+      * @param message Message Text
+     */
     public func makeToast(message: String) {
         makeToast(message, duration: Constants.ASToastDuration, position: nil)
     }
     
+    /**
+      * Show a toast with given string, duration and position
+      *
+      * @param message Message Text
+      * @param duration The time duration toast will displayed on the screen
+      * @param position The position that toast will displayed
+     */
     public func makeToast(message: String, duration: NSTimeInterval, position: AnyObject?) {
         let toastView = self.toastView(message, title: "",  image: nil)
         self.showToast(toastView, duration: duration, position: position)
     }
     
+    /**
+      * Show a toast with given string, duration, position and title
+      *
+      * @param message Message Text
+      * @param duration The time duration toast will displayed on the screen
+      * @param position The position that toast will displayed
+      * @param title Title for Toast
+     */
     public func makeToast(message: String, duration: NSTimeInterval, position: AnyObject?, title: String) {
         let toastView = self.toastView(message, title: title, image: nil)
         self.showToast(toastView, duration: duration, position: position)
     }
     
+    /**
+      * Show a toast with given string, duration, position and image
+      *
+      * @param message Message Text
+      * @param duration The time duration toast will displayed on the screen
+      * @param position The position that toast will displayed
+      * @param image Image for Toast
+     */
     public func makeToast(message: String, duration: NSTimeInterval, position: AnyObject?, image: UIImage!) {
         let toastView = self.toastView(message, title: "", image: image)
         self.showToast(toastView, duration: duration, position: position)
     }
     
+    /**
+      * Show a toast with given string, duration, position, title and image
+      *
+      * @param message Message Text
+      * @param duration The time duration toast will displayed on the screen
+      * @param position The position that toast will displayed
+      * @param title Title for Toast
+      * @param image Image for Toast
+     */
     public func makeToast(message: String, duration: NSTimeInterval, position: AnyObject?, title: String, image: UIImage!) {
         let toastView = self.toastView(message, title: title, image: image)
         self.showToast(toastView, duration: duration, position: position)
@@ -108,14 +151,33 @@ public extension UIView {
     
     // MARK: Toast view main methods
     
+    /**
+      * Show toast view with constant duration (3 seconds)
+      *
+      * @param toastView Toast view
+     */
     public func showToast(toastView: UIView!) {
         showToast(toastView, duration: Constants.ASToastDuration, position: nil)
     }
     
+    /**
+      * Show toast view with duration and position
+      *
+      * @param toastView Toast view
+      * @param duration The time duration toast will displayed on the screen
+      * @param position The position that toast will displayed
+     */
     public func showToast(toastView: UIView!, duration: NSTimeInterval!, position: AnyObject?) {
         createAndShowToast(toastView, duration: duration, position: position)
     }
     
+    /**
+      * Create and show toast
+      *
+      * @param toastView Toast view
+      * @param duration The time duration toast will displayed on the screen
+      * @param position The position that toast will displayed
+     */
     private func createAndShowToast(toastView: UIView!, duration: NSTimeInterval!, position: AnyObject?) {
         toastView.center = centerPointForPosition(position, toastView: toastView)
         toastView.alpha = Constants.ASToastViewAlpha
@@ -138,6 +200,11 @@ public extension UIView {
         }
     }
     
+    /**
+      * Hide toast view
+      *
+      * @param toastView Toast view
+     */
     private func hideToast(toastView: UIView!) {
         UIView.animateWithDuration(Constants.ASToastFadeDuration, delay: 0.0, options: [UIViewAnimationOptions.CurveEaseIn, UIViewAnimationOptions.BeginFromCurrentState], animations: { () -> Void in
             toastView.alpha = 0.0
@@ -146,6 +213,13 @@ public extension UIView {
         }
     }
 
+    /**
+      * Creates toast view with given message, title and title
+      *
+      * @param message Message Text
+      * @param title Title for Toast
+      * @param image Image for Toast
+     */
     private func toastView(message: String, title: String, image: UIImage?) -> UIView? {
         // check parameters
         if message.isEmpty && title.isEmpty && image == nil {
@@ -284,10 +358,20 @@ public extension UIView {
 
     // MARK: Toast view events
     
+    /**
+      * Finish event handler for timer
+      *
+      * @param timer NSTimer
+     */
     func toastTimerDidFinish(timer: NSTimer) {
         self.hideToast(timer.userInfo as? UIView!)
     }
     
+    /**
+      * Tap gesture handler
+      *
+      * @param recognizer UITapGestureRecognizer
+     */
     func handleToastTapped(recognizer: UITapGestureRecognizer) {
         timer.invalidate()
         hideToast(recognizer.view)
@@ -295,10 +379,18 @@ public extension UIView {
     
     // MARK: Toast activity methods
     
+    /**
+      * Show a toast with activity indicator
+     */
     public func makeToastActivity() {
         makeToastActivity(Constants.ASToastActivityDefaultPosition.rawValue)
     }
     
+    /**
+      * Create toast with given position
+      *
+      * @param position The position that toast will displayed
+     */
     private func makeToastActivity(position: AnyObject) {
         activityView = UIView(frame: CGRectMake(0.0, 0.0, Constants.ASToastActivityWidth, Constants.ASToastActivityHeight))
         activityView.center = centerPointForPosition(position, toastView: activityView)
@@ -326,6 +418,9 @@ public extension UIView {
         }, completion: nil)
     }
     
+    /**
+      * Hide activity indicator toast
+     */
     public func hideToastActivity() {
         if activityView != nil {
             UIView.animateWithDuration(Constants.ASToastFadeDuration, delay: 0.0, options: [UIViewAnimationOptions.CurveEaseIn, UIViewAnimationOptions.BeginFromCurrentState], animations: { () -> Void in
@@ -338,6 +433,12 @@ public extension UIView {
     
     // MARK: Helpers
     
+    /**
+      * Center toast with given point and view
+      *
+      * @param point Position to centralize
+      * @param toastView Toast view
+     */
     private func centerPointForPosition(point: AnyObject?, toastView: UIView!) -> CGPoint {
         if point != nil {
             if point!.isKindOfClass(NSString) {
@@ -355,6 +456,14 @@ public extension UIView {
         return CGPointMake(self.bounds.size.width / 2, (self.bounds.size.height - (toastView.frame.size.height / 2)) - Constants.ASToastVerticalPadding)
     }
     
+    /**
+      * Calculates string size with given text, font, constrained and mode
+      *
+      * @param text Toast view message
+      * @param font UIFont used for text
+      * @param constrainedSize CGSize
+      * @param lineBreakMode NSLineBreakMode
+     */
     private func sizeForString(text: NSString, font: UIFont, constrainedSize: CGSize, lineBreakMode: NSLineBreakMode) -> CGSize {
         if text.respondsToSelector(#selector(NSString.boundingRectWithSize(_:options:attributes:context:))) {
             let paragraphStyle: NSMutableParagraphStyle! = NSMutableParagraphStyle()
