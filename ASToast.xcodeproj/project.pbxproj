@@ -7,14 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A42C74A71D44D18500076FEE /* ASToastTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C74A61D44D18500076FEE /* ASToastTest.swift */; };
 		A446C4281B28979C00C891AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A446C4271B28979C00C891AF /* AppDelegate.swift */; };
 		A446C42A1B28979C00C891AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A446C4291B28979C00C891AF /* ViewController.swift */; };
 		A446C42D1B28979C00C891AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A446C42B1B28979C00C891AF /* Main.storyboard */; };
 		A446C42F1B28979C00C891AF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A446C42E1B28979C00C891AF /* Images.xcassets */; };
 		A446C4321B28979C00C891AF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A446C4301B28979C00C891AF /* LaunchScreen.xib */; };
-		A446C43E1B28979C00C891AF /* ASToastTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A446C43D1B28979C00C891AF /* ASToastTests.swift */; };
 		A446C44A1B28981800C891AF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A446C4491B28981800C891AF /* QuartzCore.framework */; };
 		A4CC19F71D27C9F00078E4C2 /* ASToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CC19F61D27C9F00078E4C2 /* ASToast.swift */; };
+		C786FCDAFEAEACE15A027A82 /* Pods_ASToastTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F14F30A42DD71C6A35798B03 /* Pods_ASToastTests.framework */; };
+		E739B41E099065CAC91BACD0 /* Pods_ASToast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CDA1FA5C918167B5A113EDB /* Pods_ASToast.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +30,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B861921B4352BACC8C2DE51 /* Pods-ASToast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASToast.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ASToast/Pods-ASToast.debug.xcconfig"; sourceTree = "<group>"; };
+		4F07F2E06A5F11553F4F6C47 /* Pods-ASToast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASToast.release.xcconfig"; path = "Pods/Target Support Files/Pods-ASToast/Pods-ASToast.release.xcconfig"; sourceTree = "<group>"; };
+		7CDA1FA5C918167B5A113EDB /* Pods_ASToast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ASToast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A42C74A51D44D18400076FEE /* ASToastTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ASToastTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		A42C74A61D44D18500076FEE /* ASToastTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASToastTest.swift; sourceTree = "<group>"; };
 		A446C4221B28979C00C891AF /* ASToast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ASToast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A446C4261B28979C00C891AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A446C4271B28979C00C891AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -37,9 +44,11 @@
 		A446C4311B28979C00C891AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A446C4371B28979C00C891AF /* ASToastTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ASToastTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A446C43C1B28979C00C891AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A446C43D1B28979C00C891AF /* ASToastTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASToastTests.swift; sourceTree = "<group>"; };
 		A446C4491B28981800C891AF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A4CC19F61D27C9F00078E4C2 /* ASToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ASToast.swift; path = Source/ASToast.swift; sourceTree = "<group>"; };
+		EB5EFDF7BC6A107C92DB2C80 /* Pods-ASToastTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASToastTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ASToastTests/Pods-ASToastTests.release.xcconfig"; sourceTree = "<group>"; };
+		F14F30A42DD71C6A35798B03 /* Pods_ASToastTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ASToastTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F67BF347ED1E82D102670492 /* Pods-ASToastTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASToastTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ASToastTests/Pods-ASToastTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +57,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A446C44A1B28981800C891AF /* QuartzCore.framework in Frameworks */,
+				E739B41E099065CAC91BACD0 /* Pods_ASToast.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,12 +65,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C786FCDAFEAEACE15A027A82 /* Pods_ASToastTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7DE61A12A6DB6859E1BD9C39 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1B861921B4352BACC8C2DE51 /* Pods-ASToast.debug.xcconfig */,
+				4F07F2E06A5F11553F4F6C47 /* Pods-ASToast.release.xcconfig */,
+				F67BF347ED1E82D102670492 /* Pods-ASToastTests.debug.xcconfig */,
+				EB5EFDF7BC6A107C92DB2C80 /* Pods-ASToastTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A446C4191B28979C00C891AF = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +90,7 @@
 				A446C43A1B28979C00C891AF /* ASToastTests */,
 				A446C4231B28979C00C891AF /* Products */,
 				A4DA525E1B2C8FA800F3E5FB /* Frameworks */,
+				7DE61A12A6DB6859E1BD9C39 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,8 +128,10 @@
 		A446C43A1B28979C00C891AF /* ASToastTests */ = {
 			isa = PBXGroup;
 			children = (
-				A446C43D1B28979C00C891AF /* ASToastTests.swift */,
+				A46571AB1D44E5B300B71E2A /* Resources */,
 				A446C43B1B28979C00C891AF /* Supporting Files */,
+				A42C74A61D44D18500076FEE /* ASToastTest.swift */,
+				A42C74A51D44D18400076FEE /* ASToastTests-Bridging-Header.h */,
 			);
 			path = ASToastTests;
 			sourceTree = "<group>";
@@ -117,6 +142,13 @@
 				A446C43C1B28979C00C891AF /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A46571AB1D44E5B300B71E2A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		A4CC19F41D27C9D20078E4C2 /* Source */ = {
@@ -131,6 +163,8 @@
 			isa = PBXGroup;
 			children = (
 				A446C4491B28981800C891AF /* QuartzCore.framework */,
+				7CDA1FA5C918167B5A113EDB /* Pods_ASToast.framework */,
+				F14F30A42DD71C6A35798B03 /* Pods_ASToastTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -142,9 +176,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A446C4411B28979C00C891AF /* Build configuration list for PBXNativeTarget "ASToast" */;
 			buildPhases = (
+				C7B9CA12CB4FE7B25059B4C2 /* [CP] Check Pods Manifest.lock */,
 				A446C41E1B28979C00C891AF /* Sources */,
 				A446C41F1B28979C00C891AF /* Frameworks */,
 				A446C4201B28979C00C891AF /* Resources */,
+				F06466A78DD8527BD1963968 /* [CP] Embed Pods Frameworks */,
+				4187234E267640E0E7E39AAC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -159,9 +196,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A446C4441B28979C00C891AF /* Build configuration list for PBXNativeTarget "ASToastTests" */;
 			buildPhases = (
+				7A8904678561A7D2BF110AE0 /* [CP] Check Pods Manifest.lock */,
 				A446C4331B28979C00C891AF /* Sources */,
 				A446C4341B28979C00C891AF /* Frameworks */,
 				A446C4351B28979C00C891AF /* Resources */,
+				1C3D5726C0722D96A9A7BD7D /* [CP] Embed Pods Frameworks */,
+				1B0E4EC31153F379E3C35F6A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -180,7 +220,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0700;
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Abdullah Selek";
 				TargetAttributes = {
@@ -232,6 +272,99 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1B0E4EC31153F379E3C35F6A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ASToastTests/Pods-ASToastTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1C3D5726C0722D96A9A7BD7D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ASToastTests/Pods-ASToastTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4187234E267640E0E7E39AAC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ASToast/Pods-ASToast-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7A8904678561A7D2BF110AE0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C7B9CA12CB4FE7B25059B4C2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F06466A78DD8527BD1963968 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ASToast/Pods-ASToast-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A446C41E1B28979C00C891AF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -247,7 +380,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A446C43E1B28979C00C891AF /* ASToastTests.swift in Sources */,
+				A42C74A71D44D18500076FEE /* ASToastTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +500,7 @@
 		};
 		A446C4421B28979C00C891AF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B861921B4352BACC8C2DE51 /* Pods-ASToast.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ASToast/Info.plist;
@@ -380,6 +514,7 @@
 		};
 		A446C4431B28979C00C891AF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F07F2E06A5F11553F4F6C47 /* Pods-ASToast.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ASToast/Info.plist;
@@ -393,8 +528,10 @@
 		};
 		A446C4451B28979C00C891AF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F67BF347ED1E82D102670492 /* Pods-ASToastTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -407,14 +544,18 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.abdullahselek.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ASToastTests/ASToastTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ASToast.app/ASToast";
 			};
 			name = Debug;
 		};
 		A446C4461B28979C00C891AF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB5EFDF7BC6A107C92DB2C80 /* Pods-ASToastTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -423,6 +564,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.abdullahselek.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ASToastTests/ASToastTests-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ASToast.app/ASToast";
 			};
 			name = Release;

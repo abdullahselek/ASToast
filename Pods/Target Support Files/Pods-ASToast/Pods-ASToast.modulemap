@@ -1,0 +1,6 @@
+framework module Pods_ASToast {
+  umbrella header "Pods-ASToast-umbrella.h"
+
+  export *
+  module * { export * }
+}

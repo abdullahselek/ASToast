@@ -106,7 +106,9 @@ public extension UIView {
      */
     public func makeToast(message: String, duration: NSTimeInterval, position: AnyObject?) {
         let toastView = self.toastView(message, title: "",  image: nil)
-        self.showToast(toastView, duration: duration, position: position)
+        if toastView != nil {
+            self.showToast(toastView, duration: duration, position: position)
+        }
     }
     
     /**
@@ -179,6 +181,9 @@ public extension UIView {
       * @param position The position that toast will displayed
      */
     private func createAndShowToast(toastView: UIView!, duration: NSTimeInterval!, position: AnyObject?) {
+        if toastView == nil {
+            return
+        }
         toastView.center = centerPointForPosition(position, toastView: toastView)
         toastView.alpha = Constants.ASToastViewAlpha
         
