@@ -23,7 +23,7 @@ To integrate ASToast into your Xcode project using CocoaPods, specify it in your
 	use_frameworks!
 
 	target '<Your Target Name>' do
-    	pod 'ASToast', '1.0'
+    	pod 'ASToast', '~> 1.0'
 	end
 
 Then, run the following command:
