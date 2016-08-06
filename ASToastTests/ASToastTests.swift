@@ -1,8 +1,8 @@
 //
-//  ASToastTest.swift
+//  ASToastTests.swift
 //  ASToast
 //
-//  Created by Abdullah Selek on 24/07/16.
+//  Created by Abdullah Selek on 06/08/16.
 //  Copyright © 2016 Abdullah Selek. All rights reserved.
 //
 
@@ -12,7 +12,7 @@ import Nimble
 
 @testable import ASToast
 
-class ASToastTest: QuickSpec {
+class ASToastTests: QuickSpec {
     
     override func spec() {
         describe(".makeToast with single text") {
@@ -251,5 +251,5 @@ class ASToastTest: QuickSpec {
             }
         }
     }
-
+    
 }

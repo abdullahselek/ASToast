@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A42C74A71D44D18500076FEE /* ASToastTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C74A61D44D18500076FEE /* ASToastTest.swift */; };
 		A446C4281B28979C00C891AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A446C4271B28979C00C891AF /* AppDelegate.swift */; };
 		A446C42A1B28979C00C891AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A446C4291B28979C00C891AF /* ViewController.swift */; };
 		A446C42D1B28979C00C891AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A446C42B1B28979C00C891AF /* Main.storyboard */; };
 		A446C42F1B28979C00C891AF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A446C42E1B28979C00C891AF /* Images.xcassets */; };
 		A446C4321B28979C00C891AF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A446C4301B28979C00C891AF /* LaunchScreen.xib */; };
 		A446C44A1B28981800C891AF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A446C4491B28981800C891AF /* QuartzCore.framework */; };
+		A495A9CC1D56020E001AC594 /* ASToastTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A495A9CB1D56020E001AC594 /* ASToastTests.swift */; };
 		A4CC19F71D27C9F00078E4C2 /* ASToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CC19F61D27C9F00078E4C2 /* ASToast.swift */; };
 		C786FCDAFEAEACE15A027A82 /* Pods_ASToastTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F14F30A42DD71C6A35798B03 /* Pods_ASToastTests.framework */; };
 		E739B41E099065CAC91BACD0 /* Pods_ASToast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CDA1FA5C918167B5A113EDB /* Pods_ASToast.framework */; };
@@ -34,7 +34,6 @@
 		4F07F2E06A5F11553F4F6C47 /* Pods-ASToast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASToast.release.xcconfig"; path = "Pods/Target Support Files/Pods-ASToast/Pods-ASToast.release.xcconfig"; sourceTree = "<group>"; };
 		7CDA1FA5C918167B5A113EDB /* Pods_ASToast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ASToast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A42C74A51D44D18400076FEE /* ASToastTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ASToastTests-Bridging-Header.h"; sourceTree = "<group>"; };
-		A42C74A61D44D18500076FEE /* ASToastTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASToastTest.swift; sourceTree = "<group>"; };
 		A446C4221B28979C00C891AF /* ASToast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ASToast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A446C4261B28979C00C891AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A446C4271B28979C00C891AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +44,7 @@
 		A446C4371B28979C00C891AF /* ASToastTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ASToastTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A446C43C1B28979C00C891AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A446C4491B28981800C891AF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A495A9CB1D56020E001AC594 /* ASToastTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASToastTests.swift; sourceTree = "<group>"; };
 		A4CC19F61D27C9F00078E4C2 /* ASToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ASToast.swift; path = Source/ASToast.swift; sourceTree = "<group>"; };
 		EB5EFDF7BC6A107C92DB2C80 /* Pods-ASToastTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASToastTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ASToastTests/Pods-ASToastTests.release.xcconfig"; sourceTree = "<group>"; };
 		F14F30A42DD71C6A35798B03 /* Pods_ASToastTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ASToastTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,8 +130,8 @@
 			children = (
 				A46571AB1D44E5B300B71E2A /* Resources */,
 				A446C43B1B28979C00C891AF /* Supporting Files */,
-				A42C74A61D44D18500076FEE /* ASToastTest.swift */,
 				A42C74A51D44D18400076FEE /* ASToastTests-Bridging-Header.h */,
+				A495A9CB1D56020E001AC594 /* ASToastTests.swift */,
 			);
 			path = ASToastTests;
 			sourceTree = "<group>";
@@ -380,7 +380,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A42C74A71D44D18500076FEE /* ASToastTest.swift in Sources */,
+				A495A9CC1D56020E001AC594 /* ASToastTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
