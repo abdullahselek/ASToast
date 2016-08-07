@@ -11,6 +11,6 @@ branches:
 script:
 - xcodebuild \
   -workspace ASToast.xcworkspace \
-  -scheme ASToastTests \
+  -scheme ASToast \
   -destination "platform=iOS Simulator,name=iPhone 6,OS=9.0" \
   clean test
