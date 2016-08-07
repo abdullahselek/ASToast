@@ -9,8 +9,4 @@ branches:
  - master
 
 script:
-- xcodebuild \
-  -workspace ASToast.xcworkspace \
-  -scheme ASToast \
-  -destination "platform=iOS Simulator,name=iPhone 6,OS=9.0" \
-  clean test
+- xcodebuild -workspace ASToast.xcworkspace -scheme ASToast -destination "platform=iOS Simulator,name=iPhone 6,OS=9.0" clean test
