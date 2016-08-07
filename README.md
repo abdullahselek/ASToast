@@ -1,3 +1,5 @@
+![Build Status](https://travis-ci.org/abdullahselek/ASToast.svg?branch=master)
+
 # ASToast
 A Swift extension for using Android style Toast notifications. You may call ASToast methods directly from your view objects.
 
