@@ -28,19 +28,19 @@ class ViewController: UIViewController {
         switch(sender.tag) {
         case 0:
             // make a toast with single text
-            self.view.makeToast("Single text toast")
+            self.view.makeToast("Single text toast", backgroundColor: nil)
             break
         case 1:
             // make a toast with text, title, position and duration
-            self.view.makeToast("Toast with custom text, title and duration", duration: NSTimeInterval(3.0), position: ASToastPosition.ASToastPositionCenter.rawValue, title: "Title")
+            self.view.makeToast("Toast with custom text, title and duration", duration: NSTimeInterval(3.0), position: ASToastPosition.ASToastPositionCenter.rawValue, title: "Title", backgroundColor: UIColor.blueColor())
             break
         case 2:
             // Make toast with an image
-            self.view.makeToast("Toast with an image", duration: NSTimeInterval(3.0), position: ASToastPosition.ASToastPositionTop.rawValue, image: UIImage(named: "apple_logo"))
+            self.view.makeToast("Toast with an image", duration: NSTimeInterval(3.0), position: ASToastPosition.ASToastPositionTop.rawValue, image: UIImage(named: "apple_logo"), backgroundColor: UIColor.blueColor())
             break
         case 3:
             // Make toast with an title & image
-            self.view.makeToast("Toast with an title & image", duration: NSTimeInterval(3.0), position: ASToastPosition.ASToastPositionCenter.rawValue, title: "Title", image: UIImage(named: "apple_logo"))
+            self.view.makeToast("Toast with an title & image", duration: NSTimeInterval(3.0), position: ASToastPosition.ASToastPositionCenter.rawValue, title: "Title", image: UIImage(named: "apple_logo"), backgroundColor: UIColor.blueColor())
             break
         case 4:
             // Show a custom view as toast

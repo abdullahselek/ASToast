@@ -93,8 +93,9 @@ public extension UIView {
       *
       * @param message Message Text
      */
-    public func makeToast(message: String) {
-        makeToast(message, duration: Constants.ASToastDuration, position: nil)
+    public func makeToast(message: String, backgroundColor: UIColor?) {
+        makeToast(message, duration: Constants.ASToastDuration, position: nil,
+                  backgroundColor: backgroundColor)
     }
     
     /**
@@ -104,8 +105,9 @@ public extension UIView {
       * @param duration The time duration toast will displayed on the screen
       * @param position The position that toast will displayed
      */
-    public func makeToast(message: String, duration: NSTimeInterval, position: AnyObject?) {
-        let toastView = self.toastView(message, title: "",  image: nil)
+    public func makeToast(message: String, duration: NSTimeInterval, position: AnyObject?,
+                          backgroundColor: UIColor?) {
+        let toastView = self.toastView(message, title: "",  image: nil, backgroundColor: backgroundColor)
         if toastView != nil {
             self.showToast(toastView, duration: duration, position: position)
         }
@@ -119,8 +121,9 @@ public extension UIView {
       * @param position The position that toast will displayed
       * @param title Title for Toast
      */
-    public func makeToast(message: String, duration: NSTimeInterval, position: AnyObject?, title: String) {
-        let toastView = self.toastView(message, title: title, image: nil)
+    public func makeToast(message: String, duration: NSTimeInterval, position: AnyObject?,
+                          title: String, backgroundColor: UIColor?) {
+        let toastView = self.toastView(message, title: title, image: nil, backgroundColor: backgroundColor)
         self.showToast(toastView, duration: duration, position: position)
     }
     
@@ -132,8 +135,9 @@ public extension UIView {
       * @param position The position that toast will displayed
       * @param image Image for Toast
      */
-    public func makeToast(message: String, duration: NSTimeInterval, position: AnyObject?, image: UIImage!) {
-        let toastView = self.toastView(message, title: "", image: image)
+    public func makeToast(message: String, duration: NSTimeInterval, position: AnyObject?,
+                          image: UIImage!, backgroundColor: UIColor?) {
+        let toastView = self.toastView(message, title: "", image: image, backgroundColor: backgroundColor)
         self.showToast(toastView, duration: duration, position: position)
     }
     
@@ -146,8 +150,9 @@ public extension UIView {
       * @param title Title for Toast
       * @param image Image for Toast
      */
-    public func makeToast(message: String, duration: NSTimeInterval, position: AnyObject?, title: String, image: UIImage!) {
-        let toastView = self.toastView(message, title: title, image: image)
+    public func makeToast(message: String, duration: NSTimeInterval, position: AnyObject?,
+                          title: String, image: UIImage!, backgroundColor: UIColor?) {
+        let toastView = self.toastView(message, title: title, image: image, backgroundColor: backgroundColor)
         self.showToast(toastView, duration: duration, position: position)
     }
     
@@ -225,7 +230,7 @@ public extension UIView {
       * @param title Title for Toast
       * @param image Image for Toast
      */
-    private func toastView(message: String, title: String, image: UIImage?) -> UIView? {
+    private func toastView(message: String, title: String, image: UIImage?, backgroundColor: UIColor?) -> UIView? {
         // check parameters
         if message.isEmpty && title.isEmpty && image == nil {
             return nil
@@ -249,7 +254,11 @@ public extension UIView {
         }
         
         // set toastView background color
-        toastView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(Constants.ASToastOpacity)
+        if backgroundColor != nil {
+            toastView.backgroundColor = backgroundColor!.colorWithAlphaComponent(Constants.ASToastOpacity)
+        } else {
+            toastView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(Constants.ASToastOpacity)
+        }
         
         // check image
         if(image != nil) {

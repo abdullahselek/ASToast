@@ -20,7 +20,7 @@ class ASToastTests: QuickSpec {
                 it("set a valid message") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view.makeToast("TEST")
+                    view.makeToast("TEST", backgroundColor: nil)
                     expect(view.subviews.count).to(equal(1))
                 }
             }
@@ -28,7 +28,7 @@ class ASToastTests: QuickSpec {
                 it("set a empty message") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view.makeToast("")
+                    view.makeToast("", backgroundColor: UIColor.greenColor())
                     expect(view.subviews.count).to(equal(0))
                 }
             }
@@ -38,7 +38,9 @@ class ASToastTests: QuickSpec {
                 it("set valid message, duration and position") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view.makeToast("TEST", duration: NSTimeInterval(3.0), position: ASToastPosition.ASToastPositionCenter.rawValue)
+                    view.makeToast("TEST", duration: NSTimeInterval(3.0),
+                                   position: ASToastPosition.ASToastPositionCenter.rawValue,
+                                   backgroundColor: nil)
                     expect(view.subviews.count).to(equal(1))
                 }
             }
@@ -46,7 +48,8 @@ class ASToastTests: QuickSpec {
                 it("set a invalid position, valid text and duration") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view.makeToast("TEST", duration: NSTimeInterval(3.0), position: "")
+                    view.makeToast("TEST", duration: NSTimeInterval(3.0), position: "",
+                                   backgroundColor: UIColor.blueColor())
                     expect(view.subviews.count).to(equal(1))
                 }
             }
@@ -54,7 +57,8 @@ class ASToastTests: QuickSpec {
                 it("set a empty text, valid duration and valid position") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view.makeToast("", duration: NSTimeInterval(3.0), position: ASToastPosition.ASToastPositionCenter.rawValue)
+                    view.makeToast("", duration: NSTimeInterval(3.0), position: ASToastPosition.ASToastPositionCenter.rawValue,
+                                   backgroundColor: UIColor.blueColor())
                     expect(view.subviews.count).to(equal(0))
                 }
             }
@@ -65,7 +69,7 @@ class ASToastTests: QuickSpec {
                     let viewController = UIViewController()
                     let view = viewController.view
                     view.makeToast("TEST", duration: NSTimeInterval(3.0), position: ASToastPosition.ASToastPositionCenter.rawValue,
-                                   title: "TITLE")
+                                   title: "TITLE", backgroundColor: nil)
                     expect(view.subviews.count).to(equal(1))
                 }
             }
@@ -74,7 +78,7 @@ class ASToastTests: QuickSpec {
                     let viewController = UIViewController()
                     let view = viewController.view
                     view.makeToast("", duration: NSTimeInterval(3.0), position: ASToastPosition.ASToastPositionCenter.rawValue,
-                                   title: "TITLE")
+                                   title: "TITLE", backgroundColor: UIColor.blueColor())
                     expect(view.subviews.count).to(equal(1))
                 }
             }
@@ -83,7 +87,7 @@ class ASToastTests: QuickSpec {
                     let viewController = UIViewController()
                     let view = viewController.view
                     view.makeToast("TEST", duration: NSTimeInterval(3.0), position: ASToastPosition.ASToastPositionCenter.rawValue,
-                                   title: "")
+                                   title: "", backgroundColor: UIColor.blueColor())
                     expect(view.subviews.count).to(equal(1))
                 }
             }
@@ -91,7 +95,8 @@ class ASToastTests: QuickSpec {
                 it("set message, duration, position and empty title") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view.makeToast("TEST", duration: NSTimeInterval(3.0), position: "", title: "TITLE")
+                    view.makeToast("TEST", duration: NSTimeInterval(3.0), position: "", title: "TITLE",
+                                   backgroundColor: nil)
                     expect(view.subviews.count).to(equal(1))
                 }
             }
@@ -99,7 +104,7 @@ class ASToastTests: QuickSpec {
                 it("set message, duration, position and empty title") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view.makeToast("", duration: NSTimeInterval(3.0), position: ASToastPosition.ASToastPositionCenter.rawValue, title: "")
+                    view.makeToast("", duration: NSTimeInterval(3.0), position: ASToastPosition.ASToastPositionCenter.rawValue, title: "", backgroundColor: UIColor.blueColor())
                     expect(view.subviews.count).to(equal(0))
                 }
             }
@@ -110,7 +115,7 @@ class ASToastTests: QuickSpec {
                     let viewController = UIViewController()
                     let view = viewController.view
                     view.makeToast("TEST", duration: NSTimeInterval(3.0), position: ASToastPosition.ASToastPositionCenter.rawValue,
-                                   image: UIImage(named: "apple_logo.png"))
+                                   image: UIImage(named: "apple_logo.png"), backgroundColor: nil)
                     expect(view.subviews.count).to(equal(1))
                 }
             }
@@ -119,7 +124,7 @@ class ASToastTests: QuickSpec {
                     let viewController = UIViewController()
                     let view = viewController.view
                     view.makeToast("", duration: NSTimeInterval(3.0), position: ASToastPosition.ASToastPositionCenter.rawValue,
-                                   image: UIImage(named: "apple_logo.png"))
+                                   image: UIImage(named: "apple_logo.png"), backgroundColor: UIColor.blueColor())
                     expect(view.subviews.count).to(equal(1))
                 }
             }
@@ -128,7 +133,7 @@ class ASToastTests: QuickSpec {
                     let viewController = UIViewController()
                     let view = viewController.view
                     view.makeToast("TEST", duration: NSTimeInterval(3.0), position: "",
-                                   image: UIImage(named: "apple_logo.png"))
+                                   image: UIImage(named: "apple_logo.png"), backgroundColor: nil)
                     expect(view.subviews.count).to(equal(1))
                 }
             }
@@ -137,7 +142,7 @@ class ASToastTests: QuickSpec {
                     let viewController = UIViewController()
                     let view = viewController.view
                     view.makeToast("", duration: NSTimeInterval(3.0), position: ASToastPosition.ASToastPositionCenter.rawValue,
-                                   image: UIImage(named: ""))
+                                   image: UIImage(named: ""), backgroundColor: UIColor.blueColor())
                     expect(view.subviews.count).to(equal(0))
                 }
             }
@@ -148,7 +153,7 @@ class ASToastTests: QuickSpec {
                     let viewController = UIViewController()
                     let view = viewController.view
                     view.makeToast("TEST", duration: NSTimeInterval(3.0), position: ASToastPosition.ASToastPositionCenter.rawValue,
-                                   title: "TITLE", image: UIImage(named: "apple_logo.png"))
+                                   title: "TITLE", image: UIImage(named: "apple_logo.png"), backgroundColor: nil)
                     expect(view.subviews.count).to(equal(1))
                 }
             }
@@ -157,7 +162,7 @@ class ASToastTests: QuickSpec {
                     let viewController = UIViewController()
                     let view = viewController.view
                     view.makeToast("TEST", duration: NSTimeInterval(3.0), position: ASToastPosition.ASToastPositionCenter.rawValue,
-                                   title: "", image: UIImage(named: "apple_logo.png"))
+                                   title: "", image: UIImage(named: "apple_logo.png"), backgroundColor: UIColor.blueColor())
                     expect(view.subviews.count).to(equal(1))
                 }
             }
@@ -166,7 +171,7 @@ class ASToastTests: QuickSpec {
                     let viewController = UIViewController()
                     let view = viewController.view
                     view.makeToast("TEST", duration: NSTimeInterval(3.0), position: ASToastPosition.ASToastPositionCenter.rawValue,
-                                   title: "", image: UIImage(named: ""))
+                                   title: "", image: UIImage(named: ""), backgroundColor: nil)
                     expect(view.subviews.count).to(equal(1))
                 }
             }
@@ -175,7 +180,7 @@ class ASToastTests: QuickSpec {
                     let viewController = UIViewController()
                     let view = viewController.view
                     view.makeToast("TEST", duration: NSTimeInterval(3.0), position: "",
-                                   title: "", image: UIImage(named: ""))
+                                   title: "", image: UIImage(named: ""), backgroundColor: UIColor.blueColor())
                     expect(view.subviews.count).to(equal(1))
                 }
             }
@@ -184,7 +189,7 @@ class ASToastTests: QuickSpec {
                     let viewController = UIViewController()
                     let view = viewController.view
                     view.makeToast("", duration: NSTimeInterval(3.0), position: ASToastPosition.ASToastPositionCenter.rawValue,
-                                   title: "", image: UIImage(named: "apple_logo.png"))
+                                   title: "", image: UIImage(named: "apple_logo.png"), backgroundColor: UIColor.blueColor())
                     expect(view.subviews.count).to(equal(1))
                 }
             }
@@ -193,7 +198,7 @@ class ASToastTests: QuickSpec {
                     let viewController = UIViewController()
                     let view = viewController.view
                     view.makeToast("", duration: NSTimeInterval(3.0), position: ASToastPosition.ASToastPositionCenter.rawValue,
-                                   title: "", image: UIImage(named: ""))
+                                   title: "", image: UIImage(named: ""), backgroundColor: UIColor.blueColor())
                     expect(view.subviews.count).to(equal(0))
                 }
             }
