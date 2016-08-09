@@ -36,7 +36,7 @@ $ pod install
 ```
 # Example Usage
 
-	// make a toast with single text
+make a toast with single text
 ```objc
 self.view.makeToast("Single text toast", backgroundColor: UIColor.blueColor())
 ```
@@ -44,30 +44,27 @@ or to use default black color
 ```objc
 self.view.makeToast("Single text toast", backgroundColor: nil)
 ```
-    // make a toast with text, title, position and duration
+make a toast with text, title, position and duration
 ```objc
 self.view.makeToast("Toast with custom text, title and duration", duration: NSTimeInterval(3.0), 
     	position: ASToastPosition.ASToastPositionCenter.rawValue, title: "Title", backgroundColor: UIColor.blueColor())
-```
-    	
-    // Make toast with an image
+``` 	
+make toast with an image
 ```objc
 self.view.makeToast("Toast with an image", duration: NSTimeInterval(3.0), 
 		position: ASToastPosition.ASToastPositionTop.rawValue, 
 		image: UIImage(named: "apple_logo"), backgroundColor: UIColor.blueColor())
-```
-		
-	// Show a custom view as toast
+```	
+Show a custom view as toast
 ```objc
 var customView: UIView! = UIView(frame: CGRectMake(0.0, 0.0, 200.0, 300.0))
 customView.autoresizingMask = UIViewAutoresizing.FlexibleLeftMargin | UIViewAutoresizing.FlexibleRightMargin | 
 		UIViewAutoresizing.FlexibleTopMargin | UIViewAutoresizing.FlexibleBottomMargin
 customView.backgroundColor = UIColor.greenColor()
-
 self.view.showToast(customView, duration: NSTimeInterval(3.0), position: ASToastPosition.ASToastPositionCenter.rawValue)
 ```
 	
-	// Show activity indicator
+Show activity indicator
 ```objc
 self.view.makeToastActivity()
 ```
