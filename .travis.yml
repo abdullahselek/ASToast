@@ -1,12 +1,10 @@
 language: objective-c
-osx_image: xcode7.3
 xcode_project: ASToast.xcworkspace
 xcode_scheme: ASToastTests
 xcode_sdk: iphonesimulator9.0
 
 branches:
- only:
-- master
+ only: master
 
 before_install:
 - rm -rf /Users/travis/Library/Developer/Xcode/DerivedData/ASToast-*/
