@@ -4,4 +4,6 @@ workspace: ASToast.xcodeworkspace
 xcodeproj: ASToast.xcodeproj
 scheme: ASToast
 source_directory: ASToast/Source
+ignore:
+  - ASToast/*.swift
 # output_directory: code_coverage/xml_report

@@ -13,6 +13,6 @@ before_install:
 install: bundle
 
 script:
-- xcodebuild -workspace ASToast.xcworkspace -scheme ASToast -destination "platform=iOS Simulator,name=iPhone 6,OS=8.1" clean test
+- xcodebuild -workspace ASToast.xcworkspace -scheme ASToast -destination "platform=iOS Simulator,name=iPhone 6,OS=9.0" clean test
 
 after_success: slather
