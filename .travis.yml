@@ -8,6 +8,10 @@ branches:
  only:
  - master
 
+ before_install:
+  - rm -rf /Users/travis/Library/Developer/Xcode/DerivedData/ASToast-*/
+  - gem install slather
+
 script:
 - xcodebuild -workspace ASToast.xcworkspace -scheme ASToast -destination "platform=iOS Simulator,name=iPhone 6,OS=8.1" clean test
 
