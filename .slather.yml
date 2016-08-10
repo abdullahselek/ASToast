@@ -1,0 +1,5 @@
+coverage_service: cobertura_xml
+xcodeproj: ASToast.xcodeproj
+scheme: ASToast
+source_directory: ASToast/Source
+output_directory: code_coverage/xml_report

@@ -8,5 +8,13 @@ branches:
  only:
  - master
 
+before_install: rvm use $RVM_RUBY_VERSION
+
+install: bundle install --without=documentation --path ../travis_bundle_dir
+
 script:
 - xcodebuild -workspace ASToast.xcworkspace -scheme ASToast -destination "platform=iOS Simulator,name=iPhone 6,OS=9.0" clean test
+
+after_success:
+  - slather coverage -s --scheme ASToast --workspace ASToast.xcworkspace ASToast.xcodeproj
+  - bash <(curl -s https://codecov.io/bash) -f path/to/xml_report/cobertura.xml
