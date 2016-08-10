@@ -6,15 +6,17 @@ xcode_sdk: iphonesimulator9.0
 
 branches:
  only:
- - master
+- master
 
- before_install:
-  - rm -rf /Users/travis/Library/Developer/Xcode/DerivedData/ASToast-*/
-  - gem install slather
+before_install:
+- rm -rf /Users/travis/Library/Developer/Xcode/DerivedData/ASToast-*/
+- rvm use $RVM_RUBY_VERSION
+
+install: bundle install --without=documentation --path ../travis_bundle_dir
 
 script:
 - xcodebuild -workspace ASToast.xcworkspace -scheme ASToast -destination "platform=iOS Simulator,name=iPhone 6,OS=8.1" clean test
 
 after_success:
-  - slather
-  - bash <(curl -s https://codecov.io/bash) -f code_coverage/xml_report/cobertura.xml
+- slather
+- bash <(curl -s https://codecov.io/bash) -f code_coverage/xml_report/cobertura.xml
