@@ -12,5 +12,5 @@ script:
 - xcodebuild -workspace ASToast.xcworkspace -scheme ASToast -destination "platform=iOS Simulator,name=iPhone 6,OS=8.1" clean test
 
 after_success:
-  - slather coverage -s --scheme ASToast --workspace ASToast.xcworkspace ASToast.xcodeproj
+  - slather
   - bash <(curl -s https://codecov.io/bash) -f code_coverage/xml_report/cobertura.xml
