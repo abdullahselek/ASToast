@@ -1,6 +1,6 @@
 language: objective-c
 xcode_workspace: ASToast.xcworkspace
-xcode_project: ASToast.xcodeproj
+# xcode_project: ASToast.xcodeproj
 xcode_scheme: ASToastTests
 xcode_sdk: iphonesimulator9.0
 
