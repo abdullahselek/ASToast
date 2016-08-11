@@ -14,6 +14,6 @@ before_install:
 install: bundle
 
 script:
-- xcodebuild -workspace ASToast.xcworkspace -scheme ASToast -destination "platform=iOS Simulator,name=iPhone 6,OS=9.3" clean test | xcpretty
+- xcodebuild -workspace ASToast.xcworkspace -scheme ASToast -destination "platform=iOS Simulator,name=iPhone 6,OS=9.3" clean test GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES | xcpretty
 
 after_success: slather
