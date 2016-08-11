@@ -1,5 +1,6 @@
 ![Build Status](https://travis-ci.org/abdullahselek/ASToast.svg?branch=master)
 ![CocoaPods Compatible](https://img.shields.io/cocoapods/v/ASToast.svg)
+[![Coverage Status](https://coveralls.io/repos/github/abdullahselek/ASToast/badge.svg?branch=master)](https://coveralls.io/github/abdullahselek/ASToast?branch=master)
 
 # ASToast
 A Swift extension for using Android style Toast notifications. You may call ASToast methods directly from your view objects.
