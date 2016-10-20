@@ -20,16 +20,16 @@ class ASToastTests: QuickSpec {
                 it("set a valid message") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view.makeToast("TEST", backgroundColor: nil)
-                    expect(view.subviews.count).to(equal(1))
+                    view!.makeToast("TEST", backgroundColor: nil)
+                    expect(view?.subviews.count).to(equal(1))
                 }
             }
             context("Toast view display fails") {
                 it("set a empty message") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view.makeToast("", backgroundColor: UIColor.greenColor())
-                    expect(view.subviews.count).to(equal(0))
+                    view!.makeToast("", backgroundColor: UIColor.green)
+                    expect(view?.subviews.count).to(equal(0))
                 }
             }
         }
@@ -38,28 +38,30 @@ class ASToastTests: QuickSpec {
                 it("set valid message, duration and position") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view.makeToast("TEST", duration: NSTimeInterval(3.0),
-                                   position: ASToastPosition.ASToastPositionCenter.rawValue,
+                    view!.makeToast("TEST", duration: TimeInterval(3.0),
+                                   position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
                                    backgroundColor: nil)
-                    expect(view.subviews.count).to(equal(1))
+                    expect(view?.subviews.count).to(equal(1))
                 }
             }
             context("Toast view display success with 3 parameters when position is invalid") {
                 it("set a invalid position, valid text and duration") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view.makeToast("TEST", duration: NSTimeInterval(3.0), position: "",
-                                   backgroundColor: UIColor.blueColor())
-                    expect(view.subviews.count).to(equal(1))
+                    view!.makeToast("TEST", duration: TimeInterval(3.0), position: nil,
+                                   backgroundColor: UIColor.blue)
+                    expect(view?.subviews.count).to(equal(1))
                 }
             }
             context("Toast view display fails with 3 parameters when text is empty") {
                 it("set a empty text, valid duration and valid position") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view.makeToast("", duration: NSTimeInterval(3.0), position: ASToastPosition.ASToastPositionCenter.rawValue,
-                                   backgroundColor: UIColor.blueColor())
-                    expect(view.subviews.count).to(equal(0))
+                    view!.makeToast("",
+                                    duration: TimeInterval(3.0),
+                                    position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
+                                    backgroundColor: UIColor.blue)
+                    expect(view?.subviews.count).to(equal(0))
                 }
             }
         }
@@ -68,44 +70,60 @@ class ASToastTests: QuickSpec {
                 it("set valid message, duration, position and title") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view.makeToast("TEST", duration: NSTimeInterval(3.0), position: ASToastPosition.ASToastPositionCenter.rawValue,
-                                   title: "TITLE", backgroundColor: nil)
-                    expect(view.subviews.count).to(equal(1))
+                    view!.makeToast("TEST",
+                                    duration: TimeInterval(3.0),
+                                    position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
+                                    title: "TITLE",
+                                    backgroundColor: nil)
+                    expect(view?.subviews.count).to(equal(1))
                 }
             }
             context("Toast view display success with 4 parameters when text is empty") {
                 it("set empty message, duration, position and title") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view.makeToast("", duration: NSTimeInterval(3.0), position: ASToastPosition.ASToastPositionCenter.rawValue,
-                                   title: "TITLE", backgroundColor: UIColor.blueColor())
-                    expect(view.subviews.count).to(equal(1))
+                    view!.makeToast("",
+                                    duration: TimeInterval(3.0),
+                                    position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
+                                    title: "TITLE",
+                                    backgroundColor: UIColor.blue)
+                    expect(view?.subviews.count).to(equal(1))
                 }
             }
             context("Toast view display success with 4 parameters when title is empty") {
                 it("set message, duration, position and empty title") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view.makeToast("TEST", duration: NSTimeInterval(3.0), position: ASToastPosition.ASToastPositionCenter.rawValue,
-                                   title: "", backgroundColor: UIColor.blueColor())
-                    expect(view.subviews.count).to(equal(1))
+                    view!.makeToast("TEST",
+                                    duration: TimeInterval(3.0),
+                                    position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
+                                    title: "",
+                                    backgroundColor: UIColor.blue)
+                    expect(view?.subviews.count).to(equal(1))
                 }
             }
             context("Toast view display success with 4 parameters when position empty") {
                 it("set message, duration, position and empty title") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view.makeToast("TEST", duration: NSTimeInterval(3.0), position: "", title: "TITLE",
-                                   backgroundColor: nil)
-                    expect(view.subviews.count).to(equal(1))
+                    view!.makeToast("TEST",
+                                    duration: TimeInterval(3.0),
+                                    position: "" as AnyObject,
+                                    title: "TITLE",
+                                    backgroundColor: nil)
+                    expect(view?.subviews.count).to(equal(1))
                 }
             }
             context("Toast view display fails with 4 parameters when mesage and title empty") {
                 it("set message, duration, position and empty title") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view.makeToast("", duration: NSTimeInterval(3.0), position: ASToastPosition.ASToastPositionCenter.rawValue, title: "", backgroundColor: UIColor.blueColor())
-                    expect(view.subviews.count).to(equal(0))
+                    view!.makeToast("",
+                                    duration: TimeInterval(3.0),
+                                    position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
+                                    title: "",
+                                    backgroundColor: UIColor.blue)
+                    expect(view?.subviews.count).to(equal(0))
                 }
             }
         }
@@ -114,36 +132,48 @@ class ASToastTests: QuickSpec {
                 it("set valid message, duration, position and image") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view.makeToast("TEST", duration: NSTimeInterval(3.0), position: ASToastPosition.ASToastPositionCenter.rawValue,
-                                   image: UIImage(named: "apple_logo.png"), backgroundColor: nil)
-                    expect(view.subviews.count).to(equal(1))
+                    view!.makeToast("TEST",
+                                    duration: TimeInterval(3.0),
+                                    position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
+                                    image: UIImage(named: "apple_logo.png"),
+                                    backgroundColor: nil)
+                    expect(view?.subviews.count).to(equal(1))
                 }
             }
             context("Toast view diplay success with duration, position, image and empty message") {
                 it("set duration, position, image and empty message") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view.makeToast("", duration: NSTimeInterval(3.0), position: ASToastPosition.ASToastPositionCenter.rawValue,
-                                   image: UIImage(named: "apple_logo.png"), backgroundColor: UIColor.blueColor())
-                    expect(view.subviews.count).to(equal(1))
+                    view!.makeToast("",
+                                    duration: TimeInterval(3.0),
+                                    position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
+                                    image: UIImage(named: "apple_logo.png"),
+                                    backgroundColor: UIColor.blue)
+                    expect(view?.subviews.count).to(equal(1))
                 }
             }
             context("Toast view diplay success with message, duration, image and empty position") {
                 it("set message, duration, position and empty image") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view.makeToast("TEST", duration: NSTimeInterval(3.0), position: "",
-                                   image: UIImage(named: "apple_logo.png"), backgroundColor: nil)
-                    expect(view.subviews.count).to(equal(1))
+                    view!.makeToast("TEST",
+                                    duration: TimeInterval(3.0),
+                                    position: "" as AnyObject,
+                                    image: UIImage(named: "apple_logo.png"),
+                                    backgroundColor: nil)
+                    expect(view?.subviews.count).to(equal(1))
                 }
             }
             context("Toast view diplay fails with duration, position, empty message and image") {
                 it("set message, duration, position and empty image") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view.makeToast("", duration: NSTimeInterval(3.0), position: ASToastPosition.ASToastPositionCenter.rawValue,
-                                   image: UIImage(named: ""), backgroundColor: UIColor.blueColor())
-                    expect(view.subviews.count).to(equal(0))
+                    view!.makeToast("",
+                                    duration: TimeInterval(3.0),
+                                    position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
+                                    image: UIImage(named: ""),
+                                    backgroundColor: UIColor.blue)
+                    expect(view?.subviews.count).to(equal(0))
                 }
             }
         }
@@ -152,54 +182,78 @@ class ASToastTests: QuickSpec {
                 it("set valid message, duration, position, title and image") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view.makeToast("TEST", duration: NSTimeInterval(3.0), position: ASToastPosition.ASToastPositionCenter.rawValue,
-                                   title: "TITLE", image: UIImage(named: "apple_logo.png"), backgroundColor: nil)
-                    expect(view.subviews.count).to(equal(1))
+                    view!.makeToast("TEST",
+                                    duration: TimeInterval(3.0),
+                                    position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
+                                    title: "TITLE",
+                                    image: UIImage(named: "apple_logo.png"),
+                                    backgroundColor: nil)
+                    expect(view?.subviews.count).to(equal(1))
                 }
             }
             context("Toast view diplay success with message, duration, position, image and empty title") {
                 it("set valid message, duration, position, title and image") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view.makeToast("TEST", duration: NSTimeInterval(3.0), position: ASToastPosition.ASToastPositionCenter.rawValue,
-                                   title: "", image: UIImage(named: "apple_logo.png"), backgroundColor: UIColor.blueColor())
-                    expect(view.subviews.count).to(equal(1))
+                    view!.makeToast("TEST",
+                                    duration: TimeInterval(3.0),
+                                    position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
+                                    title: "",
+                                    image: UIImage(named: "apple_logo.png"),
+                                    backgroundColor: UIColor.blue)
+                    expect(view?.subviews.count).to(equal(1))
                 }
             }
             context("Toast view diplay success with message, title, duration, position and empty image") {
                 it("set valid message, duration, position, title and image") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view.makeToast("TEST", duration: NSTimeInterval(3.0), position: ASToastPosition.ASToastPositionCenter.rawValue,
-                                   title: "", image: UIImage(named: ""), backgroundColor: nil)
-                    expect(view.subviews.count).to(equal(1))
+                    view!.makeToast("TEST",
+                                    duration: TimeInterval(3.0),
+                                    position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
+                                    title: "",
+                                    image: UIImage(named: ""),
+                                    backgroundColor: nil)
+                    expect(view?.subviews.count).to(equal(1))
                 }
             }
             context("Toast view diplay success with message, title, duration, image and empty position") {
                 it("set valid message, duration, position, title and image") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view.makeToast("TEST", duration: NSTimeInterval(3.0), position: "",
-                                   title: "", image: UIImage(named: ""), backgroundColor: UIColor.blueColor())
-                    expect(view.subviews.count).to(equal(1))
+                    view!.makeToast("TEST",
+                                    duration: TimeInterval(3.0),
+                                    position: "" as AnyObject,
+                                    title: "",
+                                    image: UIImage(named: ""),
+                                    backgroundColor: UIColor.blue)
+                    expect(view?.subviews.count).to(equal(1))
                 }
             }
             context("Toast view diplay success with duration, position, image and empty message, title") {
                 it("set valid message, duration, position, title and image") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view.makeToast("", duration: NSTimeInterval(3.0), position: ASToastPosition.ASToastPositionCenter.rawValue,
-                                   title: "", image: UIImage(named: "apple_logo.png"), backgroundColor: UIColor.blueColor())
-                    expect(view.subviews.count).to(equal(1))
+                    view!.makeToast("",
+                                    duration: TimeInterval(3.0),
+                                    position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
+                                    title: "",
+                                    image: UIImage(named: "apple_logo.png"),
+                                    backgroundColor: UIColor.blue)
+                    expect(view?.subviews.count).to(equal(1))
                 }
             }
             context("Toast view diplay fails with duration, position and empty message, title, image") {
                 it("set valid message, duration, position, title and image") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view.makeToast("", duration: NSTimeInterval(3.0), position: ASToastPosition.ASToastPositionCenter.rawValue,
-                                   title: "", image: UIImage(named: ""), backgroundColor: UIColor.blueColor())
-                    expect(view.subviews.count).to(equal(0))
+                    view!.makeToast("",
+                                    duration: TimeInterval(3.0),
+                                    position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
+                                    title: "",
+                                    image: UIImage(named: ""),
+                                    backgroundColor: UIColor.blue)
+                    expect(view?.subviews.count).to(equal(0))
                 }
             }
         }
@@ -209,8 +263,8 @@ class ASToastTests: QuickSpec {
                     let viewController = UIViewController()
                     let view = viewController.view
                     let toastView = UIView()
-                    view.showToast(toastView)
-                    expect(view.subviews.count).to(equal(1))
+                    view!.showToast(toastView)
+                    expect(view?.subviews.count).to(equal(1))
                 }
             }
         }
@@ -220,8 +274,10 @@ class ASToastTests: QuickSpec {
                     let viewController = UIViewController()
                     let view = viewController.view
                     let toastView = UIView()
-                    view.showToast(toastView, duration: NSTimeInterval(3.0), position: ASToastPosition.ASToastPositionCenter.rawValue)
-                    expect(view.subviews.count).to(equal(1))
+                    view!.showToast(toastView,
+                                    duration: TimeInterval(3.0),
+                                    position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject)
+                    expect(view?.subviews.count).to(equal(1))
                 }
             }
             context("Toast view display success with toastView, duration and empty position") {
@@ -229,8 +285,10 @@ class ASToastTests: QuickSpec {
                     let viewController = UIViewController()
                     let view = viewController.view
                     let toastView = UIView()
-                    view.showToast(toastView, duration: NSTimeInterval(3.0), position: "")
-                    expect(view.subviews.count).to(equal(1))
+                    view!.showToast(toastView,
+                                    duration: TimeInterval(3.0),
+                                    position: "" as AnyObject)
+                    expect(view?.subviews.count).to(equal(1))
                 }
             }
         }
@@ -239,8 +297,8 @@ class ASToastTests: QuickSpec {
                 it("Call makeToastActivity") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view.makeToastActivity()
-                    expect(view.subviews.count).to(equal(1))
+                    view!.makeToastActivity()
+                    expect(view?.subviews.count).to(equal(1))
                 }
             }
         }
@@ -249,9 +307,9 @@ class ASToastTests: QuickSpec {
                 it("Call hideToastActivity") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view.makeToastActivity()
-                    expect(view.subviews.count).to(equal(1))
-                    view.hideToastActivity()
+                    view!.makeToastActivity()
+                    expect(view?.subviews.count).to(equal(1))
+                    view!.hideToastActivity()
                 }
             }
         }
