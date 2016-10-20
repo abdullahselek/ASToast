@@ -21,6 +21,15 @@ CocoaPods is a dependency manager for Cocoa projects. You can install it with th
 $ gem install cocoapods
 ```
 
+### For Swift 3
+```
+You can use 1.0.4
+```
+### For Swift 2.3
+```
+Please use 1.0.3
+```
+
 To integrate ASToast into your Xcode project using CocoaPods, specify it in your Podfile:
 ```
 source 'https://github.com/CocoaPods/Specs.git'
