@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A401BE781DF5E73C00A4FDC0 /* ASToastFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = A401BE761DF5E73C00A4FDC0 /* ASToastFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A401BE7B1DF5E73C00A4FDC0 /* ASToastFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A401BE741DF5E73C00A4FDC0 /* ASToastFramework.framework */; };
+		A401BE7C1DF5E73C00A4FDC0 /* ASToastFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A401BE741DF5E73C00A4FDC0 /* ASToastFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A401BE811DF5E74900A4FDC0 /* ASToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CC19F61D27C9F00078E4C2 /* ASToast.swift */; };
 		A446C4281B28979C00C891AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A446C4271B28979C00C891AF /* AppDelegate.swift */; };
 		A446C42A1B28979C00C891AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A446C4291B28979C00C891AF /* ViewController.swift */; };
 		A446C42D1B28979C00C891AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A446C42B1B28979C00C891AF /* Main.storyboard */; };
@@ -20,6 +24,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		A401BE791DF5E73C00A4FDC0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A446C41A1B28979C00C891AF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A401BE731DF5E73C00A4FDC0;
+			remoteInfo = ASToastFramework;
+		};
 		A446C4381B28979C00C891AF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A446C41A1B28979C00C891AF /* Project object */;
@@ -29,10 +40,27 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A401BE801DF5E73C00A4FDC0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A401BE7C1DF5E73C00A4FDC0 /* ASToastFramework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1B861921B4352BACC8C2DE51 /* Pods-ASToast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASToast.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ASToast/Pods-ASToast.debug.xcconfig"; sourceTree = "<group>"; };
 		4F07F2E06A5F11553F4F6C47 /* Pods-ASToast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASToast.release.xcconfig"; path = "Pods/Target Support Files/Pods-ASToast/Pods-ASToast.release.xcconfig"; sourceTree = "<group>"; };
 		7CDA1FA5C918167B5A113EDB /* Pods_ASToast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ASToast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A401BE741DF5E73C00A4FDC0 /* ASToastFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ASToastFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A401BE761DF5E73C00A4FDC0 /* ASToastFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASToastFramework.h; sourceTree = "<group>"; };
+		A401BE771DF5E73C00A4FDC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A42C74A51D44D18400076FEE /* ASToastTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ASToastTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		A446C4221B28979C00C891AF /* ASToast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ASToast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A446C4261B28979C00C891AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -52,11 +80,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A401BE701DF5E73C00A4FDC0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A446C41F1B28979C00C891AF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				A446C44A1B28981800C891AF /* QuartzCore.framework in Frameworks */,
+				A401BE7B1DF5E73C00A4FDC0 /* ASToastFramework.framework in Frameworks */,
 				E739B41E099065CAC91BACD0 /* Pods_ASToast.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,11 +119,21 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A401BE751DF5E73C00A4FDC0 /* ASToastFramework */ = {
+			isa = PBXGroup;
+			children = (
+				A401BE761DF5E73C00A4FDC0 /* ASToastFramework.h */,
+				A401BE771DF5E73C00A4FDC0 /* Info.plist */,
+			);
+			path = ASToastFramework;
+			sourceTree = "<group>";
+		};
 		A446C4191B28979C00C891AF = {
 			isa = PBXGroup;
 			children = (
 				A446C4241B28979C00C891AF /* ASToast */,
 				A446C43A1B28979C00C891AF /* ASToastTests */,
+				A401BE751DF5E73C00A4FDC0 /* ASToastFramework */,
 				A446C4231B28979C00C891AF /* Products */,
 				A4DA525E1B2C8FA800F3E5FB /* Frameworks */,
 				7DE61A12A6DB6859E1BD9C39 /* Pods */,
@@ -99,6 +145,7 @@
 			children = (
 				A446C4221B28979C00C891AF /* ASToast.app */,
 				A446C4371B28979C00C891AF /* ASToastTests.xctest */,
+				A401BE741DF5E73C00A4FDC0 /* ASToastFramework.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -171,7 +218,36 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		A401BE711DF5E73C00A4FDC0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A401BE781DF5E73C00A4FDC0 /* ASToastFramework.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		A401BE731DF5E73C00A4FDC0 /* ASToastFramework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A401BE7F1DF5E73C00A4FDC0 /* Build configuration list for PBXNativeTarget "ASToastFramework" */;
+			buildPhases = (
+				A401BE6F1DF5E73C00A4FDC0 /* Sources */,
+				A401BE701DF5E73C00A4FDC0 /* Frameworks */,
+				A401BE711DF5E73C00A4FDC0 /* Headers */,
+				A401BE721DF5E73C00A4FDC0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ASToastFramework;
+			productName = ASToastFramework;
+			productReference = A401BE741DF5E73C00A4FDC0 /* ASToastFramework.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		A446C4211B28979C00C891AF /* ASToast */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A446C4411B28979C00C891AF /* Build configuration list for PBXNativeTarget "ASToast" */;
@@ -182,10 +258,12 @@
 				A446C4201B28979C00C891AF /* Resources */,
 				F06466A78DD8527BD1963968 /* [CP] Embed Pods Frameworks */,
 				4187234E267640E0E7E39AAC /* [CP] Copy Pods Resources */,
+				A401BE801DF5E73C00A4FDC0 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A401BE7A1DF5E73C00A4FDC0 /* PBXTargetDependency */,
 			);
 			name = ASToast;
 			productName = ASToast;
@@ -224,6 +302,10 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Abdullah Selek";
 				TargetAttributes = {
+					A401BE731DF5E73C00A4FDC0 = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+					};
 					A446C4211B28979C00C891AF = {
 						CreatedOnToolsVersion = 6.3.2;
 						LastSwiftMigration = 0800;
@@ -250,11 +332,19 @@
 			targets = (
 				A446C4211B28979C00C891AF /* ASToast */,
 				A446C4361B28979C00C891AF /* ASToastTests */,
+				A401BE731DF5E73C00A4FDC0 /* ASToastFramework */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A401BE721DF5E73C00A4FDC0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A446C4201B28979C00C891AF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -368,6 +458,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A401BE6F1DF5E73C00A4FDC0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A401BE811DF5E74900A4FDC0 /* ASToast.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A446C41E1B28979C00C891AF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -389,6 +487,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		A401BE7A1DF5E73C00A4FDC0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A401BE731DF5E73C00A4FDC0 /* ASToastFramework */;
+			targetProxy = A401BE791DF5E73C00A4FDC0 /* PBXContainerItemProxy */;
+		};
 		A446C4391B28979C00C891AF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A446C4211B28979C00C891AF /* ASToast */;
@@ -416,6 +519,63 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		A401BE7D1DF5E73C00A4FDC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ASToastFramework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.abdullahselek.ASToastFramework;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A401BE7E1DF5E73C00A4FDC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ASToastFramework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.abdullahselek.ASToastFramework;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		A446C43F1B28979C00C891AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -508,6 +668,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1B861921B4352BACC8C2DE51 /* Pods-ASToast.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ASToast/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -523,6 +684,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4F07F2E06A5F11553F4F6C47 /* Pods-ASToast.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ASToast/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -582,6 +744,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A401BE7F1DF5E73C00A4FDC0 /* Build configuration list for PBXNativeTarget "ASToastFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A401BE7D1DF5E73C00A4FDC0 /* Debug */,
+				A401BE7E1DF5E73C00A4FDC0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		A446C41D1B28979C00C891AF /* Build configuration list for PBXProject "ASToast" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
