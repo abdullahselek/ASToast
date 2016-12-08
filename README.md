@@ -38,7 +38,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'ASToast', '~> 1.0'
+    pod 'ASToast', '~> 1.0.5'
 end
 ```
 Then, run the following command:
