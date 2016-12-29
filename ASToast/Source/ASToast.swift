@@ -89,9 +89,8 @@ public extension UIView {
     // MARK: Make toast methods
     
     /**
-      * Show a toast with given string
-      *
-      * @param message Message Text
+      Show a toast with given string
+      - parameter message Message Text
      */
     public func makeToast(_ message: String, backgroundColor: UIColor?) {
         makeToast(message, duration: Constants.ASToastDuration, position: nil,
@@ -99,11 +98,10 @@ public extension UIView {
     }
     
     /**
-      * Show a toast with given string, duration and position
-      *
-      * @param message Message Text
-      * @param duration The time duration toast will displayed on the screen
-      * @param position The position that toast will displayed
+      Show a toast with given string, duration and position
+      - parameter message Message Text
+      - parameter duration The time duration toast will displayed on the screen
+      - parameter position The position that toast will displayed
      */
     public func makeToast(_ message: String, duration: TimeInterval, position: AnyObject?,
                           backgroundColor: UIColor?) {
@@ -114,12 +112,11 @@ public extension UIView {
     }
     
     /**
-      * Show a toast with given string, duration, position and title
-      *
-      * @param message Message Text
-      * @param duration The time duration toast will displayed on the screen
-      * @param position The position that toast will displayed
-      * @param title Title for Toast
+      Show a toast with given string, duration, position and title
+      - parameter message Message Text
+      - parameter duration The time duration toast will displayed on the screen
+      - parameter position The position that toast will displayed
+      - parameter title Title for Toast
      */
     public func makeToast(_ message: String, duration: TimeInterval, position: AnyObject?,
                           title: String, backgroundColor: UIColor?) {
@@ -128,12 +125,11 @@ public extension UIView {
     }
     
     /**
-      * Show a toast with given string, duration, position and image
-      *
-      * @param message Message Text
-      * @param duration The time duration toast will displayed on the screen
-      * @param position The position that toast will displayed
-      * @param image Image for Toast
+      Show a toast with given string, duration, position and image
+      - parameter message Message Text
+      - parameter duration The time duration toast will displayed on the screen
+      - parameter position The position that toast will displayed
+      - parameter image Image for Toast
      */
     public func makeToast(_ message: String, duration: TimeInterval, position: AnyObject?,
                           image: UIImage!, backgroundColor: UIColor?) {
@@ -142,13 +138,12 @@ public extension UIView {
     }
     
     /**
-      * Show a toast with given string, duration, position, title and image
-      *
-      * @param message Message Text
-      * @param duration The time duration toast will displayed on the screen
-      * @param position The position that toast will displayed
-      * @param title Title for Toast
-      * @param image Image for Toast
+      Show a toast with given string, duration, position, title and image
+      - parameter message Message Text
+      - parameter duration The time duration toast will displayed on the screen
+      - parameter position The position that toast will displayed
+      - parameter title Title for Toast
+      - parameter image Image for Toast
      */
     public func makeToast(_ message: String, duration: TimeInterval, position: AnyObject?,
                           title: String, image: UIImage!, backgroundColor: UIColor?) {
@@ -159,31 +154,28 @@ public extension UIView {
     // MARK: Toast view main methods
     
     /**
-      * Show toast view with constant duration (3 seconds)
-      *
-      * @param toastView Toast view
+      Show toast view with constant duration (3 seconds)
+      - parameter toastView Toast view
      */
     public func showToast(_ toastView: UIView!) {
         showToast(toastView, duration: Constants.ASToastDuration, position: nil)
     }
     
     /**
-      * Show toast view with duration and position
-      *
-      * @param toastView Toast view
-      * @param duration The time duration toast will displayed on the screen
-      * @param position The position that toast will displayed
+      Show toast view with duration and position
+      - parameter toastView Toast view
+      - parameter duration The time duration toast will displayed on the screen
+      - parameter position The position that toast will displayed
      */
     public func showToast(_ toastView: UIView!, duration: TimeInterval!, position: AnyObject?) {
         createAndShowToast(toastView, duration: duration, position: position)
     }
     
     /**
-      * Create and show toast
-      *
-      * @param toastView Toast view
-      * @param duration The time duration toast will displayed on the screen
-      * @param position The position that toast will displayed
+      Create and show toast
+      - parameter toastView Toast view
+      - parameter duration The time duration toast will displayed on the screen
+      - parameter position The position that toast will displayed
      */
     fileprivate func createAndShowToast(_ toastView: UIView!, duration: TimeInterval!, position: AnyObject?) {
         if toastView == nil {
@@ -211,9 +203,8 @@ public extension UIView {
     }
     
     /**
-      * Hide toast view
-      *
-      * @param toastView Toast view
+      Hide toast view
+      - parameter toastView Toast view
      */
     fileprivate func hideToast(_ toastView: UIView!) {
         UIView.animate(withDuration: Constants.ASToastFadeDuration, delay: 0.0, options: [UIViewAnimationOptions.curveEaseIn, UIViewAnimationOptions.beginFromCurrentState], animations: { () -> Void in
@@ -224,11 +215,10 @@ public extension UIView {
     }
 
     /**
-      * Creates toast view with given message, title and title
-      *
-      * @param message Message Text
-      * @param title Title for Toast
-      * @param image Image for Toast
+      Creates toast view with given message, title and title
+      - parameter message Message Text
+      - parameter title Title for Toast
+      - parameter image Image for Toast
      */
     fileprivate func toastView(_ message: String, title: String, image: UIImage?, backgroundColor: UIColor?) -> UIView? {
         // check parameters
@@ -373,18 +363,16 @@ public extension UIView {
     // MARK: Toast view events
     
     /**
-      * Finish event handler for timer
-      *
-      * @param timer NSTimer
+      Finish event handler for timer
+      - parameter timer NSTimer
      */
     func toastTimerDidFinish(_ timer: Timer) {
         self.hideToast(timer.userInfo as? UIView!)
     }
     
     /**
-      * Tap gesture handler
-      *
-      * @param recognizer UITapGestureRecognizer
+      Tap gesture handler
+      - parameter recognizer UITapGestureRecognizer
      */
     func handleToastTapped(_ recognizer: UITapGestureRecognizer) {
         timer.invalidate()
@@ -394,16 +382,15 @@ public extension UIView {
     // MARK: Toast activity methods
     
     /**
-      * Show a toast with activity indicator
+      Show a toast with activity indicator
      */
     public func makeToastActivity() {
         makeToastActivity(Constants.ASToastActivityDefaultPosition.rawValue as AnyObject)
     }
     
     /**
-      * Create toast with given position
-      *
-      * @param position The position that toast will displayed
+      Create toast with given position
+      - parameter position The position that toast will displayed
      */
     fileprivate func makeToastActivity(_ position: AnyObject) {
         activityView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: Constants.ASToastActivityWidth, height: Constants.ASToastActivityHeight))
@@ -433,7 +420,7 @@ public extension UIView {
     }
     
     /**
-      * Hide activity indicator toast
+      Hide activity indicator toast
      */
     public func hideToastActivity() {
         if activityView != nil {
@@ -448,10 +435,9 @@ public extension UIView {
     // MARK: Helpers
     
     /**
-      * Center toast with given point and view
-      *
-      * @param point Position to centralize
-      * @param toastView Toast view
+      Center toast with given point and view
+      - parameter point Position to centralize
+      - parameter toastView Toast view
      */
     fileprivate func centerPointForPosition(_ point: AnyObject?, toastView: UIView!) -> CGPoint {
         if point != nil {
@@ -471,12 +457,11 @@ public extension UIView {
     }
     
     /**
-      * Calculates string size with given text, font, constrained and mode
-      *
-      * @param text Toast view message
-      * @param font UIFont used for text
-      * @param constrainedSize CGSize
-      * @param lineBreakMode NSLineBreakMode
+      Calculates string size with given text, font, constrained and mode
+      - parameter text Toast view message
+      - parameter font UIFont used for text
+      - parameter constrainedSize CGSize
+      - parameter lineBreakMode NSLineBreakMode
      */
     fileprivate func sizeForString(_ text: NSString, font: UIFont, constrainedSize: CGSize, lineBreakMode: NSLineBreakMode) -> CGSize {
         if text.responds(to: #selector(NSString.boundingRect(with:options:attributes:context:))) {
