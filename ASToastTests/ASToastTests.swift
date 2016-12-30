@@ -20,7 +20,9 @@ class ASToastTests: QuickSpec {
                 it("set a valid message") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view!.makeToast("TEST", backgroundColor: nil, messageColor: UIColor.cyan)
+                    view!.makeToast("TEST",
+                                    backgroundColor: nil,
+                                    messageColor: UIColor.cyan)
                     expect(view?.subviews.count).to(equal(1))
                 }
             }
@@ -28,7 +30,9 @@ class ASToastTests: QuickSpec {
                 it("set a empty message") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view!.makeToast("", backgroundColor: UIColor.green, messageColor: nil)
+                    view!.makeToast("",
+                                    backgroundColor: UIColor.green,
+                                    messageColor: nil)
                     expect(view?.subviews.count).to(equal(0))
                 }
             }
@@ -38,9 +42,12 @@ class ASToastTests: QuickSpec {
                 it("set valid message, duration and position") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view!.makeToast("TEST", duration: TimeInterval(3.0),
-                                   position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
-                                   backgroundColor: nil, titleColor: UIColor.cyan, messageColor: UIColor.yellow)
+                    view!.makeToast("TEST",
+                                    duration: TimeInterval(3.0),
+                                    position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
+                                    backgroundColor: nil,
+                                    titleColor: UIColor.cyan,
+                                    messageColor: UIColor.yellow)
                     expect(view?.subviews.count).to(equal(1))
                 }
             }
@@ -48,8 +55,12 @@ class ASToastTests: QuickSpec {
                 it("set a invalid position, valid text and duration") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view!.makeToast("TEST", duration: TimeInterval(3.0), position: nil,
-                                   backgroundColor: UIColor.blue, titleColor: UIColor.cyan, messageColor: nil)
+                    view!.makeToast("TEST",
+                                    duration: TimeInterval(3.0),
+                                    position: nil,
+                                    backgroundColor: UIColor.blue,
+                                    titleColor: UIColor.cyan,
+                                    messageColor: nil)
                     expect(view?.subviews.count).to(equal(1))
                 }
             }
@@ -60,7 +71,9 @@ class ASToastTests: QuickSpec {
                     view!.makeToast("",
                                     duration: TimeInterval(3.0),
                                     position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
-                                    backgroundColor: UIColor.blue, titleColor: UIColor.cyan, messageColor: UIColor.yellow)
+                                    backgroundColor: UIColor.blue,
+                                    titleColor: UIColor.cyan,
+                                    messageColor: UIColor.yellow)
                     expect(view?.subviews.count).to(equal(0))
                 }
             }
@@ -74,7 +87,9 @@ class ASToastTests: QuickSpec {
                                     duration: TimeInterval(3.0),
                                     position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
                                     title: "TITLE",
-                                    backgroundColor: nil, titleColor: nil, messageColor: nil)
+                                    backgroundColor: nil,
+                                    titleColor: nil,
+                                    messageColor: nil)
                     expect(view?.subviews.count).to(equal(1))
                 }
             }
@@ -86,7 +101,9 @@ class ASToastTests: QuickSpec {
                                     duration: TimeInterval(3.0),
                                     position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
                                     title: "TITLE",
-                                    backgroundColor: UIColor.blue, titleColor: UIColor.cyan, messageColor: UIColor.yellow)
+                                    backgroundColor: UIColor.blue,
+                                    titleColor: UIColor.cyan,
+                                    messageColor: UIColor.yellow)
                     expect(view?.subviews.count).to(equal(1))
                 }
             }
@@ -98,7 +115,9 @@ class ASToastTests: QuickSpec {
                                     duration: TimeInterval(3.0),
                                     position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
                                     title: "",
-                                    backgroundColor: UIColor.blue, titleColor: nil, messageColor: nil)
+                                    backgroundColor: UIColor.blue,
+                                    titleColor: nil,
+                                    messageColor: nil)
                     expect(view?.subviews.count).to(equal(1))
                 }
             }
@@ -110,7 +129,9 @@ class ASToastTests: QuickSpec {
                                     duration: TimeInterval(3.0),
                                     position: "" as AnyObject,
                                     title: "TITLE",
-                                    backgroundColor: nil, titleColor: UIColor.cyan, messageColor: UIColor.yellow)
+                                    backgroundColor: nil,
+                                    titleColor: UIColor.cyan,
+                                    messageColor: UIColor.yellow)
                     expect(view?.subviews.count).to(equal(1))
                 }
             }
@@ -122,7 +143,9 @@ class ASToastTests: QuickSpec {
                                     duration: TimeInterval(3.0),
                                     position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
                                     title: "",
-                                    backgroundColor: UIColor.blue, titleColor: nil, messageColor: nil)
+                                    backgroundColor: UIColor.blue,
+                                    titleColor: nil,
+                                    messageColor: nil)
                     expect(view?.subviews.count).to(equal(0))
                 }
             }
@@ -136,7 +159,9 @@ class ASToastTests: QuickSpec {
                                     duration: TimeInterval(3.0),
                                     position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
                                     image: UIImage(named: "apple_logo.png"),
-                                    backgroundColor: nil, titleColor: UIColor.cyan, messageColor: UIColor.yellow)
+                                    backgroundColor: nil,
+                                    titleColor: UIColor.cyan,
+                                    messageColor: UIColor.yellow)
                     expect(view?.subviews.count).to(equal(1))
                 }
             }
@@ -148,7 +173,9 @@ class ASToastTests: QuickSpec {
                                     duration: TimeInterval(3.0),
                                     position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
                                     image: UIImage(named: "apple_logo.png"),
-                                    backgroundColor: UIColor.blue, titleColor: nil, messageColor: nil)
+                                    backgroundColor: UIColor.blue,
+                                    titleColor: nil,
+                                    messageColor: nil)
                     expect(view?.subviews.count).to(equal(1))
                 }
             }
@@ -160,7 +187,9 @@ class ASToastTests: QuickSpec {
                                     duration: TimeInterval(3.0),
                                     position: "" as AnyObject,
                                     image: UIImage(named: "apple_logo.png"),
-                                    backgroundColor: nil, titleColor: UIColor.cyan, messageColor: UIColor.yellow)
+                                    backgroundColor: nil,
+                                    titleColor: UIColor.cyan,
+                                    messageColor: UIColor.yellow)
                     expect(view?.subviews.count).to(equal(1))
                 }
             }
@@ -172,7 +201,9 @@ class ASToastTests: QuickSpec {
                                     duration: TimeInterval(3.0),
                                     position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
                                     image: UIImage(named: ""),
-                                    backgroundColor: UIColor.blue, titleColor: nil, messageColor: nil)
+                                    backgroundColor: UIColor.blue,
+                                    titleColor: nil,
+                                    messageColor: nil)
                     expect(view?.subviews.count).to(equal(0))
                 }
             }
@@ -187,7 +218,9 @@ class ASToastTests: QuickSpec {
                                     position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
                                     title: "TITLE",
                                     image: UIImage(named: "apple_logo.png"),
-                                    backgroundColor: nil, titleColor: UIColor.cyan, messageColor: UIColor.yellow)
+                                    backgroundColor: nil,
+                                    titleColor: UIColor.cyan,
+                                    messageColor: UIColor.yellow)
                     expect(view?.subviews.count).to(equal(1))
                 }
             }
@@ -200,7 +233,9 @@ class ASToastTests: QuickSpec {
                                     position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
                                     title: "",
                                     image: UIImage(named: "apple_logo.png"),
-                                    backgroundColor: UIColor.blue, titleColor: nil, messageColor: nil)
+                                    backgroundColor: UIColor.blue,
+                                    titleColor: nil,
+                                    messageColor: nil)
                     expect(view?.subviews.count).to(equal(1))
                 }
             }
@@ -213,7 +248,9 @@ class ASToastTests: QuickSpec {
                                     position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
                                     title: "",
                                     image: UIImage(named: ""),
-                                    backgroundColor: nil, titleColor: UIColor.cyan, messageColor: UIColor.yellow)
+                                    backgroundColor: nil,
+                                    titleColor: UIColor.cyan,
+                                    messageColor: UIColor.yellow)
                     expect(view?.subviews.count).to(equal(1))
                 }
             }
@@ -226,7 +263,9 @@ class ASToastTests: QuickSpec {
                                     position: "" as AnyObject,
                                     title: "",
                                     image: UIImage(named: ""),
-                                    backgroundColor: UIColor.blue, titleColor: nil, messageColor: nil)
+                                    backgroundColor: UIColor.blue,
+                                    titleColor: nil,
+                                    messageColor: nil)
                     expect(view?.subviews.count).to(equal(1))
                 }
             }
@@ -239,7 +278,9 @@ class ASToastTests: QuickSpec {
                                     position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
                                     title: "",
                                     image: UIImage(named: "apple_logo.png"),
-                                    backgroundColor: UIColor.blue, titleColor: UIColor.cyan, messageColor: UIColor.yellow)
+                                    backgroundColor: UIColor.blue,
+                                    titleColor: UIColor.cyan,
+                                    messageColor: UIColor.yellow)
                     expect(view?.subviews.count).to(equal(1))
                 }
             }
@@ -252,7 +293,9 @@ class ASToastTests: QuickSpec {
                                     position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
                                     title: "",
                                     image: UIImage(named: ""),
-                                    backgroundColor: UIColor.blue, titleColor: nil, messageColor: nil)
+                                    backgroundColor: UIColor.blue,
+                                    titleColor: nil,
+                                    messageColor: nil)
                     expect(view?.subviews.count).to(equal(0))
                 }
             }
