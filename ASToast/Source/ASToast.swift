@@ -97,9 +97,15 @@ public extension UIView {
       - parameter backgroundColor: Color for background
       - parameter messageColor: Color for mesage text
      */
-    public func makeToast(_ message: String, backgroundColor: UIColor?, messageColor: UIColor?) {
-        makeToast(message, duration: Constants.ASToastDuration, position: nil,
-                  backgroundColor: backgroundColor, titleColor: nil, messageColor: messageColor)
+    public func makeToast(_ message: String,
+                          backgroundColor: UIColor?,
+                          messageColor: UIColor?) {
+        makeToast(message,
+                  duration: Constants.ASToastDuration,
+                  position: nil,
+                  backgroundColor: backgroundColor,
+                  titleColor: nil,
+                  messageColor: messageColor)
     }
     
     /**
@@ -111,11 +117,22 @@ public extension UIView {
       - parameter titleColor: Color for title text
       - parameter messageColor: Color for mesage text
      */
-    public func makeToast(_ message: String, duration: TimeInterval, position: AnyObject?,
-                          backgroundColor: UIColor?, titleColor: UIColor?, messageColor: UIColor?) {
-        let toastView = self.toastView(message, title: "",  image: nil, backgroundColor: backgroundColor, titleColor: titleColor, messageColor: messageColor)
+    public func makeToast(_ message: String,
+                          duration: TimeInterval,
+                          position: AnyObject?,
+                          backgroundColor: UIColor?,
+                          titleColor: UIColor?,
+                          messageColor: UIColor?) {
+        let toastView = self.toastView(message,
+                                       title: "",
+                                       image: nil,
+                                       backgroundColor: backgroundColor,
+                                       titleColor: titleColor,
+                                       messageColor: messageColor)
         if toastView != nil {
-            self.showToast(toastView, duration: duration, position: position)
+            self.showToast(toastView,
+                           duration: duration,
+                           position: position)
         }
     }
     
@@ -129,10 +146,22 @@ public extension UIView {
       - parameter titleColor: Color for title text
       - parameter messageColor: Color for mesage text
      */
-    public func makeToast(_ message: String, duration: TimeInterval, position: AnyObject?,
-                          title: String, backgroundColor: UIColor?, titleColor: UIColor?, messageColor: UIColor?) {
-        let toastView = self.toastView(message, title: title, image: nil, backgroundColor: backgroundColor, titleColor: titleColor, messageColor: messageColor)
-        self.showToast(toastView, duration: duration, position: position)
+    public func makeToast(_ message: String,
+                          duration: TimeInterval,
+                          position: AnyObject?,
+                          title: String,
+                          backgroundColor: UIColor?,
+                          titleColor: UIColor?,
+                          messageColor: UIColor?) {
+        let toastView = self.toastView(message,
+                                       title: title,
+                                       image: nil,
+                                       backgroundColor: backgroundColor,
+                                       titleColor: titleColor,
+                                       messageColor: messageColor)
+        self.showToast(toastView,
+                       duration: duration,
+                       position: position)
     }
     
     /**
@@ -145,10 +174,22 @@ public extension UIView {
       - parameter titleColor: Color for title text
       - parameter messageColor: Color for mesage text
      */
-    public func makeToast(_ message: String, duration: TimeInterval, position: AnyObject?,
-                          image: UIImage!, backgroundColor: UIColor?, titleColor: UIColor?, messageColor: UIColor?) {
-        let toastView = self.toastView(message, title: "", image: image, backgroundColor: backgroundColor, titleColor: titleColor, messageColor: messageColor)
-        self.showToast(toastView, duration: duration, position: position)
+    public func makeToast(_ message: String,
+                          duration: TimeInterval,
+                          position: AnyObject?,
+                          image: UIImage!,
+                          backgroundColor: UIColor?,
+                          titleColor: UIColor?,
+                          messageColor: UIColor?) {
+        let toastView = self.toastView(message,
+                                       title: "",
+                                       image: image,
+                                       backgroundColor: backgroundColor,
+                                       titleColor: titleColor,
+                                       messageColor: messageColor)
+        self.showToast(toastView,
+                       duration: duration,
+                       position: position)
     }
     
     /**
@@ -162,10 +203,23 @@ public extension UIView {
       - parameter titleColor: Color for title text
       - parameter messageColor: Color for mesage text
      */
-    public func makeToast(_ message: String, duration: TimeInterval, position: AnyObject?,
-                          title: String, image: UIImage!, backgroundColor: UIColor?, titleColor: UIColor?, messageColor: UIColor?) {
-        let toastView = self.toastView(message, title: title, image: image, backgroundColor: backgroundColor, titleColor: titleColor, messageColor: messageColor)
-        self.showToast(toastView, duration: duration, position: position)
+    public func makeToast(_ message: String,
+                          duration: TimeInterval,
+                          position: AnyObject?,
+                          title: String,
+                          image: UIImage!,
+                          backgroundColor: UIColor?,
+                          titleColor: UIColor?,
+                          messageColor: UIColor?) {
+        let toastView = self.toastView(message,
+                                       title: title,
+                                       image: image,
+                                       backgroundColor: backgroundColor,
+                                       titleColor: titleColor,
+                                       messageColor: messageColor)
+        self.showToast(toastView,
+                       duration: duration,
+                       position: position)
     }
     
     // MARK: Toast view main methods
@@ -175,7 +229,9 @@ public extension UIView {
       - parameter toastView: Toast view
      */
     public func showToast(_ toastView: UIView!) {
-        showToast(toastView, duration: Constants.ASToastDuration, position: nil)
+        showToast(toastView,
+                  duration: Constants.ASToastDuration,
+                  position: nil)
     }
     
     /**
@@ -184,8 +240,12 @@ public extension UIView {
       - parameter duration: The time duration toast will displayed on the screen
       - parameter position: The position that toast will displayed
      */
-    public func showToast(_ toastView: UIView!, duration: TimeInterval!, position: AnyObject?) {
-        createAndShowToast(toastView, duration: duration, position: position)
+    public func showToast(_ toastView: UIView!,
+                          duration: TimeInterval!,
+                          position: AnyObject?) {
+        createAndShowToast(toastView,
+                           duration: duration,
+                           position: position)
     }
     
     /**
@@ -194,7 +254,9 @@ public extension UIView {
       - parameter duration: The time duration toast will displayed on the screen
       - parameter position: The position that toast will displayed
      */
-    fileprivate func createAndShowToast(_ toastView: UIView!, duration: TimeInterval!, position: AnyObject?) {
+    fileprivate func createAndShowToast(_ toastView: UIView!,
+                                        duration: TimeInterval!,
+                                        position: AnyObject?) {
         if toastView == nil {
             return
         }
@@ -240,7 +302,12 @@ public extension UIView {
       - parameter titleColor: Color for title text
       - parameter messageColor: Color for mesage text
      */
-    fileprivate func toastView(_ message: String, title: String, image: UIImage?, backgroundColor: UIColor?, titleColor: UIColor?, messageColor: UIColor?) -> UIView? {
+    fileprivate func toastView(_ message: String,
+                               title: String,
+                               image: UIImage?,
+                               backgroundColor: UIColor?,
+                               titleColor: UIColor?,
+                               messageColor: UIColor?) -> UIView? {
         // check parameters
         if message.isEmpty && title.isEmpty && image == nil {
             return nil
@@ -483,7 +550,10 @@ public extension UIView {
       - parameter constrainedSize: CGSize
       - parameter lineBreakMode: NSLineBreakMode
      */
-    fileprivate func sizeForString(_ text: NSString, font: UIFont, constrainedSize: CGSize, lineBreakMode: NSLineBreakMode) -> CGSize {
+    fileprivate func sizeForString(_ text: NSString,
+                                   font: UIFont,
+                                   constrainedSize: CGSize,
+                                   lineBreakMode: NSLineBreakMode) -> CGSize {
         if text.responds(to: #selector(NSString.boundingRect(with:options:attributes:context:))) {
             let paragraphStyle: NSMutableParagraphStyle! = NSMutableParagraphStyle()
             paragraphStyle.lineBreakMode = lineBreakMode
