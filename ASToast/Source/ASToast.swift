@@ -32,7 +32,7 @@ import QuartzCore
 // MARK: Constants
 
 /**
-  * Default toast constants
+  Default toast constants
  */
 struct Constants {
     // duration of view on screen
@@ -73,7 +73,7 @@ struct Constants {
 }
 
 /**
-  * Toast positions
+  Toast positions
  */
 public enum ASToastPosition: String {
     case ASToastPositionTop = "ASToastPositionTop",
