@@ -6,16 +6,16 @@
 # ASToast
 A Swift extension for using Android style Toast notifications. You may call ASToast methods directly from your view objects.
 
-# Screenshots
+## Screenshots
 
 ![single_toast](https://github.com/abdullahselek/ASToast/blob/master/images/astoast_singletoast.png)
 ![image_toast](https://github.com/abdullahselek/ASToast/blob/master/images/astoast_image_title_text_toast.png)
 ![activity_toast](https://github.com/abdullahselek/ASToast/blob/master/images/astoast_activity.png)
 
-# Requirements
+## Requirements
 iOS 8.0+
 
-# CocoaPods
+## CocoaPods
 
 CocoaPods is a dependency manager for Cocoa projects. You can install it with the following command:
 ```	
@@ -45,7 +45,7 @@ Then, run the following command:
 ```
 $ pod install
 ```
-# Carthage
+## Carthage
 
 Carthage is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
 
@@ -64,7 +64,7 @@ github "abdullahselek/ASToast" ~> 1.0.6
 
 Run carthage update to build the framework and drag the built ASToast.framework into your Xcode project.
 
-# Example Usage
+## Example Usage
 
 make a toast with single text with default background color
 ```
@@ -115,7 +115,7 @@ Show activity indicator
 self.view.makeToastActivity()
 ```
 	
-# MIT License
+## MIT License
 ```
 Copyright (c) 2015 Abdullah Selek
 
@@ -138,7 +138,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
-# Credits
+## Credits
 ```
 Inspired from Charles Scalesse (scalessec). Improved and all coded in new programming 
 language Swift.
