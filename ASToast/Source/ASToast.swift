@@ -92,9 +92,9 @@ public extension UIView {
       Show a toast with given string
       - parameter message Message Text
      */
-    public func makeToast(_ message: String, backgroundColor: UIColor?) {
+    public func makeToast(_ message: String, backgroundColor: UIColor?, messageColor: UIColor?) {
         makeToast(message, duration: Constants.ASToastDuration, position: nil,
-                  backgroundColor: backgroundColor)
+                  backgroundColor: backgroundColor, titleColor: nil, messageColor: messageColor)
     }
     
     /**
@@ -104,8 +104,8 @@ public extension UIView {
       - parameter position The position that toast will displayed
      */
     public func makeToast(_ message: String, duration: TimeInterval, position: AnyObject?,
-                          backgroundColor: UIColor?) {
-        let toastView = self.toastView(message, title: "",  image: nil, backgroundColor: backgroundColor)
+                          backgroundColor: UIColor?, titleColor: UIColor?, messageColor: UIColor?) {
+        let toastView = self.toastView(message, title: "",  image: nil, backgroundColor: backgroundColor, titleColor: titleColor, messageColor: messageColor)
         if toastView != nil {
             self.showToast(toastView, duration: duration, position: position)
         }
@@ -119,8 +119,8 @@ public extension UIView {
       - parameter title Title for Toast
      */
     public func makeToast(_ message: String, duration: TimeInterval, position: AnyObject?,
-                          title: String, backgroundColor: UIColor?) {
-        let toastView = self.toastView(message, title: title, image: nil, backgroundColor: backgroundColor)
+                          title: String, backgroundColor: UIColor?, titleColor: UIColor?, messageColor: UIColor?) {
+        let toastView = self.toastView(message, title: title, image: nil, backgroundColor: backgroundColor, titleColor: titleColor, messageColor: messageColor)
         self.showToast(toastView, duration: duration, position: position)
     }
     
@@ -132,8 +132,8 @@ public extension UIView {
       - parameter image Image for Toast
      */
     public func makeToast(_ message: String, duration: TimeInterval, position: AnyObject?,
-                          image: UIImage!, backgroundColor: UIColor?) {
-        let toastView = self.toastView(message, title: "", image: image, backgroundColor: backgroundColor)
+                          image: UIImage!, backgroundColor: UIColor?, titleColor: UIColor?, messageColor: UIColor?) {
+        let toastView = self.toastView(message, title: "", image: image, backgroundColor: backgroundColor, titleColor: titleColor, messageColor: messageColor)
         self.showToast(toastView, duration: duration, position: position)
     }
     
@@ -146,8 +146,8 @@ public extension UIView {
       - parameter image Image for Toast
      */
     public func makeToast(_ message: String, duration: TimeInterval, position: AnyObject?,
-                          title: String, image: UIImage!, backgroundColor: UIColor?) {
-        let toastView = self.toastView(message, title: title, image: image, backgroundColor: backgroundColor)
+                          title: String, image: UIImage!, backgroundColor: UIColor?, titleColor: UIColor?, messageColor: UIColor?) {
+        let toastView = self.toastView(message, title: title, image: image, backgroundColor: backgroundColor, titleColor: titleColor, messageColor: messageColor)
         self.showToast(toastView, duration: duration, position: position)
     }
     
@@ -220,7 +220,7 @@ public extension UIView {
       - parameter title Title for Toast
       - parameter image Image for Toast
      */
-    fileprivate func toastView(_ message: String, title: String, image: UIImage?, backgroundColor: UIColor?) -> UIView? {
+    fileprivate func toastView(_ message: String, title: String, image: UIImage?, backgroundColor: UIColor?, titleColor: UIColor?, messageColor: UIColor?) -> UIView? {
         // check parameters
         if message.isEmpty && title.isEmpty && image == nil {
             return nil
@@ -276,7 +276,7 @@ public extension UIView {
             titleLabel.numberOfLines = Constants.ASToastMaxTitleLines
             titleLabel.font = UIFont.boldSystemFont(ofSize: Constants.ASToastFontSize)
             titleLabel.textAlignment = NSTextAlignment.center
-            titleLabel.textColor = UIColor.white
+            titleLabel.textColor = titleColor != nil ? titleColor : UIColor.white
             titleLabel.backgroundColor = UIColor.clear
             titleLabel.alpha = 1.0
             titleLabel.text = title
@@ -293,7 +293,7 @@ public extension UIView {
             messageLabel.numberOfLines = Constants.ASToastMaxMessageLines
             messageLabel.font = UIFont.systemFont(ofSize: Constants.ASToastFontSize)
             messageLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
-            messageLabel.textColor = UIColor.white
+            messageLabel.textColor = messageColor != nil ? messageColor : UIColor.white
             messageLabel.backgroundColor = UIColor.clear
             messageLabel.alpha = 1.0
             messageLabel.text = message
