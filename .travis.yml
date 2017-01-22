@@ -10,6 +10,7 @@ branches:
 before_install:
 - rm -rf /Users/travis/Library/Developer/Xcode/DerivedData/ASToast-*/
 - rvm use $RVM_RUBY_VERSION
+- brew update; brew outdated swiftlint || brew upgrade swiftlint
 
 install:
 - bundle
