@@ -75,10 +75,10 @@ struct Constants {
 /**
   Toast positions
  */
-public enum ASToastPosition: String {
-    case top = "top",
-    center = "center",
-    bottom = "bottom"
+public enum ASToastPosition {
+    case top,
+    center,
+    bottom
 }
 
 private var timer: Timer!
@@ -276,7 +276,7 @@ public extension UIView {
 
         UIView.animate(withDuration: Constants.ASToastDuration, delay: 0.0, options: UIViewAnimationOptions.allowUserInteraction, animations: { () -> Void in
             toastView.alpha = 1.0
-        }) { (Bool) -> Void in
+        }) { (_) -> Void in
 
         }
     }
