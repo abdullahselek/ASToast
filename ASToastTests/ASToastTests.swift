@@ -38,26 +38,26 @@ class ASToastTests: QuickSpec {
             }
         }
         describe(".makeToast with message, duration, position") {
-            context("Toast view display success with 3 parameters") {
+            context("Toast view display success with parameters") {
                 it("set valid message, duration and position") {
                     let viewController = UIViewController()
                     let view = viewController.view
                     view!.makeToast("TEST",
                                     duration: TimeInterval(3.0),
-                                    position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
+                                    position: .center,
                                     backgroundColor: nil,
                                     titleColor: UIColor.cyan,
                                     messageColor: UIColor.yellow)
                     expect(view?.subviews.count).to(equal(1))
                 }
             }
-            context("Toast view display success with 3 parameters when position is invalid") {
+            context("Toast view display success with parameters") {
                 it("set a invalid position, valid text and duration") {
                     let viewController = UIViewController()
                     let view = viewController.view
                     view!.makeToast("TEST",
                                     duration: TimeInterval(3.0),
-                                    position: nil,
+                                    position: .top,
                                     backgroundColor: UIColor.blue,
                                     titleColor: UIColor.cyan,
                                     messageColor: nil)
@@ -70,7 +70,7 @@ class ASToastTests: QuickSpec {
                     let view = viewController.view
                     view!.makeToast("",
                                     duration: TimeInterval(3.0),
-                                    position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
+                                    position: .bottom,
                                     backgroundColor: UIColor.blue,
                                     titleColor: UIColor.cyan,
                                     messageColor: UIColor.yellow)
@@ -79,13 +79,13 @@ class ASToastTests: QuickSpec {
             }
         }
         describe(".makeToast with message, duration, position and title") {
-            context("Toast view diplays success with 4 valid parameters") {
+            context("Toast view diplays success with parameters") {
                 it("set valid message, duration, position and title") {
                     let viewController = UIViewController()
                     let view = viewController.view
                     view!.makeToast("TEST",
                                     duration: TimeInterval(3.0),
-                                    position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
+                                    position: .center,
                                     title: "TITLE",
                                     backgroundColor: nil,
                                     titleColor: nil,
@@ -93,13 +93,13 @@ class ASToastTests: QuickSpec {
                     expect(view?.subviews.count).to(equal(1))
                 }
             }
-            context("Toast view display success with 4 parameters when text is empty") {
+            context("Toast view display success with parameters when text is empty") {
                 it("set empty message, duration, position and title") {
                     let viewController = UIViewController()
                     let view = viewController.view
                     view!.makeToast("",
                                     duration: TimeInterval(3.0),
-                                    position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
+                                    position: .top,
                                     title: "TITLE",
                                     backgroundColor: UIColor.blue,
                                     titleColor: UIColor.cyan,
@@ -107,13 +107,13 @@ class ASToastTests: QuickSpec {
                     expect(view?.subviews.count).to(equal(1))
                 }
             }
-            context("Toast view display success with 4 parameters when title is empty") {
+            context("Toast view display success with parameters when title is empty") {
                 it("set message, duration, position and empty title") {
                     let viewController = UIViewController()
                     let view = viewController.view
                     view!.makeToast("TEST",
                                     duration: TimeInterval(3.0),
-                                    position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
+                                    position: .bottom,
                                     title: "",
                                     backgroundColor: UIColor.blue,
                                     titleColor: nil,
@@ -121,13 +121,13 @@ class ASToastTests: QuickSpec {
                     expect(view?.subviews.count).to(equal(1))
                 }
             }
-            context("Toast view display success with 4 parameters when position empty") {
+            context("Toast view display success with parameters when position empty") {
                 it("set message, duration, position and empty title") {
                     let viewController = UIViewController()
                     let view = viewController.view
                     view!.makeToast("TEST",
                                     duration: TimeInterval(3.0),
-                                    position: "" as AnyObject,
+                                    position: .center,
                                     title: "TITLE",
                                     backgroundColor: nil,
                                     titleColor: UIColor.cyan,
@@ -135,13 +135,13 @@ class ASToastTests: QuickSpec {
                     expect(view?.subviews.count).to(equal(1))
                 }
             }
-            context("Toast view display fails with 4 parameters when mesage and title empty") {
+            context("Toast view display fails with parameters when mesage and title empty") {
                 it("set message, duration, position and empty title") {
                     let viewController = UIViewController()
                     let view = viewController.view
                     view!.makeToast("",
                                     duration: TimeInterval(3.0),
-                                    position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
+                                    position: .top,
                                     title: "",
                                     backgroundColor: UIColor.blue,
                                     titleColor: nil,
@@ -151,13 +151,13 @@ class ASToastTests: QuickSpec {
             }
         }
         describe(".makeToast with message, duration, position and image") {
-            context("Toast view diplay success with 4 valid parameters") {
+            context("Toast view diplay success with valid parameters") {
                 it("set valid message, duration, position and image") {
                     let viewController = UIViewController()
                     let view = viewController.view
                     view!.makeToast("TEST",
                                     duration: TimeInterval(3.0),
-                                    position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
+                                    position: .bottom,
                                     image: UIImage(named: "apple_logo.png"),
                                     backgroundColor: nil,
                                     titleColor: UIColor.cyan,
@@ -171,7 +171,7 @@ class ASToastTests: QuickSpec {
                     let view = viewController.view
                     view!.makeToast("",
                                     duration: TimeInterval(3.0),
-                                    position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
+                                    position: .center,
                                     image: UIImage(named: "apple_logo.png"),
                                     backgroundColor: UIColor.blue,
                                     titleColor: nil,
@@ -185,7 +185,7 @@ class ASToastTests: QuickSpec {
                     let view = viewController.view
                     view!.makeToast("TEST",
                                     duration: TimeInterval(3.0),
-                                    position: "" as AnyObject,
+                                    position: .top,
                                     image: UIImage(named: "apple_logo.png"),
                                     backgroundColor: nil,
                                     titleColor: UIColor.cyan,
@@ -199,7 +199,7 @@ class ASToastTests: QuickSpec {
                     let view = viewController.view
                     view!.makeToast("",
                                     duration: TimeInterval(3.0),
-                                    position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
+                                    position: .bottom,
                                     image: UIImage(named: ""),
                                     backgroundColor: UIColor.blue,
                                     titleColor: nil,
@@ -209,13 +209,13 @@ class ASToastTests: QuickSpec {
             }
         }
         describe(".makeToast with message, duration, position, title and image") {
-            context("Toast view diplay success with 5 valid parameters") {
+            context("Toast view diplay success with valid parameters") {
                 it("set valid message, duration, position, title and image") {
                     let viewController = UIViewController()
                     let view = viewController.view
                     view!.makeToast("TEST",
                                     duration: TimeInterval(3.0),
-                                    position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
+                                    position: .center,
                                     title: "TITLE",
                                     image: UIImage(named: "apple_logo.png"),
                                     backgroundColor: nil,
@@ -230,7 +230,7 @@ class ASToastTests: QuickSpec {
                     let view = viewController.view
                     view!.makeToast("TEST",
                                     duration: TimeInterval(3.0),
-                                    position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
+                                    position: .top,
                                     title: "",
                                     image: UIImage(named: "apple_logo.png"),
                                     backgroundColor: UIColor.blue,
@@ -245,7 +245,7 @@ class ASToastTests: QuickSpec {
                     let view = viewController.view
                     view!.makeToast("TEST",
                                     duration: TimeInterval(3.0),
-                                    position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
+                                    position: .bottom,
                                     title: "",
                                     image: UIImage(named: ""),
                                     backgroundColor: nil,
@@ -260,7 +260,7 @@ class ASToastTests: QuickSpec {
                     let view = viewController.view
                     view!.makeToast("TEST",
                                     duration: TimeInterval(3.0),
-                                    position: "" as AnyObject,
+                                    position: .center,
                                     title: "",
                                     image: UIImage(named: ""),
                                     backgroundColor: UIColor.blue,
@@ -275,7 +275,7 @@ class ASToastTests: QuickSpec {
                     let view = viewController.view
                     view!.makeToast("",
                                     duration: TimeInterval(3.0),
-                                    position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
+                                    position: .top,
                                     title: "",
                                     image: UIImage(named: "apple_logo.png"),
                                     backgroundColor: UIColor.blue,
@@ -290,7 +290,7 @@ class ASToastTests: QuickSpec {
                     let view = viewController.view
                     view!.makeToast("",
                                     duration: TimeInterval(3.0),
-                                    position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
+                                    position: .bottom,
                                     title: "",
                                     image: UIImage(named: ""),
                                     backgroundColor: UIColor.blue,
@@ -319,7 +319,7 @@ class ASToastTests: QuickSpec {
                     let toastView = UIView()
                     view!.showToast(toastView,
                                     duration: TimeInterval(3.0),
-                                    position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject)
+                                    position: .center)
                     expect(view?.subviews.count).to(equal(1))
                 }
             }
@@ -330,7 +330,7 @@ class ASToastTests: QuickSpec {
                     let toastView = UIView()
                     view!.showToast(toastView,
                                     duration: TimeInterval(3.0),
-                                    position: "" as AnyObject)
+                                    position: .top)
                     expect(view?.subviews.count).to(equal(1))
                 }
             }

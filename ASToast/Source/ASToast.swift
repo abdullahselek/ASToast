@@ -69,16 +69,16 @@ struct Constants {
     // activity
     static let ASToastActivityWidth = CGFloat(100.0)
     static let ASToastActivityHeight = CGFloat(100.0)
-    static let ASToastActivityDefaultPosition = ASToastPosition.ASToastPositionCenter
+    static let ASToastActivityDefaultPosition = ASToastPosition.center
 }
 
 /**
   Toast positions
  */
 public enum ASToastPosition: String {
-    case ASToastPositionTop = "ASToastPositionTop",
-    ASToastPositionCenter = "ASToastPositionCenter",
-    ASToastPositionBotom = "ASToastPositionBotom"
+    case top = "top",
+    center = "center",
+    bottom = "bottom"
 }
 
 private var timer: Timer!
@@ -102,7 +102,7 @@ public extension UIView {
                           messageColor: UIColor?) {
         makeToast(message,
                   duration: Constants.ASToastDuration,
-                  position: nil,
+                  position: .bottom,
                   backgroundColor: backgroundColor,
                   titleColor: nil,
                   messageColor: messageColor)
@@ -119,7 +119,7 @@ public extension UIView {
      */
     public func makeToast(_ message: String,
                           duration: TimeInterval,
-                          position: AnyObject?,
+                          position: ASToastPosition,
                           backgroundColor: UIColor?,
                           titleColor: UIColor?,
                           messageColor: UIColor?) {
@@ -148,7 +148,7 @@ public extension UIView {
      */
     public func makeToast(_ message: String,
                           duration: TimeInterval,
-                          position: AnyObject?,
+                          position: ASToastPosition,
                           title: String,
                           backgroundColor: UIColor?,
                           titleColor: UIColor?,
@@ -176,7 +176,7 @@ public extension UIView {
      */
     public func makeToast(_ message: String,
                           duration: TimeInterval,
-                          position: AnyObject?,
+                          position: ASToastPosition,
                           image: UIImage!,
                           backgroundColor: UIColor?,
                           titleColor: UIColor?,
@@ -205,7 +205,7 @@ public extension UIView {
      */
     public func makeToast(_ message: String,
                           duration: TimeInterval,
-                          position: AnyObject?,
+                          position: ASToastPosition,
                           title: String,
                           image: UIImage!,
                           backgroundColor: UIColor?,
@@ -231,7 +231,7 @@ public extension UIView {
     public func showToast(_ toastView: UIView!) {
         showToast(toastView,
                   duration: Constants.ASToastDuration,
-                  position: nil)
+                  position: .bottom)
     }
     
     /**
@@ -242,7 +242,7 @@ public extension UIView {
      */
     public func showToast(_ toastView: UIView!,
                           duration: TimeInterval!,
-                          position: AnyObject?) {
+                          position: ASToastPosition) {
         createAndShowToast(toastView,
                            duration: duration,
                            position: position)
@@ -256,11 +256,11 @@ public extension UIView {
      */
     fileprivate func createAndShowToast(_ toastView: UIView!,
                                         duration: TimeInterval!,
-                                        position: AnyObject?) {
+                                        position: ASToastPosition) {
         if toastView == nil {
             return
         }
-        toastView.center = centerPointForPosition(position, toastView: toastView)
+        toastView.center = centerPointForPosition(position: position, toastView: toastView)
         toastView.alpha = Constants.ASToastViewAlpha
         
         if Constants.ASToastHidesOnTap {
@@ -472,16 +472,16 @@ public extension UIView {
       Show a toast with activity indicator
      */
     public func makeToastActivity() {
-        makeToastActivity(Constants.ASToastActivityDefaultPosition.rawValue as AnyObject)
+        makeToastActivity(position: .center)
     }
     
     /**
       Create toast with given position
       - parameter position: The position that toast will displayed
      */
-    fileprivate func makeToastActivity(_ position: AnyObject) {
+    fileprivate func makeToastActivity(position: ASToastPosition) {
         activityView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: Constants.ASToastActivityWidth, height: Constants.ASToastActivityHeight))
-        activityView.center = centerPointForPosition(position, toastView: activityView)
+        activityView.center = centerPointForPosition(position: position, toastView: activityView)
         activityView.backgroundColor = UIColor.black.withAlphaComponent(Constants.ASToastOpacity)
         activityView.alpha = Constants.ASToastViewAlpha
         activityView.autoresizingMask = [UIViewAutoresizing.flexibleLeftMargin, UIViewAutoresizing.flexibleRightMargin, UIViewAutoresizing.flexibleTopMargin, UIViewAutoresizing.flexibleBottomMargin]
@@ -523,24 +523,18 @@ public extension UIView {
     
     /**
       Center toast with given point and view
-      - parameter point: Position to centralize
+      - parameter position: Position to centralize
       - parameter toastView: Toast view
      */
-    fileprivate func centerPointForPosition(_ point: AnyObject?, toastView: UIView!) -> CGPoint {
-        if point != nil {
-            if point! is String {
-                if point!.caseInsensitiveCompare(ASToastPosition.ASToastPositionTop.rawValue) == ComparisonResult.orderedSame {
-                    return CGPoint(x: self.bounds.size.width / 2, y: (toastView.frame.size.height / 2) + Constants.ASToastVerticalPadding)
-                } else if point!.caseInsensitiveCompare(ASToastPosition.ASToastPositionCenter.rawValue) == ComparisonResult.orderedSame {
-                    return CGPoint(x: self.bounds.size.width / 2, y: self.bounds.size.height / 2)
-                }
-            } else if point! is NSValue {
-                return point!.cgPointValue
-            }
+    fileprivate func centerPointForPosition(position: ASToastPosition, toastView: UIView!) -> CGPoint {
+        switch position {
+        case.top :
+            return CGPoint(x: self.bounds.size.width / 2, y: (toastView.frame.size.height / 2) + Constants.ASToastVerticalPadding)
+        case .center:
+            return CGPoint(x: self.bounds.size.width / 2, y: self.bounds.size.height / 2)
+        default:
+            return CGPoint(x: self.bounds.size.width / 2, y: (self.bounds.size.height - (toastView.frame.size.height / 2)) - Constants.ASToastVerticalPadding)
         }
-        
-        // default bottom option
-        return CGPoint(x: self.bounds.size.width / 2, y: (self.bounds.size.height - (toastView.frame.size.height / 2)) - Constants.ASToastVerticalPadding)
     }
     
     /**
