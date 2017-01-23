@@ -37,7 +37,7 @@ import QuartzCore
 struct Constants {
     // duration of view on screen
     static let ASToastDuration = TimeInterval(3)
-    
+
     // view appearance
     static let ASToastMaxWidth = CGFloat(0.8)
     static let ASToastMaxHeight = CGFloat(0.8)
@@ -49,10 +49,10 @@ struct Constants {
     static let ASToastFadeDuration = TimeInterval(0.3)
     static let ASToastMaxTitleLines = 0
     static let ASToastMaxMessageLines = 0
-    
+
     // value between 0.0 and 1.0
     static let ASToastViewAlpha = CGFloat(0.0)
-    
+
     // shadow appearance
     static let ASToastDisplayShadow = true
     static let ASToastShadowOpacity = Float(0.8)
@@ -61,11 +61,11 @@ struct Constants {
 
     // change visibility of view
     static let ASToastHidesOnTap = true
-    
+
     // image view size
     static let ASToastImageViewWidth = CGFloat(80.0)
     static let ASToastImageViewHeight = CGFloat(80.0)
-    
+
     // activity
     static let ASToastActivityWidth = CGFloat(100.0)
     static let ASToastActivityHeight = CGFloat(100.0)
@@ -88,9 +88,9 @@ private var activityView: UIView!
   ASToast view extension
  */
 public extension UIView {
-    
+
     // MARK: Make toast methods
-    
+
     /**
       Show a toast with given string
       - parameter message: Message Text
@@ -107,7 +107,7 @@ public extension UIView {
                   titleColor: nil,
                   messageColor: messageColor)
     }
-    
+
     /**
       Show a toast with given string, duration and position
       - parameter message: Message Text
@@ -135,7 +135,7 @@ public extension UIView {
                            position: position)
         }
     }
-    
+
     /**
       Show a toast with given string, duration, position and title
       - parameter message: Message Text
@@ -163,7 +163,7 @@ public extension UIView {
                        duration: duration,
                        position: position)
     }
-    
+
     /**
       Show a toast with given string, duration, position and image
       - parameter message: Message Text
@@ -191,7 +191,7 @@ public extension UIView {
                        duration: duration,
                        position: position)
     }
-    
+
     /**
       Show a toast with given string, duration, position, title and image
       - parameter message: Message Text
@@ -221,9 +221,9 @@ public extension UIView {
                        duration: duration,
                        position: position)
     }
-    
+
     // MARK: Toast view main methods
-    
+
     /**
       Show toast view with constant duration (3 seconds)
       - parameter toastView: Toast view
@@ -233,7 +233,7 @@ public extension UIView {
                   duration: Constants.ASToastDuration,
                   position: .bottom)
     }
-    
+
     /**
       Show toast view with duration and position
       - parameter toastView: Toast view
@@ -247,7 +247,7 @@ public extension UIView {
                            duration: duration,
                            position: position)
     }
-    
+
     /**
       Create and show toast
       - parameter toastView: Toast view
@@ -262,25 +262,25 @@ public extension UIView {
         }
         toastView.center = centerPointForPosition(position: position, toastView: toastView)
         toastView.alpha = Constants.ASToastViewAlpha
-        
+
         if Constants.ASToastHidesOnTap {
             let tapRecognizer: UITapGestureRecognizer! = UITapGestureRecognizer(target: toastView, action: #selector(UIView.handleToastTapped(_:)))
             toastView.addGestureRecognizer(tapRecognizer)
             toastView.isUserInteractionEnabled = true
             toastView.isExclusiveTouch = true
         }
-        
+
         timer = Timer.scheduledTimer(timeInterval: duration, target: self, selector: #selector(UIView.toastTimerDidFinish(_:)), userInfo: toastView, repeats: false)
-        
+
         self.addSubview(toastView)
-        
+
         UIView.animate(withDuration: Constants.ASToastDuration, delay: 0.0, options: UIViewAnimationOptions.allowUserInteraction, animations: { () -> Void in
             toastView.alpha = 1.0
         }) { (Bool) -> Void in
-            
+
         }
     }
-    
+
     /**
       Hide toast view
       - parameter toastView: Toast view
@@ -288,7 +288,7 @@ public extension UIView {
     fileprivate func hideToast(_ toastView: UIView!) {
         UIView.animate(withDuration: Constants.ASToastFadeDuration, delay: 0.0, options: [UIViewAnimationOptions.curveEaseIn, UIViewAnimationOptions.beginFromCurrentState], animations: { () -> Void in
             toastView.alpha = 0.0
-        }) { (Bool) -> Void in
+        }) { (_) -> Void in
             toastView.removeFromSuperview()
         }
     }
@@ -312,16 +312,16 @@ public extension UIView {
         if message.isEmpty && title.isEmpty && image == nil {
             return nil
         }
-        
+
         // ui elements of toast
         var messageLabel: UILabel!
         var titleLabel: UILabel!
         var imageView: UIImageView!
-        
+
         let toastView: UIView! = UIView()
         toastView.autoresizingMask = [UIViewAutoresizing.flexibleLeftMargin, UIViewAutoresizing.flexibleRightMargin, UIViewAutoresizing.flexibleTopMargin, UIViewAutoresizing.flexibleBottomMargin]
         toastView.layer.cornerRadius = Constants.ASToastCornerRadius
-        
+
         // check if shadow needed
         if Constants.ASToastDisplayShadow == true {
             toastView.layer.shadowColor = UIColor.black.cgColor
@@ -329,34 +329,34 @@ public extension UIView {
             toastView.layer.shadowRadius = Constants.ASToastShadowRadius
             toastView.layer.shadowOffset = Constants.ASToastShadowOffset
         }
-        
+
         // set toastView background color
         if backgroundColor != nil {
             toastView.backgroundColor = backgroundColor!.withAlphaComponent(Constants.ASToastOpacity)
         } else {
             toastView.backgroundColor = UIColor.black.withAlphaComponent(Constants.ASToastOpacity)
         }
-        
+
         // check image
-        if(image != nil) {
+        if image != nil {
             imageView = UIImageView(image: image)
             imageView.contentMode = UIViewContentMode.scaleAspectFit
             imageView.frame = CGRect(x: Constants.ASToastHorizontalPadding, y: Constants.ASToastVerticalPadding, width: Constants.ASToastImageViewWidth, height: Constants.ASToastImageViewHeight)
         }
-        
+
         var imageWidth, imageHeight, imageLeft: CGFloat!
-        
+
         // the imageView frame values will be used to size & position the other views
-        if(imageView != nil) {
-            imageWidth = imageView.bounds.size.width;
-            imageHeight = imageView.bounds.size.height;
+        if imageView != nil {
+            imageWidth = imageView.bounds.size.width
+            imageHeight = imageView.bounds.size.height
             imageLeft = Constants.ASToastHorizontalPadding
         } else {
             imageWidth = 0.0
             imageHeight = 0.0
             imageLeft = 0.0
         }
-        
+
         // check title if not empty create title label
         if !title.isEmpty {
             titleLabel = UILabel()
@@ -367,13 +367,13 @@ public extension UIView {
             titleLabel.backgroundColor = UIColor.clear
             titleLabel.alpha = 1.0
             titleLabel.text = title
-            
+
             // set size the title label according to the lenth of title text
             let maxSizeTitle = CGSize(width: (self.bounds.size.width * Constants.ASToastMaxWidth) - imageWidth, height: self.bounds.size.height * Constants.ASToastMaxHeight)
             let expectedSizeTitle: CGSize! = sizeForString(title as NSString, font: titleLabel.font, constrainedSize: maxSizeTitle, lineBreakMode: titleLabel.lineBreakMode)
             titleLabel.frame = CGRect(x: 0.0, y: 0.0, width: expectedSizeTitle.width, height: expectedSizeTitle.height)
         }
-        
+
         // check message string if not empty create message label
         if !message.isEmpty {
             messageLabel = UILabel()
@@ -390,10 +390,10 @@ public extension UIView {
             let expectedSizeMessage: CGSize! = sizeForString(message as NSString, font: messageLabel.font, constrainedSize: maxSizeMessage, lineBreakMode: messageLabel.lineBreakMode)
             messageLabel.frame = CGRect(x: 0.0, y: 0.0, width: expectedSizeMessage.width, height: expectedSizeMessage.height)
         }
-        
+
         // title label frame values
         var titleWidth, titleHeight, titleTop, titleLeft: CGFloat!
-        
+
         if titleLabel != nil {
             titleWidth = titleLabel.bounds.size.width
             titleHeight = titleLabel.bounds.size.height
@@ -405,10 +405,10 @@ public extension UIView {
             titleTop = 0.0
             titleLeft = 0.0
         }
-        
+
         // message label frame values
         var messageWidth, messageHeight, messageLeft, messageTop: CGFloat!
-        
+
         if messageLabel != nil {
             messageWidth = messageLabel.bounds.size.width
             messageHeight = messageLabel.bounds.size.height
@@ -420,35 +420,35 @@ public extension UIView {
             messageLeft = 0.0
             messageTop = 0.0
         }
-        
+
         let longerWidth = max(titleWidth, messageWidth)
         let longerLeft = max(titleLeft, messageLeft)
-        
+
         // toastView frames
         let toastViewWidth = max(imageWidth + (Constants.ASToastHorizontalPadding * 2), (longerLeft + longerWidth + Constants.ASToastHorizontalPadding))
         let toastViewHeight = max(messageTop + messageHeight + Constants.ASToastVerticalPadding, (imageHeight + (Constants.ASToastVerticalPadding * 2)))
-        
+
         toastView.frame = CGRect(x: 0.0, y: 0.0, width: toastViewWidth, height: toastViewHeight)
-        
+
         if titleLabel != nil {
             titleLabel.frame = CGRect(x: titleLeft, y: titleTop, width: titleWidth, height: titleHeight)
             toastView.addSubview(titleLabel)
         }
-        
+
         if messageLabel != nil {
             messageLabel.frame = CGRect(x: messageLeft, y: messageTop, width: messageWidth, height: messageHeight)
             toastView.addSubview(messageLabel)
         }
-        
+
         if imageView != nil {
             toastView.addSubview(imageView)
         }
-        
+
         return toastView
     }
 
     // MARK: Toast view events
-    
+
     /**
       Finish event handler for timer
       - parameter timer: NSTimer
@@ -456,7 +456,7 @@ public extension UIView {
     func toastTimerDidFinish(_ timer: Timer) {
         self.hideToast(timer.userInfo as? UIView!)
     }
-    
+
     /**
       Tap gesture handler
       - parameter recognizer: UITapGestureRecognizer
@@ -465,16 +465,16 @@ public extension UIView {
         timer.invalidate()
         hideToast(recognizer.view)
     }
-    
+
     // MARK: Toast activity methods
-    
+
     /**
       Show a toast with activity indicator
      */
     public func makeToastActivity() {
         makeToastActivity(position: .center)
     }
-    
+
     /**
       Create toast with given position
       - parameter position: The position that toast will displayed
@@ -486,26 +486,26 @@ public extension UIView {
         activityView.alpha = Constants.ASToastViewAlpha
         activityView.autoresizingMask = [UIViewAutoresizing.flexibleLeftMargin, UIViewAutoresizing.flexibleRightMargin, UIViewAutoresizing.flexibleTopMargin, UIViewAutoresizing.flexibleBottomMargin]
         activityView.layer.cornerRadius = Constants.ASToastCornerRadius
-        
+
         if Constants.ASToastDisplayShadow {
             activityView.layer.shadowColor = UIColor.black.cgColor
             activityView.layer.shadowOpacity = Constants.ASToastShadowOpacity
             activityView.layer.shadowRadius = Constants.ASToastShadowRadius
             activityView.layer.shadowOffset = Constants.ASToastShadowOffset
         }
-        
+
         let activityIndicatorView: UIActivityIndicatorView! = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
         activityIndicatorView.center = CGPoint(x: activityView.bounds.size.width / 2, y: activityView.bounds.size.height / 2)
         activityView.addSubview(activityIndicatorView)
         activityIndicatorView.startAnimating()
-        
+
         self.addSubview(activityView)
-        
+
         UIView.animate(withDuration: Constants.ASToastDuration, delay: 0.0, options: UIViewAnimationOptions(), animations: { () -> Void in
             activityView.alpha = 1.0
         }, completion: nil)
     }
-    
+
     /**
       Hide activity indicator toast
      */
@@ -513,14 +513,14 @@ public extension UIView {
         if activityView != nil {
             UIView.animate(withDuration: Constants.ASToastFadeDuration, delay: 0.0, options: [UIViewAnimationOptions.curveEaseIn, UIViewAnimationOptions.beginFromCurrentState], animations: { () -> Void in
                 activityView.alpha = 0.0
-            }, completion: { (Bool) -> Void in
+            }, completion: { (_) -> Void in
                 activityView.removeFromSuperview()
             })
         }
     }
-    
+
     // MARK: Helpers
-    
+
     /**
       Center toast with given point and view
       - parameter position: Position to centralize
@@ -536,7 +536,7 @@ public extension UIView {
             return CGPoint(x: self.bounds.size.width / 2, y: (self.bounds.size.height - (toastView.frame.size.height / 2)) - Constants.ASToastVerticalPadding)
         }
     }
-    
+
     /**
       Calculates string size with given text, font, constrained and mode
       - parameter text: Toast view message
@@ -555,8 +555,8 @@ public extension UIView {
             let boundingRect: CGRect! = text.boundingRect(with: constrainedSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: attributes, context: nil)
             return CGSize(width: boundingRect.size.width, height: boundingRect.size.height)
         }
-        
+
         return CGSize(width: 0.0, height: 0.0)
     }
-    
+
 }
