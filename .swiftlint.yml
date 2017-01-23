@@ -13,7 +13,7 @@ excluded:
 force_cast: warning
 force_try:
   severity: warning
-line_length: 180
+line_length: 210
 type_body_length:
   - 300
   - 400
@@ -26,6 +26,7 @@ type_name:
     warning: 40
     error: 50
   excluded: iPhone
+function_parameter_count: 6
 variable_name:
   min_length:
     error: 4
