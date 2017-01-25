@@ -97,10 +97,10 @@ public extension UIView {
       - parameter backgroundColor: Color for background
       - parameter messageColor: Color for mesage text
      */
-    public func makeToast(_ message: String,
+    public func makeToast(message: String,
                           backgroundColor: UIColor?,
                           messageColor: UIColor?) {
-        makeToast(message,
+        makeToast(message: message,
                   duration: Constants.ToastDuration,
                   position: .bottom,
                   backgroundColor: backgroundColor,
@@ -117,20 +117,20 @@ public extension UIView {
       - parameter titleColor: Color for title text
       - parameter messageColor: Color for mesage text
      */
-    public func makeToast(_ message: String,
+    public func makeToast(message: String,
                           duration: TimeInterval,
                           position: ToastPosition,
                           backgroundColor: UIColor?,
                           titleColor: UIColor?,
                           messageColor: UIColor?) {
-        let toastView = self.toastView(message,
+        let toastView = self.toastView(message: message,
                                        title: "",
                                        image: nil,
                                        backgroundColor: backgroundColor,
                                        titleColor: titleColor,
                                        messageColor: messageColor)
         if toastView != nil {
-            self.showToast(toastView,
+            self.showToast(toastView: toastView,
                            duration: duration,
                            position: position)
         }
@@ -146,20 +146,20 @@ public extension UIView {
       - parameter titleColor: Color for title text
       - parameter messageColor: Color for mesage text
      */
-    public func makeToast(_ message: String,
+    public func makeToast(message: String,
                           duration: TimeInterval,
                           position: ToastPosition,
                           title: String,
                           backgroundColor: UIColor?,
                           titleColor: UIColor?,
                           messageColor: UIColor?) {
-        let toastView = self.toastView(message,
+        let toastView = self.toastView(message: message,
                                        title: title,
                                        image: nil,
                                        backgroundColor: backgroundColor,
                                        titleColor: titleColor,
                                        messageColor: messageColor)
-        self.showToast(toastView,
+        self.showToast(toastView: toastView,
                        duration: duration,
                        position: position)
     }
@@ -174,20 +174,20 @@ public extension UIView {
       - parameter titleColor: Color for title text
       - parameter messageColor: Color for mesage text
      */
-    public func makeToast(_ message: String,
+    public func makeToast(message: String,
                           duration: TimeInterval,
                           position: ToastPosition,
                           image: UIImage!,
                           backgroundColor: UIColor?,
                           titleColor: UIColor?,
                           messageColor: UIColor?) {
-        let toastView = self.toastView(message,
+        let toastView = self.toastView(message: message,
                                        title: "",
                                        image: image,
                                        backgroundColor: backgroundColor,
                                        titleColor: titleColor,
                                        messageColor: messageColor)
-        self.showToast(toastView,
+        self.showToast(toastView: toastView,
                        duration: duration,
                        position: position)
     }
@@ -203,7 +203,7 @@ public extension UIView {
       - parameter titleColor: Color for title text
       - parameter messageColor: Color for mesage text
      */
-    public func makeToast(_ message: String,
+    public func makeToast(message: String,
                           duration: TimeInterval,
                           position: ToastPosition,
                           title: String,
@@ -211,13 +211,13 @@ public extension UIView {
                           backgroundColor: UIColor?,
                           titleColor: UIColor?,
                           messageColor: UIColor?) {
-        let toastView = self.toastView(message,
+        let toastView = self.toastView(message: message,
                                        title: title,
                                        image: image,
                                        backgroundColor: backgroundColor,
                                        titleColor: titleColor,
                                        messageColor: messageColor)
-        self.showToast(toastView,
+        self.showToast(toastView: toastView,
                        duration: duration,
                        position: position)
     }
@@ -228,8 +228,8 @@ public extension UIView {
       Show toast view with constant duration (3 seconds)
       - parameter toastView: Toast view
      */
-    public func showToast(_ toastView: UIView!) {
-        showToast(toastView,
+    public func showToast(toastView: UIView!) {
+        showToast(toastView: toastView,
                   duration: Constants.ToastDuration,
                   position: .bottom)
     }
@@ -240,10 +240,10 @@ public extension UIView {
       - parameter duration: The time duration toast will displayed on the screen
       - parameter position: The position that toast will displayed
      */
-    public func showToast(_ toastView: UIView!,
+    public func showToast(toastView: UIView!,
                           duration: TimeInterval!,
                           position: ToastPosition) {
-        createAndShowToast(toastView,
+        createAndShowToast(toastView: toastView,
                            duration: duration,
                            position: position)
     }
@@ -254,7 +254,7 @@ public extension UIView {
       - parameter duration: The time duration toast will displayed on the screen
       - parameter position: The position that toast will displayed
      */
-    fileprivate func createAndShowToast(_ toastView: UIView!,
+    fileprivate func createAndShowToast(toastView: UIView!,
                                         duration: TimeInterval!,
                                         position: ToastPosition) {
         if toastView == nil {
@@ -285,7 +285,7 @@ public extension UIView {
       Hide toast view
       - parameter toastView: Toast view
      */
-    fileprivate func hideToast(_ toastView: UIView!) {
+    fileprivate func hideToast(toastView: UIView!) {
         UIView.animate(withDuration: Constants.ToastFadeDuration, delay: 0.0, options: [UIViewAnimationOptions.curveEaseIn, UIViewAnimationOptions.beginFromCurrentState], animations: { () -> Void in
             toastView.alpha = 0.0
         }) { (_) -> Void in
@@ -302,7 +302,7 @@ public extension UIView {
       - parameter titleColor: Color for title text
       - parameter messageColor: Color for mesage text
      */
-    fileprivate func toastView(_ message: String,
+    fileprivate func toastView(message: String,
                                title: String,
                                image: UIImage?,
                                backgroundColor: UIColor?,
@@ -454,7 +454,7 @@ public extension UIView {
       - parameter timer: NSTimer
      */
     func toastTimerDidFinish(_ timer: Timer) {
-        self.hideToast(timer.userInfo as? UIView!)
+        self.hideToast(toastView: timer.userInfo as? UIView!)
     }
 
     /**
@@ -463,7 +463,7 @@ public extension UIView {
      */
     func handleToastTapped(_ recognizer: UITapGestureRecognizer) {
         timer.invalidate()
-        hideToast(recognizer.view)
+        hideToast(toastView: recognizer.view)
     }
 
     // MARK: Toast activity methods

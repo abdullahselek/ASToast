@@ -20,7 +20,7 @@ class ASToastTests: QuickSpec {
                 it("set a valid message") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view!.makeToast("TEST",
+                    view!.makeToast(message: "TEST",
                                     backgroundColor: nil,
                                     messageColor: UIColor.cyan)
                     expect(view?.subviews.count).to(equal(1))
@@ -30,7 +30,7 @@ class ASToastTests: QuickSpec {
                 it("set a empty message") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view!.makeToast("",
+                    view!.makeToast(message: "",
                                     backgroundColor: UIColor.green,
                                     messageColor: nil)
                     expect(view?.subviews.count).to(equal(0))
@@ -42,7 +42,7 @@ class ASToastTests: QuickSpec {
                 it("set valid message, duration and position") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view!.makeToast("TEST",
+                    view!.makeToast(message: "TEST",
                                     duration: TimeInterval(3.0),
                                     position: .center,
                                     backgroundColor: nil,
@@ -55,7 +55,7 @@ class ASToastTests: QuickSpec {
                 it("set a invalid position, valid text and duration") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view!.makeToast("TEST",
+                    view!.makeToast(message: "TEST",
                                     duration: TimeInterval(3.0),
                                     position: .top,
                                     backgroundColor: UIColor.blue,
@@ -68,7 +68,7 @@ class ASToastTests: QuickSpec {
                 it("set a empty text, valid duration and valid position") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view!.makeToast("",
+                    view!.makeToast(message: "",
                                     duration: TimeInterval(3.0),
                                     position: .bottom,
                                     backgroundColor: UIColor.blue,
@@ -83,7 +83,7 @@ class ASToastTests: QuickSpec {
                 it("set valid message, duration, position and title") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view!.makeToast("TEST",
+                    view!.makeToast(message: "TEST",
                                     duration: TimeInterval(3.0),
                                     position: .center,
                                     title: "TITLE",
@@ -97,7 +97,7 @@ class ASToastTests: QuickSpec {
                 it("set empty message, duration, position and title") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view!.makeToast("",
+                    view!.makeToast(message: "",
                                     duration: TimeInterval(3.0),
                                     position: .top,
                                     title: "TITLE",
@@ -111,7 +111,7 @@ class ASToastTests: QuickSpec {
                 it("set message, duration, position and empty title") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view!.makeToast("TEST",
+                    view!.makeToast(message: "TEST",
                                     duration: TimeInterval(3.0),
                                     position: .bottom,
                                     title: "",
@@ -125,7 +125,7 @@ class ASToastTests: QuickSpec {
                 it("set message, duration, position and empty title") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view!.makeToast("TEST",
+                    view!.makeToast(message: "TEST",
                                     duration: TimeInterval(3.0),
                                     position: .center,
                                     title: "TITLE",
@@ -139,7 +139,7 @@ class ASToastTests: QuickSpec {
                 it("set message, duration, position and empty title") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view!.makeToast("",
+                    view!.makeToast(message: "",
                                     duration: TimeInterval(3.0),
                                     position: .top,
                                     title: "",
@@ -155,7 +155,7 @@ class ASToastTests: QuickSpec {
                 it("set valid message, duration, position and image") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view!.makeToast("TEST",
+                    view!.makeToast(message: "TEST",
                                     duration: TimeInterval(3.0),
                                     position: .bottom,
                                     image: UIImage(named: "apple_logo.png"),
@@ -169,7 +169,7 @@ class ASToastTests: QuickSpec {
                 it("set duration, position, image and empty message") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view!.makeToast("",
+                    view!.makeToast(message: "",
                                     duration: TimeInterval(3.0),
                                     position: .center,
                                     image: UIImage(named: "apple_logo.png"),
@@ -183,7 +183,7 @@ class ASToastTests: QuickSpec {
                 it("set message, duration, position and empty image") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view!.makeToast("TEST",
+                    view!.makeToast(message: "TEST",
                                     duration: TimeInterval(3.0),
                                     position: .top,
                                     image: UIImage(named: "apple_logo.png"),
@@ -197,7 +197,7 @@ class ASToastTests: QuickSpec {
                 it("set message, duration, position and empty image") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view!.makeToast("",
+                    view!.makeToast(message: "",
                                     duration: TimeInterval(3.0),
                                     position: .bottom,
                                     image: UIImage(named: ""),
@@ -213,7 +213,7 @@ class ASToastTests: QuickSpec {
                 it("set valid message, duration, position, title and image") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view!.makeToast("TEST",
+                    view!.makeToast(message: "TEST",
                                     duration: TimeInterval(3.0),
                                     position: .center,
                                     title: "TITLE",
@@ -228,7 +228,7 @@ class ASToastTests: QuickSpec {
                 it("set valid message, duration, position, title and image") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view!.makeToast("TEST",
+                    view!.makeToast(message: "TEST",
                                     duration: TimeInterval(3.0),
                                     position: .top,
                                     title: "",
@@ -243,7 +243,7 @@ class ASToastTests: QuickSpec {
                 it("set valid message, duration, position, title and image") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view!.makeToast("TEST",
+                    view!.makeToast(message: "TEST",
                                     duration: TimeInterval(3.0),
                                     position: .bottom,
                                     title: "",
@@ -258,7 +258,7 @@ class ASToastTests: QuickSpec {
                 it("set valid message, duration, position, title and image") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view!.makeToast("TEST",
+                    view!.makeToast(message: "TEST",
                                     duration: TimeInterval(3.0),
                                     position: .center,
                                     title: "",
@@ -273,7 +273,7 @@ class ASToastTests: QuickSpec {
                 it("set valid message, duration, position, title and image") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view!.makeToast("",
+                    view!.makeToast(message: "",
                                     duration: TimeInterval(3.0),
                                     position: .top,
                                     title: "",
@@ -288,7 +288,7 @@ class ASToastTests: QuickSpec {
                 it("set valid message, duration, position, title and image") {
                     let viewController = UIViewController()
                     let view = viewController.view
-                    view!.makeToast("",
+                    view!.makeToast(message: "",
                                     duration: TimeInterval(3.0),
                                     position: .bottom,
                                     title: "",
@@ -306,7 +306,7 @@ class ASToastTests: QuickSpec {
                     let viewController = UIViewController()
                     let view = viewController.view
                     let toastView = UIView()
-                    view!.showToast(toastView)
+                    view!.showToast(toastView: toastView)
                     expect(view?.subviews.count).to(equal(1))
                 }
             }
@@ -317,7 +317,7 @@ class ASToastTests: QuickSpec {
                     let viewController = UIViewController()
                     let view = viewController.view
                     let toastView = UIView()
-                    view!.showToast(toastView,
+                    view!.showToast(toastView: toastView,
                                     duration: TimeInterval(3.0),
                                     position: .center)
                     expect(view?.subviews.count).to(equal(1))
@@ -328,7 +328,7 @@ class ASToastTests: QuickSpec {
                     let viewController = UIViewController()
                     let view = viewController.view
                     let toastView = UIView()
-                    view!.showToast(toastView,
+                    view!.showToast(toastView: toastView,
                                     duration: TimeInterval(3.0),
                                     position: .top)
                     expect(view?.subviews.count).to(equal(1))

@@ -28,19 +28,19 @@ class ViewController: UIViewController {
         switch(sender.tag) {
         case 0:
             // make a toast with single text
-            self.view.makeToast("Single text toast", backgroundColor: nil, messageColor: UIColor.cyan)
+            self.view.makeToast(message: "Single text toast", backgroundColor: nil, messageColor: UIColor.cyan)
             break
         case 1:
             // make a toast with text, title, position and duration
-            self.view.makeToast("Toast with custom text, title and duration", duration: TimeInterval(3.0), position: .center, title: "Title", backgroundColor: UIColor.blue, titleColor: UIColor.yellow, messageColor: UIColor.yellow)
+            self.view.makeToast(message: "Toast with custom text, title and duration", duration: TimeInterval(3.0), position: .center, title: "Title", backgroundColor: UIColor.blue, titleColor: UIColor.yellow, messageColor: UIColor.yellow)
             break
         case 2:
             // Make toast with an image
-            self.view.makeToast("Toast with an image", duration: TimeInterval(3.0), position: .top, image: UIImage(named: "apple_logo"), backgroundColor: UIColor.blue, titleColor: UIColor.yellow, messageColor: UIColor.yellow)
+            self.view.makeToast(message: "Toast with an image", duration: TimeInterval(3.0), position: .top, image: UIImage(named: "apple_logo"), backgroundColor: UIColor.blue, titleColor: UIColor.yellow, messageColor: UIColor.yellow)
             break
         case 3:
             // Make toast with an title & image
-            self.view.makeToast("Toast with an title & image", duration: TimeInterval(3.0), position: .center, title: "Title", image: UIImage(named: "apple_logo"), backgroundColor: UIColor.blue, titleColor: UIColor.cyan, messageColor: UIColor.yellow)
+            self.view.makeToast(message: "Toast with an title & image", duration: TimeInterval(3.0), position: .center, title: "Title", image: UIImage(named: "apple_logo"), backgroundColor: UIColor.blue, titleColor: UIColor.cyan, messageColor: UIColor.yellow)
             break
         case 4:
             // Show a custom view as toast
@@ -48,7 +48,7 @@ class ViewController: UIViewController {
             customView.autoresizingMask = [UIViewAutoresizing.flexibleLeftMargin, UIViewAutoresizing.flexibleRightMargin, UIViewAutoresizing.flexibleTopMargin, UIViewAutoresizing.flexibleBottomMargin]
             customView.backgroundColor = UIColor.green
 
-            self.view.showToast(customView, duration: TimeInterval(3.0), position: .center)
+            self.view.showToast(toastView: customView, duration: TimeInterval(3.0), position: .center)
             break
         case 5:
             // Show an imageView as toast, on center at point (110,110)
