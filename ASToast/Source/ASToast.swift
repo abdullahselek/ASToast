@@ -104,7 +104,6 @@ public extension UIView {
                   duration: Constants.ToastDuration,
                   position: .bottom,
                   backgroundColor: backgroundColor,
-                  titleColor: nil,
                   messageColor: messageColor)
     }
 
@@ -123,7 +122,6 @@ public extension UIView {
                   duration: duration,
                   position: .bottom,
                   backgroundColor: backgroundColor,
-                  titleColor: nil,
                   messageColor: messageColor)
     }
 
@@ -133,20 +131,18 @@ public extension UIView {
       - parameter duration: The time duration toast will displayed on the screen
       - parameter position: The position that toast will displayed
       - parameter backgroundColor: Color for background
-      - parameter titleColor: Color for title text
       - parameter messageColor: Color for mesage text
      */
     public func makeToast(message: String,
                           duration: TimeInterval,
                           position: ToastPosition,
                           backgroundColor: UIColor?,
-                          titleColor: UIColor?,
                           messageColor: UIColor?) {
         let toastView = self.toastView(message: message,
                                        title: "",
                                        image: nil,
                                        backgroundColor: backgroundColor,
-                                       titleColor: titleColor,
+                                       titleColor: nil,
                                        messageColor: messageColor)
         if toastView != nil {
             self.showToast(toastView: toastView,

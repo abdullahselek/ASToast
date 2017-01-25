@@ -44,10 +44,8 @@ class ASToastTests: QuickSpec {
                     let view = viewController.view
                     view!.makeToast(message: "TEST",
                                     duration: TimeInterval(3.0),
-                                    position: .center,
-                                    backgroundColor: nil,
-                                    titleColor: UIColor.cyan,
-                                    messageColor: UIColor.yellow)
+                                    backgroundColor: UIColor.blue,
+                                    messageColor: UIColor.white)
                     expect(view?.subviews.count).to(equal(1))
                 }
             }
@@ -59,8 +57,7 @@ class ASToastTests: QuickSpec {
                                     duration: TimeInterval(3.0),
                                     position: .top,
                                     backgroundColor: UIColor.blue,
-                                    titleColor: UIColor.cyan,
-                                    messageColor: nil)
+                                    messageColor: UIColor.white)
                     expect(view?.subviews.count).to(equal(1))
                 }
             }
@@ -72,7 +69,6 @@ class ASToastTests: QuickSpec {
                                     duration: TimeInterval(3.0),
                                     position: .bottom,
                                     backgroundColor: UIColor.blue,
-                                    titleColor: UIColor.cyan,
                                     messageColor: UIColor.yellow)
                     expect(view?.subviews.count).to(equal(0))
                 }
