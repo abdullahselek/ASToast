@@ -109,6 +109,25 @@ public extension UIView {
     }
 
     /**
+      Show a toast with given parameters
+      - parameter message: Message Text
+      - parameter duration: The time duration toast will displayed on the screen
+      - parameter backgroundColor: Color for background
+      - parameter messageColor: Color for mesage text
+     */
+    public func makeToast(message: String,
+                          duration: TimeInterval,
+                          backgroundColor: UIColor?,
+                          messageColor: UIColor?) {
+        makeToast(message: message,
+                  duration: duration,
+                  position: .bottom,
+                  backgroundColor: backgroundColor,
+                  titleColor: nil,
+                  messageColor: messageColor)
+    }
+
+    /**
       Show a toast with given string, duration and position
       - parameter message: Message Text
       - parameter duration: The time duration toast will displayed on the screen
