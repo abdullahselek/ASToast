@@ -363,6 +363,31 @@ class ASToastTests: QuickSpec {
                 expect(view?.subviews.count).to(equal(1))
             })
         }
+        context("makeToast with message, title, duration, backgroundColor, titleColor and messageColor") {
+            it("should display a toast", closure: {
+                let viewController = UIViewController()
+                let view = viewController.view
+                view!.makeToast(message: "TEST",
+                                title: "TITLE",
+                                backgroundColor: UIColor.blue,
+                                titleColor: UIColor.yellow,
+                                messageColor: UIColor.white)
+                expect(view?.subviews.count).to(equal(1))
+            })
+        }
+        context("makeToast with message, duration, title, duration, backgroundColor, titleColor and messageColor") {
+            it("should display a toast", closure: {
+                let viewController = UIViewController()
+                let view = viewController.view
+                view!.makeToast(message: "TEST",
+                                duration: TimeInterval(3.0),
+                                title: "TITLE",
+                                backgroundColor: UIColor.blue,
+                                titleColor: UIColor.yellow,
+                                messageColor: UIColor.white)
+                expect(view?.subviews.count).to(equal(1))
+            })
+        }
     }
 
 }

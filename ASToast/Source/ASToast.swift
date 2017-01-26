@@ -154,6 +154,56 @@ public extension UIView {
     /**
       Show a toast with given string, duration, position and title
       - parameter message: Message Text
+      - parameter title: Title for Toast
+      - parameter backgroundColor: Color for background
+      - parameter titleColor: Color for title text
+      - parameter messageColor: Color for mesage text
+     */
+    public func makeToast(message: String,
+                          title: String,
+                          backgroundColor: UIColor?,
+                          titleColor: UIColor?,
+                          messageColor: UIColor?) {
+        let toastView = self.toastView(message: message,
+                                       title: title,
+                                       image: nil,
+                                       backgroundColor: backgroundColor,
+                                       titleColor: titleColor,
+                                       messageColor: messageColor)
+        self.showToast(toastView: toastView,
+                       duration: Constants.ToastDuration,
+                       position: .bottom)
+    }
+
+    /**
+      Show a toast with given string, duration, position and title
+      - parameter message: Message Text
+      - parameter duration: The time duration toast will displayed on the screen
+      - parameter title: Title for Toast
+      - parameter backgroundColor: Color for background
+      - parameter titleColor: Color for title text
+      - parameter messageColor: Color for mesage text
+     */
+    public func makeToast(message: String,
+                          duration: TimeInterval,
+                          title: String,
+                          backgroundColor: UIColor?,
+                          titleColor: UIColor?,
+                          messageColor: UIColor?) {
+        let toastView = self.toastView(message: message,
+                                       title: title,
+                                       image: nil,
+                                       backgroundColor: backgroundColor,
+                                       titleColor: titleColor,
+                                       messageColor: messageColor)
+        self.showToast(toastView: toastView,
+                       duration: duration,
+                       position: .bottom)
+    }
+
+    /**
+      Show a toast with given string, duration, position and title
+      - parameter message: Message Text
       - parameter duration: The time duration toast will displayed on the screen
       - parameter position: The position that toast will displayed
       - parameter title: Title for Toast
