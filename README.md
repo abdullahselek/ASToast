@@ -38,7 +38,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'ASToast', '~> 1.0.6'
+    pod 'ASToast', '~> 1.0.7'
 end
 ```
 Then, run the following command:
@@ -59,7 +59,7 @@ brew install carthage
 To integrate ASToast into your Xcode project using Carthage, specify it in your Cartfile:
 
 ```
-github "abdullahselek/ASToast" ~> 1.0.6
+github "abdullahselek/ASToast" ~> 1.0.7
 ```
 
 Run carthage update to build the framework and drag the built ASToast.framework into your Xcode project.
@@ -68,22 +68,21 @@ Run carthage update to build the framework and drag the built ASToast.framework 
 
 make a toast with single text with default background color
 ```
-self.view.makeToast("Single text toast",
+self.view.makeToast(message: "Single text toast",
 					backgroundColor: nil,
 					messageColor: UIColor.cyan)
 ```
 make a toast with custom background color white message color
 ```
-self.view.makeToast("Single text toast",
+self.view.makeToast(message: "Single text toast",
 					backgroundColor: UIColor.blue,
 					messageColor: nil)
 ```
 make a toast with text, title, position and duration
 ```
-self.view.makeToast("Toast with custom text,
-					title and duration",
+self.view.makeToast(message: "Toast with custom text, title and duration",
 					duration: TimeInterval(3.0),
-					position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject,
+					position: .center,
 					title: "Title",
 					backgroundColor: UIColor.blue,
 					titleColor: UIColor.yellow,
@@ -91,9 +90,9 @@ self.view.makeToast("Toast with custom text,
 ``` 	
 make toast with an image
 ```
-self.view.makeToast("Toast with an image",
+self.view.makeToast(message: "Toast with an image",
 					duration: TimeInterval(3.0),
-					position: ASToastPosition.ASToastPositionTop.rawValue as AnyObject,
+					position: .top,
 					image: UIImage(named: "apple_logo"),
 					backgroundColor: UIColor.blue,
 					titleColor: UIColor.yellow,
@@ -105,11 +104,17 @@ let customView: UIView! = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 200.0, hei
 customView.autoresizingMask = [UIViewAutoresizing.flexibleLeftMargin, UIViewAutoresizing.flexibleRightMargin, UIViewAutoresizing.flexibleTopMargin, UIViewAutoresizing.flexibleBottomMargin]
 customView.backgroundColor = UIColor.green
 
-self.view.showToast(customView,
+self.view.showToast(toastView: customView,
 					duration: TimeInterval(3.0),
-					position: ASToastPosition.ASToastPositionCenter.rawValue as AnyObject)
+					position: .bottom)
 ```
-	
+
+Show an imageView as toast, on center at point (110,110)
+```
+let toastImageView: UIImageView! = UIImageView(image: UIImage(named: "apple_logo"))
+self.view.showToast(toastView: toastImageView, duration: TimeInterval(3.0), point: CGPoint(x: 110, y: 110))
+```
+
 Show activity indicator
 ```
 self.view.makeToastActivity()
