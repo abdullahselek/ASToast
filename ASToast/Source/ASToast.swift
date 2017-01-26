@@ -310,7 +310,36 @@ public extension UIView {
                           position: ToastPosition) {
         createAndShowToast(toastView: toastView,
                            duration: duration,
-                           position: position)
+                           position: position,
+                           point: CGPoint.zero)
+    }
+
+    /**
+      Show toast view with point
+      - parameter toastView: Toast view
+      - parameter CGPoint: The position point that toast will displayed
+     */
+    public func showToast(toastView: UIView!,
+                          point: CGPoint) {
+        createAndShowToast(toastView: toastView,
+                           duration: Constants.ToastDuration,
+                           position: .bottom,
+                           point: point)
+    }
+
+    /**
+      Show toast view with point
+      - parameter toastView: Toast view
+      - parameter duration: The time duration toast will displayed on the screen
+      - parameter CGPoint: The position point that toast will displayed
+     */
+    public func showToast(toastView: UIView!,
+                          duration: TimeInterval!,
+                          point: CGPoint) {
+        createAndShowToast(toastView: toastView,
+                           duration: duration,
+                           position: .bottom,
+                           point: point)
     }
 
     /**
@@ -321,11 +350,12 @@ public extension UIView {
      */
     fileprivate func createAndShowToast(toastView: UIView!,
                                         duration: TimeInterval!,
-                                        position: ToastPosition) {
+                                        position: ToastPosition,
+                                        point: CGPoint) {
         if toastView == nil {
             return
         }
-        toastView.center = centerPointForPosition(position: position, toastView: toastView)
+        toastView.center = point.equalTo(CGPoint.zero) ? centerPointForPosition(position: position, toastView: toastView) : point
         toastView.alpha = Constants.ToastViewAlpha
 
         if Constants.ToastHidesOnTap {

@@ -53,7 +53,7 @@ class ViewController: UIViewController {
         case 5:
             // Show an imageView as toast, on center at point (110,110)
             let toastImageView: UIImageView! = UIImageView(image: UIImage(named: "apple_logo"))
-//            self.view.showToast(toastImageView, duration: TimeInterval(3.0), position: NSValue(cgPoint: CGPoint(x: 110, y: 110)))
+            self.view.showToast(toastView: toastImageView, duration: TimeInterval(3.0), point: CGPoint(x: 110, y: 110))
             break;
         case 6:
             let button: UIButton! = sender as! UIButton

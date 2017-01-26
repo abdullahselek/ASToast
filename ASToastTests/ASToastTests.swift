@@ -388,6 +388,33 @@ class ASToastTests: QuickSpec {
                 expect(view?.subviews.count).to(equal(1))
             })
         }
+        context("showToast view with point") {
+            it("should display a toast", closure: {
+                let viewController = UIViewController()
+                let view = viewController.view
+                let toastView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0))
+                view!.showToast(toastView: toastView, point: CGPoint(x: 10, y: 10))
+                expect(view?.subviews.count).to(equal(1))
+            })
+        }
+        context("showToast view with duration and point") {
+            it("should display a toast", closure: {
+                let viewController = UIViewController()
+                let view = viewController.view
+                let toastView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0))
+                view!.showToast(toastView: toastView, duration: TimeInterval(3.0), point: CGPoint(x: 10, y: 10))
+                expect(view?.subviews.count).to(equal(1))
+            })
+        }
+//        /**
+//         Show toast view with point
+//         - parameter toastView: Toast view
+//         - parameter duration: The time duration toast will displayed on the screen
+//         - parameter CGPoint: The position point that toast will displayed
+//         */
+//        public func showToast(toastView: UIView!,
+//                              duration: TimeInterval!,
+//                              point: CGPoint) {
     }
 
 }
