@@ -26,7 +26,7 @@ type_name:
     warning: 40
     error: 50
   excluded: iPhone
-function_parameter_count: 6
+function_parameter_count: 8
 variable_name:
   min_length:
     error: 4
