@@ -369,7 +369,7 @@ public extension UIView {
 
         self.addSubview(toastView)
 
-        UIView.animate(withDuration: Constants.ToastDuration, delay: 0.0, options: UIViewAnimationOptions.allowUserInteraction, animations: { () -> Void in
+        UIView.animate(withDuration: duration, delay: 0.0, options: UIViewAnimationOptions.allowUserInteraction, animations: { () -> Void in
             toastView.alpha = 1.0
         }) { (_) -> Void in
 
