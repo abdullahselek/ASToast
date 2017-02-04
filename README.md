@@ -38,7 +38,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'ASToast', '~> 1.0.7'
+    pod 'ASToast', '~> 1.0.8'
 end
 ```
 Then, run the following command:
@@ -59,7 +59,7 @@ brew install carthage
 To integrate ASToast into your Xcode project using Carthage, specify it in your Cartfile:
 
 ```
-github "abdullahselek/ASToast" ~> 1.0.7
+github "abdullahselek/ASToast" ~> 1.0.8
 ```
 
 Run carthage update to build the framework and drag the built ASToast.framework into your Xcode project.
