@@ -110,15 +110,18 @@ public extension UIView {
     /**
       Show a toast with given parameters
       - parameter message: Message Text
+      - parameter fadeIn: The duration of the fade in animation
       - parameter duration: The time duration toast will displayed on the screen
       - parameter backgroundColor: Color for background
       - parameter messageColor: Color for mesage text
      */
     public func makeToast(message: String,
+                          fadeIn: TimeInterval = Constants.ToastFadeDuration,
                           duration: TimeInterval,
                           backgroundColor: UIColor?,
                           messageColor: UIColor?) {
         makeToast(message: message,
+                  fadeIn: fadeIn,
                   duration: duration,
                   position: .bottom,
                   backgroundColor: backgroundColor,
@@ -128,12 +131,14 @@ public extension UIView {
     /**
       Show a toast with given string, duration and position
       - parameter message: Message Text
+      - parameter fadeIn: The duration of the fade in animation
       - parameter duration: The time duration toast will displayed on the screen
       - parameter position: The position that toast will displayed
       - parameter backgroundColor: Color for background
       - parameter messageColor: Color for mesage text
      */
     public func makeToast(message: String,
+                          fadeIn: TimeInterval = Constants.ToastFadeDuration,
                           duration: TimeInterval,
                           position: ToastPosition,
                           backgroundColor: UIColor?,
@@ -146,6 +151,7 @@ public extension UIView {
                                        messageColor: messageColor)
         if toastView != nil {
             self.showToast(toastView: toastView,
+                           fadeIn: fadeIn,
                            duration: duration,
                            position: position)
         }
@@ -178,6 +184,7 @@ public extension UIView {
     /**
       Show a toast with given string, duration, position and title
       - parameter message: Message Text
+      - parameter fadeIn: The duration of the fade in animation
       - parameter duration: The time duration toast will displayed on the screen
       - parameter title: Title for Toast
       - parameter backgroundColor: Color for background
@@ -185,6 +192,7 @@ public extension UIView {
       - parameter messageColor: Color for mesage text
      */
     public func makeToast(message: String,
+                          fadeIn: TimeInterval = Constants.ToastFadeDuration,
                           duration: TimeInterval,
                           title: String,
                           backgroundColor: UIColor?,
@@ -197,6 +205,7 @@ public extension UIView {
                                        titleColor: titleColor,
                                        messageColor: messageColor)
         self.showToast(toastView: toastView,
+                       fadeIn: fadeIn,
                        duration: duration,
                        position: .bottom)
     }
@@ -204,6 +213,7 @@ public extension UIView {
     /**
       Show a toast with given string, duration, position and title
       - parameter message: Message Text
+      - parameter fadeIn: The duration of the fade in animation
       - parameter duration: The time duration toast will displayed on the screen
       - parameter position: The position that toast will displayed
       - parameter title: Title for Toast
@@ -212,6 +222,7 @@ public extension UIView {
       - parameter messageColor: Color for mesage text
      */
     public func makeToast(message: String,
+                          fadeIn: TimeInterval = Constants.ToastFadeDuration,
                           duration: TimeInterval,
                           position: ToastPosition,
                           title: String,
@@ -225,6 +236,7 @@ public extension UIView {
                                        titleColor: titleColor,
                                        messageColor: messageColor)
         self.showToast(toastView: toastView,
+                       fadeIn: fadeIn,
                        duration: duration,
                        position: position)
     }
@@ -232,6 +244,7 @@ public extension UIView {
     /**
       Show a toast with given string, duration, position and image
       - parameter message: Message Text
+      - parameter fadeIn: The duration of the fade in animation
       - parameter duration: The time duration toast will displayed on the screen
       - parameter position: The position that toast will displayed
       - parameter image: Image for Toast
@@ -240,6 +253,7 @@ public extension UIView {
       - parameter messageColor: Color for mesage text
      */
     public func makeToast(message: String,
+                          fadeIn: TimeInterval = Constants.ToastFadeDuration,
                           duration: TimeInterval,
                           position: ToastPosition,
                           image: UIImage!,
@@ -253,6 +267,7 @@ public extension UIView {
                                        titleColor: titleColor,
                                        messageColor: messageColor)
         self.showToast(toastView: toastView,
+                       fadeIn: fadeIn,
                        duration: duration,
                        position: position)
     }
@@ -260,6 +275,7 @@ public extension UIView {
     /**
       Show a toast with given string, duration, position, title and image
       - parameter message: Message Text
+      - parameter fadeIn: The duration of the fade in animation
       - parameter duration: The time duration toast will displayed on the screen
       - parameter position: The position that toast will displayed
       - parameter title: Title for Toast
@@ -269,6 +285,7 @@ public extension UIView {
       - parameter messageColor: Color for mesage text
      */
     public func makeToast(message: String,
+                          fadeIn: TimeInterval = Constants.ToastFadeDuration,
                           duration: TimeInterval,
                           position: ToastPosition,
                           title: String,
@@ -283,6 +300,7 @@ public extension UIView {
                                        titleColor: titleColor,
                                        messageColor: messageColor)
         self.showToast(toastView: toastView,
+                       fadeIn: fadeIn,
                        duration: duration,
                        position: position)
     }
@@ -295,6 +313,7 @@ public extension UIView {
      */
     public func showToast(toastView: UIView!) {
         showToast(toastView: toastView,
+                  fadeIn: Constants.ToastFadeDuration,
                   duration: Constants.ToastDuration,
                   position: .bottom)
     }
@@ -302,13 +321,16 @@ public extension UIView {
     /**
       Show toast view with duration and position
       - parameter toastView: Toast view
+      - parameter fadeIn: The duration of the fade in animation
       - parameter duration: The time duration toast will displayed on the screen
       - parameter position: The position that toast will displayed
      */
     public func showToast(toastView: UIView!,
+                          fadeIn: TimeInterval = Constants.ToastFadeDuration,
                           duration: TimeInterval!,
                           position: ToastPosition) {
         createAndShowToast(toastView: toastView,
+                           fadeIn: fadeIn,
                            duration: duration,
                            position: position,
                            point: CGPoint.zero)
@@ -322,6 +344,7 @@ public extension UIView {
     public func showToast(toastView: UIView!,
                           point: CGPoint) {
         createAndShowToast(toastView: toastView,
+                           fadeIn: Constants.ToastFadeDuration,
                            duration: Constants.ToastDuration,
                            position: .bottom,
                            point: point)
@@ -330,13 +353,16 @@ public extension UIView {
     /**
       Show toast view with point
       - parameter toastView: Toast view
+      - parameter fadeIn: The duration of the fade in animation
       - parameter duration: The time duration toast will displayed on the screen
       - parameter CGPoint: The position point that toast will displayed
      */
     public func showToast(toastView: UIView!,
+                          fadeIn: TimeInterval = Constants.ToastFadeDuration,
                           duration: TimeInterval!,
                           point: CGPoint) {
         createAndShowToast(toastView: toastView,
+                           fadeIn: fadeIn,
                            duration: duration,
                            position: .bottom,
                            point: point)
@@ -345,10 +371,12 @@ public extension UIView {
     /**
       Create and show toast
       - parameter toastView: Toast view
+      - parameter fadeIn: The duration of the fade in animation
       - parameter duration: The time duration toast will displayed on the screen
       - parameter position: The position that toast will displayed
      */
     fileprivate func createAndShowToast(toastView: UIView!,
+                                        fadeIn: TimeInterval,
                                         duration: TimeInterval!,
                                         position: ToastPosition,
                                         point: CGPoint) {
@@ -369,7 +397,7 @@ public extension UIView {
 
         self.addSubview(toastView)
 
-        UIView.animate(withDuration: duration, delay: 0.0, options: UIViewAnimationOptions.allowUserInteraction, animations: { () -> Void in
+        UIView.animate(withDuration: fadeIn, delay: 0.0, options: UIViewAnimationOptions.allowUserInteraction, animations: { () -> Void in
             toastView.alpha = 1.0
         }) { (_) -> Void in
 
@@ -596,7 +624,7 @@ public extension UIView {
 
         self.addSubview(activityView)
 
-        UIView.animate(withDuration: Constants.ToastDuration, delay: 0.0, options: UIViewAnimationOptions(), animations: { () -> Void in
+        UIView.animate(withDuration: Constants.ToastFadeDuration, delay: 0.0, options: UIViewAnimationOptions(), animations: { () -> Void in
             activityView.alpha = 1.0
         }, completion: nil)
     }
