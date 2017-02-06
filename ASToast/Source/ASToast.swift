@@ -624,7 +624,7 @@ public extension UIView {
 
         self.addSubview(activityView)
 
-        UIView.animate(withDuration: Constants.ToastDuration, delay: 0.0, options: UIViewAnimationOptions(), animations: { () -> Void in
+        UIView.animate(withDuration: Constants.ToastFadeDuration, delay: 0.0, options: UIViewAnimationOptions(), animations: { () -> Void in
             activityView.alpha = 1.0
         }, completion: nil)
     }
