@@ -110,6 +110,7 @@ public extension UIView {
     /**
       Show a toast with given parameters
       - parameter message: Message Text
+      - parameter fadeIn: The duration of the fade in animation
       - parameter duration: The time duration toast will displayed on the screen
       - parameter backgroundColor: Color for background
       - parameter messageColor: Color for mesage text
@@ -130,6 +131,7 @@ public extension UIView {
     /**
       Show a toast with given string, duration and position
       - parameter message: Message Text
+      - parameter fadeIn: The duration of the fade in animation
       - parameter duration: The time duration toast will displayed on the screen
       - parameter position: The position that toast will displayed
       - parameter backgroundColor: Color for background
@@ -182,6 +184,7 @@ public extension UIView {
     /**
       Show a toast with given string, duration, position and title
       - parameter message: Message Text
+      - parameter fadeIn: The duration of the fade in animation
       - parameter duration: The time duration toast will displayed on the screen
       - parameter title: Title for Toast
       - parameter backgroundColor: Color for background
@@ -210,6 +213,7 @@ public extension UIView {
     /**
       Show a toast with given string, duration, position and title
       - parameter message: Message Text
+      - parameter fadeIn: The duration of the fade in animation
       - parameter duration: The time duration toast will displayed on the screen
       - parameter position: The position that toast will displayed
       - parameter title: Title for Toast
@@ -240,6 +244,7 @@ public extension UIView {
     /**
       Show a toast with given string, duration, position and image
       - parameter message: Message Text
+      - parameter fadeIn: The duration of the fade in animation
       - parameter duration: The time duration toast will displayed on the screen
       - parameter position: The position that toast will displayed
       - parameter image: Image for Toast
@@ -270,6 +275,7 @@ public extension UIView {
     /**
       Show a toast with given string, duration, position, title and image
       - parameter message: Message Text
+      - parameter fadeIn: The duration of the fade in animation
       - parameter duration: The time duration toast will displayed on the screen
       - parameter position: The position that toast will displayed
       - parameter title: Title for Toast
@@ -315,6 +321,7 @@ public extension UIView {
     /**
       Show toast view with duration and position
       - parameter toastView: Toast view
+      - parameter fadeIn: The duration of the fade in animation
       - parameter duration: The time duration toast will displayed on the screen
       - parameter position: The position that toast will displayed
      */
@@ -346,6 +353,7 @@ public extension UIView {
     /**
       Show toast view with point
       - parameter toastView: Toast view
+      - parameter fadeIn: The duration of the fade in animation
       - parameter duration: The time duration toast will displayed on the screen
       - parameter CGPoint: The position point that toast will displayed
      */
@@ -363,6 +371,7 @@ public extension UIView {
     /**
       Create and show toast
       - parameter toastView: Toast view
+      - parameter fadeIn: The duration of the fade in animation
       - parameter duration: The time duration toast will displayed on the screen
       - parameter position: The position that toast will displayed
      */
