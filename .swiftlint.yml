@@ -1,5 +1,7 @@
 disabled_rules:
   - missing_docs
+  - function_body_length
+  - type_body_length
 opt_in_rules:
   - empty_count
   - colon
@@ -14,9 +16,6 @@ force_cast: warning
 force_try:
   severity: warning
 line_length: 210
-type_body_length:
-  - 300
-  - 400
 file_length:
   warning: 700
   error: 1200

@@ -13,7 +13,7 @@ import Nimble
 @testable import ASToast
 
 class ASToastTests: QuickSpec {
-    
+
     override func spec() {
         describe(".makeToast with single text") {
             context("Toast view display success") {
