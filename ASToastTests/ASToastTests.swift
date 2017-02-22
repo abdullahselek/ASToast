@@ -406,15 +406,6 @@ class ASToastTests: QuickSpec {
                 expect(view?.subviews.count).to(equal(1))
             })
         }
-//        /**
-//         Show toast view with point
-//         - parameter toastView: Toast view
-//         - parameter duration: The time duration toast will displayed on the screen
-//         - parameter CGPoint: The position point that toast will displayed
-//         */
-//        public func showToast(toastView: UIView!,
-//                              duration: TimeInterval!,
-//                              point: CGPoint) {
     }
 
 }
