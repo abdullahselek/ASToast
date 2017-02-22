@@ -7,4 +7,3 @@ source_directory: ASToast/Source
 ignore:
   - ASToast/AppDelegate.swift
   - ASToast/ViewController.swift
-# output_directory: code_coverage/xml_report
