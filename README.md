@@ -38,7 +38,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'ASToast', '~> 1.0.8'
+    pod 'ASToast', '~> 1.0.9'
 end
 ```
 Then, run the following command:
@@ -59,14 +59,14 @@ brew install carthage
 To integrate ASToast into your Xcode project using Carthage, specify it in your Cartfile:
 
 ```
-github "abdullahselek/ASToast" ~> 1.0.8
+github "abdullahselek/ASToast" ~> 1.0.9
 ```
 
 Run carthage update to build the framework and drag the built ASToast.framework into your Xcode project.
 
 ## Example Usage
 
-make a toast with single text with default background color
+make a toast with single text with default background color and custom message color
 ```
 self.view.makeToast(message: "Single text toast",
 					backgroundColor: nil,
@@ -78,7 +78,7 @@ self.view.makeToast(message: "Single text toast",
 					backgroundColor: UIColor.blue,
 					messageColor: nil)
 ```
-make a toast with text, title, position and duration
+make a toast with text, title, position, duration and custom colors
 ```
 self.view.makeToast(message: "Toast with custom text, title and duration",
 					duration: TimeInterval(3.0),
@@ -86,9 +86,10 @@ self.view.makeToast(message: "Toast with custom text, title and duration",
 					title: "Title",
 					backgroundColor: UIColor.blue,
 					titleColor: UIColor.yellow,
-					messageColor: UIColor.yellow)
+					messageColor: UIColor.yellow,
+					font: nil)
 ``` 	
-make toast with an image
+make toast with an image and custom colors
 ```
 self.view.makeToast(message: "Toast with an image",
 					duration: TimeInterval(3.0),
@@ -101,7 +102,10 @@ self.view.makeToast(message: "Toast with an image",
 Show a custom view as toast
 ```
 let customView: UIView! = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 200.0, height: 300.0))
-customView.autoresizingMask = [UIViewAutoresizing.flexibleLeftMargin, UIViewAutoresizing.flexibleRightMargin, UIViewAutoresizing.flexibleTopMargin, UIViewAutoresizing.flexibleBottomMargin]
+customView.autoresizingMask = [UIViewAutoresizing.flexibleLeftMargin,
+							   UIViewAutoresizing.flexibleRightMargin,
+							   UIViewAutoresizing.flexibleTopMargin,
+							   UIViewAutoresizing.flexibleBottomMargin]
 customView.backgroundColor = UIColor.green
 
 self.view.showToast(toastView: customView,
@@ -120,6 +124,11 @@ self.view.showToast(toastView: toastImageView,
 Show activity indicator
 ```
 self.view.makeToastActivity()
+```
+
+Hide activity indicator
+```
+self.view.hideToastActivity()
 ```
 	
 ## MIT License
