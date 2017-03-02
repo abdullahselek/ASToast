@@ -101,10 +101,28 @@ public extension UIView {
                           backgroundColor: UIColor?,
                           messageColor: UIColor?) {
         makeToast(message: message,
+                  backgroundColor: backgroundColor,
+                  messageColor: messageColor,
+                  font: nil)
+    }
+
+    /**
+      Show a toast with given string
+      - parameter message: Message Text
+      - parameter backgroundColor: Color for background
+      - parameter messageColor: Color for mesage text
+      - parameter font: Font for text
+     */
+    public func makeToast(message: String,
+                          backgroundColor: UIColor?,
+                          messageColor: UIColor?,
+                          font: UIFont?) {
+        makeToast(message: message,
                   duration: Constants.ToastDuration,
                   position: .bottom,
                   backgroundColor: backgroundColor,
-                  messageColor: messageColor)
+                  messageColor: messageColor,
+                  font: font)
     }
 
     /**
@@ -125,7 +143,8 @@ public extension UIView {
                   duration: duration,
                   position: .bottom,
                   backgroundColor: backgroundColor,
-                  messageColor: messageColor)
+                  messageColor: messageColor,
+                  font: nil)
     }
 
     /**
@@ -136,19 +155,22 @@ public extension UIView {
       - parameter position: The position that toast will displayed
       - parameter backgroundColor: Color for background
       - parameter messageColor: Color for mesage text
+      - parameter font: Font for text
      */
     public func makeToast(message: String,
                           fadeIn: TimeInterval = Constants.ToastFadeDuration,
                           duration: TimeInterval,
                           position: ToastPosition,
                           backgroundColor: UIColor?,
-                          messageColor: UIColor?) {
+                          messageColor: UIColor?,
+                          font: UIFont?) {
         let toastView = self.toastView(message: message,
                                        title: "",
                                        image: nil,
                                        backgroundColor: backgroundColor,
                                        titleColor: nil,
-                                       messageColor: messageColor)
+                                       messageColor: messageColor,
+                                       font: font)
         if toastView != nil {
             self.showToast(toastView: toastView,
                            fadeIn: fadeIn,
@@ -164,18 +186,21 @@ public extension UIView {
       - parameter backgroundColor: Color for background
       - parameter titleColor: Color for title text
       - parameter messageColor: Color for mesage text
+      - parameter font: Font for text
      */
     public func makeToast(message: String,
                           title: String,
                           backgroundColor: UIColor?,
                           titleColor: UIColor?,
-                          messageColor: UIColor?) {
+                          messageColor: UIColor?,
+                          font: UIFont?) {
         let toastView = self.toastView(message: message,
                                        title: title,
                                        image: nil,
                                        backgroundColor: backgroundColor,
                                        titleColor: titleColor,
-                                       messageColor: messageColor)
+                                       messageColor: messageColor,
+                                       font: font)
         self.showToast(toastView: toastView,
                        duration: Constants.ToastDuration,
                        position: .bottom)
@@ -190,6 +215,7 @@ public extension UIView {
       - parameter backgroundColor: Color for background
       - parameter titleColor: Color for title text
       - parameter messageColor: Color for mesage text
+      - parameter font: Font for text
      */
     public func makeToast(message: String,
                           fadeIn: TimeInterval = Constants.ToastFadeDuration,
@@ -197,13 +223,15 @@ public extension UIView {
                           title: String,
                           backgroundColor: UIColor?,
                           titleColor: UIColor?,
-                          messageColor: UIColor?) {
+                          messageColor: UIColor?,
+                          font: UIFont?) {
         let toastView = self.toastView(message: message,
                                        title: title,
                                        image: nil,
                                        backgroundColor: backgroundColor,
                                        titleColor: titleColor,
-                                       messageColor: messageColor)
+                                       messageColor: messageColor,
+                                       font: font)
         self.showToast(toastView: toastView,
                        fadeIn: fadeIn,
                        duration: duration,
@@ -220,6 +248,7 @@ public extension UIView {
       - parameter backgroundColor: Color for background
       - parameter titleColor: Color for title text
       - parameter messageColor: Color for mesage text
+      - parameter font: Font for text
      */
     public func makeToast(message: String,
                           fadeIn: TimeInterval = Constants.ToastFadeDuration,
@@ -228,13 +257,15 @@ public extension UIView {
                           title: String,
                           backgroundColor: UIColor?,
                           titleColor: UIColor?,
-                          messageColor: UIColor?) {
+                          messageColor: UIColor?,
+                          font: UIFont?) {
         let toastView = self.toastView(message: message,
                                        title: title,
                                        image: nil,
                                        backgroundColor: backgroundColor,
                                        titleColor: titleColor,
-                                       messageColor: messageColor)
+                                       messageColor: messageColor,
+                                       font: font)
         self.showToast(toastView: toastView,
                        fadeIn: fadeIn,
                        duration: duration,
@@ -251,6 +282,7 @@ public extension UIView {
       - parameter backgroundColor: Color for background
       - parameter titleColor: Color for title text
       - parameter messageColor: Color for mesage text
+      - parameter font: Font for text
      */
     public func makeToast(message: String,
                           fadeIn: TimeInterval = Constants.ToastFadeDuration,
@@ -259,13 +291,15 @@ public extension UIView {
                           image: UIImage!,
                           backgroundColor: UIColor?,
                           titleColor: UIColor?,
-                          messageColor: UIColor?) {
+                          messageColor: UIColor?,
+                          font: UIFont?) {
         let toastView = self.toastView(message: message,
                                        title: "",
                                        image: image,
                                        backgroundColor: backgroundColor,
                                        titleColor: titleColor,
-                                       messageColor: messageColor)
+                                       messageColor: messageColor,
+                                       font: font)
         self.showToast(toastView: toastView,
                        fadeIn: fadeIn,
                        duration: duration,
@@ -283,6 +317,7 @@ public extension UIView {
       - parameter backgroundColor: Color for background
       - parameter titleColor: Color for title text
       - parameter messageColor: Color for mesage text
+      - parameter font: Font for text
      */
     public func makeToast(message: String,
                           fadeIn: TimeInterval = Constants.ToastFadeDuration,
@@ -292,13 +327,15 @@ public extension UIView {
                           image: UIImage!,
                           backgroundColor: UIColor?,
                           titleColor: UIColor?,
-                          messageColor: UIColor?) {
+                          messageColor: UIColor?,
+                          font: UIFont?) {
         let toastView = self.toastView(message: message,
                                        title: title,
                                        image: image,
                                        backgroundColor: backgroundColor,
                                        titleColor: titleColor,
-                                       messageColor: messageColor)
+                                       messageColor: messageColor,
+                                       font: font)
         self.showToast(toastView: toastView,
                        fadeIn: fadeIn,
                        duration: duration,
@@ -424,13 +461,15 @@ public extension UIView {
       - parameter backgroundColor: Color for background
       - parameter titleColor: Color for title text
       - parameter messageColor: Color for mesage text
+      - parameter font: Font for text
      */
     fileprivate func toastView(message: String,
                                title: String,
                                image: UIImage?,
                                backgroundColor: UIColor?,
                                titleColor: UIColor?,
-                               messageColor: UIColor?) -> UIView? {
+                               messageColor: UIColor?,
+                               font: UIFont?) -> UIView? {
         // check parameters
         if message.isEmpty && title.isEmpty && image == nil {
             return nil
@@ -490,6 +529,9 @@ public extension UIView {
             titleLabel.backgroundColor = UIColor.clear
             titleLabel.alpha = 1.0
             titleLabel.text = title
+            if font != nil {
+            	titleLabel.font = font
+            }
 
             // set size the title label according to the lenth of title text
             let maxSizeTitle = CGSize(width: (self.bounds.size.width * Constants.ToastMaxWidth) - imageWidth, height: self.bounds.size.height * Constants.ToastMaxHeight)
@@ -507,6 +549,9 @@ public extension UIView {
             messageLabel.backgroundColor = UIColor.clear
             messageLabel.alpha = 1.0
             messageLabel.text = message
+            if font != nil {
+            	messageLabel.font = font
+            }
 
             // set size the message label according to the lenth of message text
             let maxSizeMessage = CGSize(width: (self.bounds.size.width * Constants.ToastMaxWidth) - imageWidth, height: self.bounds.size.height * Constants.ToastMaxHeight)

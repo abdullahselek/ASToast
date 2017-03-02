@@ -57,7 +57,8 @@ class ASToastTests: QuickSpec {
                                     duration: TimeInterval(3.0),
                                     position: .top,
                                     backgroundColor: UIColor.blue,
-                                    messageColor: UIColor.white)
+                                    messageColor: UIColor.white,
+                                    font: UIFont.systemFont(ofSize: 16))
                     expect(view?.subviews.count).to(equal(1))
                 }
             }
@@ -69,7 +70,8 @@ class ASToastTests: QuickSpec {
                                     duration: TimeInterval(3.0),
                                     position: .bottom,
                                     backgroundColor: UIColor.blue,
-                                    messageColor: UIColor.yellow)
+                                    messageColor: UIColor.yellow,
+                                    font: UIFont.systemFont(ofSize: 16))
                     expect(view?.subviews.count).to(equal(0))
                 }
             }
@@ -85,7 +87,8 @@ class ASToastTests: QuickSpec {
                                     title: "TITLE",
                                     backgroundColor: nil,
                                     titleColor: nil,
-                                    messageColor: nil)
+                                    messageColor: nil,
+                                    font: UIFont.systemFont(ofSize: 16))
                     expect(view?.subviews.count).to(equal(1))
                 }
             }
@@ -99,7 +102,8 @@ class ASToastTests: QuickSpec {
                                     title: "TITLE",
                                     backgroundColor: UIColor.blue,
                                     titleColor: UIColor.cyan,
-                                    messageColor: UIColor.yellow)
+                                    messageColor: UIColor.yellow,
+                                    font: UIFont.systemFont(ofSize: 16))
                     expect(view?.subviews.count).to(equal(1))
                 }
             }
@@ -113,7 +117,8 @@ class ASToastTests: QuickSpec {
                                     title: "",
                                     backgroundColor: UIColor.blue,
                                     titleColor: nil,
-                                    messageColor: nil)
+                                    messageColor: nil,
+                                    font: UIFont.systemFont(ofSize: 16))
                     expect(view?.subviews.count).to(equal(1))
                 }
             }
@@ -127,7 +132,8 @@ class ASToastTests: QuickSpec {
                                     title: "TITLE",
                                     backgroundColor: nil,
                                     titleColor: UIColor.cyan,
-                                    messageColor: UIColor.yellow)
+                                    messageColor: UIColor.yellow,
+                                    font: UIFont.systemFont(ofSize: 16))
                     expect(view?.subviews.count).to(equal(1))
                 }
             }
@@ -141,7 +147,8 @@ class ASToastTests: QuickSpec {
                                     title: "",
                                     backgroundColor: UIColor.blue,
                                     titleColor: nil,
-                                    messageColor: nil)
+                                    messageColor: nil,
+                                    font: UIFont.systemFont(ofSize: 16))
                     expect(view?.subviews.count).to(equal(0))
                 }
             }
@@ -157,7 +164,8 @@ class ASToastTests: QuickSpec {
                                     image: UIImage(named: "apple_logo.png"),
                                     backgroundColor: nil,
                                     titleColor: UIColor.cyan,
-                                    messageColor: UIColor.yellow)
+                                    messageColor: UIColor.yellow,
+                                    font: UIFont.systemFont(ofSize: 16))
                     expect(view?.subviews.count).to(equal(1))
                 }
             }
@@ -171,7 +179,8 @@ class ASToastTests: QuickSpec {
                                     image: UIImage(named: "apple_logo.png"),
                                     backgroundColor: UIColor.blue,
                                     titleColor: nil,
-                                    messageColor: nil)
+                                    messageColor: nil,
+                                    font: UIFont.systemFont(ofSize: 16))
                     expect(view?.subviews.count).to(equal(1))
                 }
             }
@@ -185,7 +194,8 @@ class ASToastTests: QuickSpec {
                                     image: UIImage(named: "apple_logo.png"),
                                     backgroundColor: nil,
                                     titleColor: UIColor.cyan,
-                                    messageColor: UIColor.yellow)
+                                    messageColor: UIColor.yellow,
+                                    font: UIFont.systemFont(ofSize: 16))
                     expect(view?.subviews.count).to(equal(1))
                 }
             }
@@ -199,7 +209,8 @@ class ASToastTests: QuickSpec {
                                     image: UIImage(named: ""),
                                     backgroundColor: UIColor.blue,
                                     titleColor: nil,
-                                    messageColor: nil)
+                                    messageColor: nil,
+                                    font: UIFont.systemFont(ofSize: 16))
                     expect(view?.subviews.count).to(equal(0))
                 }
             }
@@ -216,7 +227,8 @@ class ASToastTests: QuickSpec {
                                     image: UIImage(named: "apple_logo.png"),
                                     backgroundColor: nil,
                                     titleColor: UIColor.cyan,
-                                    messageColor: UIColor.yellow)
+                                    messageColor: UIColor.yellow,
+                                    font: UIFont.systemFont(ofSize: 16))
                     expect(view?.subviews.count).to(equal(1))
                 }
             }
@@ -231,7 +243,8 @@ class ASToastTests: QuickSpec {
                                     image: UIImage(named: "apple_logo.png"),
                                     backgroundColor: UIColor.blue,
                                     titleColor: nil,
-                                    messageColor: nil)
+                                    messageColor: nil,
+                                    font: UIFont.systemFont(ofSize: 16))
                     expect(view?.subviews.count).to(equal(1))
                 }
             }
@@ -246,7 +259,8 @@ class ASToastTests: QuickSpec {
                                     image: UIImage(named: ""),
                                     backgroundColor: nil,
                                     titleColor: UIColor.cyan,
-                                    messageColor: UIColor.yellow)
+                                    messageColor: UIColor.yellow,
+                                    font: UIFont.systemFont(ofSize: 16))
                     expect(view?.subviews.count).to(equal(1))
                 }
             }
@@ -261,7 +275,8 @@ class ASToastTests: QuickSpec {
                                     image: UIImage(named: ""),
                                     backgroundColor: UIColor.blue,
                                     titleColor: nil,
-                                    messageColor: nil)
+                                    messageColor: nil,
+                                    font: UIFont.systemFont(ofSize: 16))
                     expect(view?.subviews.count).to(equal(1))
                 }
             }
@@ -276,7 +291,8 @@ class ASToastTests: QuickSpec {
                                     image: UIImage(named: "apple_logo.png"),
                                     backgroundColor: UIColor.blue,
                                     titleColor: UIColor.cyan,
-                                    messageColor: UIColor.yellow)
+                                    messageColor: UIColor.yellow,
+                                    font: UIFont.systemFont(ofSize: 16))
                     expect(view?.subviews.count).to(equal(1))
                 }
             }
@@ -291,7 +307,8 @@ class ASToastTests: QuickSpec {
                                     image: UIImage(named: ""),
                                     backgroundColor: UIColor.blue,
                                     titleColor: nil,
-                                    messageColor: nil)
+                                    messageColor: nil,
+                                    font: UIFont.systemFont(ofSize: 16))
                     expect(view?.subviews.count).to(equal(0))
                 }
             }
@@ -371,7 +388,8 @@ class ASToastTests: QuickSpec {
                                 title: "TITLE",
                                 backgroundColor: UIColor.blue,
                                 titleColor: UIColor.yellow,
-                                messageColor: UIColor.white)
+                                messageColor: UIColor.white,
+                                font: UIFont.systemFont(ofSize: 16))
                 expect(view?.subviews.count).to(equal(1))
             })
         }
@@ -384,7 +402,8 @@ class ASToastTests: QuickSpec {
                                 title: "TITLE",
                                 backgroundColor: UIColor.blue,
                                 titleColor: UIColor.yellow,
-                                messageColor: UIColor.white)
+                                messageColor: UIColor.white,
+                                font: UIFont.systemFont(ofSize: 16))
                 expect(view?.subviews.count).to(equal(1))
             })
         }
@@ -405,6 +424,17 @@ class ASToastTests: QuickSpec {
                 view!.showToast(toastView: toastView, duration: TimeInterval(3.0), point: CGPoint(x: 10, y: 10))
                 expect(view?.subviews.count).to(equal(1))
             })
+        }
+        context("makeToast with message, background color, message color and font") {
+        	it("should display a toast", closure: {
+        		let viewController = UIViewController()
+                let view = viewController.view
+				view?.makeToast(message: "MESSAGE",
+				                backgroundColor: UIColor.blue,
+				                messageColor: UIColor.white,
+				                font: UIFont.systemFont(ofSize: 16))
+                expect(view?.subviews.count).to(equal(1))
+        	})
         }
     }
 

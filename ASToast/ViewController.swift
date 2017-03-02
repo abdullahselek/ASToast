@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     // MARK: Button action
 
     @IBAction func buttonTapped(_ sender: AnyObject) {
-        switch(sender.tag)
+        switch(sender.tag) {
         case 0:
             // make a toast with single text
             self.view.makeToast(message: "Single text toast", backgroundColor: nil, messageColor: UIColor.cyan)
@@ -38,7 +38,8 @@ class ViewController: UIViewController {
                                 title: "Title",
                                 backgroundColor: UIColor.blue,
                                 titleColor: UIColor.yellow,
-                                messageColor: UIColor.yellow)
+                                messageColor: UIColor.yellow,
+                                font: nil)
             break
         case 2:
             // Make toast with an image
@@ -48,7 +49,8 @@ class ViewController: UIViewController {
                                 image: UIImage(named: "apple_logo"),
                                 backgroundColor: UIColor.blue,
                                 titleColor: UIColor.yellow,
-                                messageColor: UIColor.yellow)
+                                messageColor: UIColor.yellow,
+                                font: nil)
             break
         case 3:
             // Make toast with an title & image
@@ -59,7 +61,8 @@ class ViewController: UIViewController {
                                 image: UIImage(named: "apple_logo"),
                                 backgroundColor: UIColor.blue,
                                 titleColor: UIColor.cyan,
-                                messageColor: UIColor.yellow)
+                                messageColor: UIColor.yellow,
+                                font: nil)
             break
         case 4:
             // Show a custom view as toast
@@ -88,6 +91,7 @@ class ViewController: UIViewController {
             break
         default:
             break
+        }
     }
 
 }
