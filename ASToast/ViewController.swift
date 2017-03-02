@@ -28,7 +28,9 @@ class ViewController: UIViewController {
         switch(sender.tag) {
         case 0:
             // make a toast with single text
-            self.view.makeToast(message: "Single text toast", backgroundColor: nil, messageColor: UIColor.cyan)
+            self.view.makeToast(message: "Single text toast",
+                                backgroundColor: nil,
+                                messageColor: UIColor.cyan)
             break
         case 1:
             // make a toast with text, title, position and duration
