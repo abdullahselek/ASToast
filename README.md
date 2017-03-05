@@ -87,7 +87,7 @@ self.view.makeToast(message: "Toast with custom text, title and duration",
 					backgroundColor: UIColor.blue,
 					titleColor: UIColor.yellow,
 					messageColor: UIColor.yellow,
-					font: nil)
+					font: UIFont.systemFont(ofSize: 16))
 ``` 	
 make toast with an image and custom colors
 ```
@@ -97,7 +97,8 @@ self.view.makeToast(message: "Toast with an image",
 					image: UIImage(named: "apple_logo"),
 					backgroundColor: UIColor.blue,
 					titleColor: UIColor.yellow,
-					messageColor: UIColor.yellow)
+					messageColor: UIColor.yellow,
+					font: UIFont.systemFont(ofSize: 16))
 ```	
 Show a custom view as toast
 ```
