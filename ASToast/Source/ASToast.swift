@@ -453,6 +453,50 @@ public extension UIView {
         }
     }
 
+    fileprivate func createToastView(backgroundColor: UIColor?) -> UIView {
+        let toastView: UIView! = UIView()
+        toastView.autoresizingMask = [UIViewAutoresizing.flexibleLeftMargin, UIViewAutoresizing.flexibleRightMargin, UIViewAutoresizing.flexibleTopMargin, UIViewAutoresizing.flexibleBottomMargin]
+        toastView.layer.cornerRadius = Constants.ToastCornerRadius
+        // check if shadow needed
+        if Constants.ToastDisplayShadow == true {
+            toastView.layer.shadowColor = UIColor.black.cgColor
+            toastView.layer.shadowOpacity = Constants.ToastShadowOpacity
+            toastView.layer.shadowRadius = Constants.ToastShadowRadius
+            toastView.layer.shadowOffset = Constants.ToastShadowOffset
+        }
+        // set toastView background color
+        if backgroundColor != nil {
+            toastView.backgroundColor = backgroundColor!.withAlphaComponent(Constants.ToastOpacity)
+        } else {
+            toastView.backgroundColor = UIColor.black.withAlphaComponent(Constants.ToastOpacity)
+        }
+        return toastView
+    }
+
+    fileprivate func createImageView(image: UIImage?) -> UIImageView? {
+        let imageView: UIImageView
+        // check image
+        if image != nil {
+            imageView = UIImageView(image: image)
+            imageView.contentMode = UIViewContentMode.scaleAspectFit
+            imageView.frame = CGRect(x: Constants.ToastHorizontalPadding, y: Constants.ToastVerticalPadding, width: Constants.ToastImageViewWidth, height: Constants.ToastImageViewHeight)
+            return imageView
+        }
+        return nil
+    }
+
+    fileprivate func createImageViewSpecs(imageView: UIImageView?) -> (CGFloat, CGFloat, CGFloat) {
+        var imageWidth = CGFloat(0.0)
+        var imageLeft = CGFloat(0.0)
+        var imageHeight = CGFloat(0.0)
+        if imageView != nil {
+            imageWidth = imageView!.bounds.size.width
+            imageHeight = imageView!.bounds.size.height
+            imageLeft = Constants.ToastHorizontalPadding
+        }
+        return (imageWidth, imageHeight, imageLeft)
+    }
+
     /**
       Creates toast view with given message, title and title
       - parameter message: Message Text
@@ -478,46 +522,10 @@ public extension UIView {
         // ui elements of toast
         var messageLabel: UILabel!
         var titleLabel: UILabel!
-        var imageView: UIImageView!
 
-        let toastView: UIView! = UIView()
-        toastView.autoresizingMask = [UIViewAutoresizing.flexibleLeftMargin, UIViewAutoresizing.flexibleRightMargin, UIViewAutoresizing.flexibleTopMargin, UIViewAutoresizing.flexibleBottomMargin]
-        toastView.layer.cornerRadius = Constants.ToastCornerRadius
-
-        // check if shadow needed
-        if Constants.ToastDisplayShadow == true {
-            toastView.layer.shadowColor = UIColor.black.cgColor
-            toastView.layer.shadowOpacity = Constants.ToastShadowOpacity
-            toastView.layer.shadowRadius = Constants.ToastShadowRadius
-            toastView.layer.shadowOffset = Constants.ToastShadowOffset
-        }
-
-        // set toastView background color
-        if backgroundColor != nil {
-            toastView.backgroundColor = backgroundColor!.withAlphaComponent(Constants.ToastOpacity)
-        } else {
-            toastView.backgroundColor = UIColor.black.withAlphaComponent(Constants.ToastOpacity)
-        }
-
-        // check image
-        if image != nil {
-            imageView = UIImageView(image: image)
-            imageView.contentMode = UIViewContentMode.scaleAspectFit
-            imageView.frame = CGRect(x: Constants.ToastHorizontalPadding, y: Constants.ToastVerticalPadding, width: Constants.ToastImageViewWidth, height: Constants.ToastImageViewHeight)
-        }
-
-        var imageWidth, imageHeight, imageLeft: CGFloat!
-
-        // the imageView frame values will be used to size & position the other views
-        if imageView != nil {
-            imageWidth = imageView.bounds.size.width
-            imageHeight = imageView.bounds.size.height
-            imageLeft = Constants.ToastHorizontalPadding
-        } else {
-            imageWidth = 0.0
-            imageHeight = 0.0
-            imageLeft = 0.0
-        }
+        let toastView = createToastView(backgroundColor: backgroundColor)
+        let imageView = createImageView(image: image)
+        let (imageWidth, imageHeight, imageLeft) = createImageViewSpecs(imageView: imageView)
 
         // check title if not empty create title label
         if !title.isEmpty {
@@ -609,7 +617,7 @@ public extension UIView {
         }
 
         if imageView != nil {
-            toastView.addSubview(imageView)
+            toastView.addSubview(imageView!)
         }
 
         return toastView

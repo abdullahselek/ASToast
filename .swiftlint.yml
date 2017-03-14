@@ -26,6 +26,9 @@ type_name:
     error: 50
   excluded: iPhone
 function_parameter_count: 8
+large_tuple:
+  warning: 3
+  error: 4
 variable_name:
   min_length:
     error: 4
