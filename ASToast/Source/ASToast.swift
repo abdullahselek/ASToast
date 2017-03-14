@@ -497,6 +497,34 @@ public extension UIView {
         return (imageWidth, imageHeight, imageLeft)
     }
 
+    fileprivate func createTitleLabel(title: String,
+                                      titleColor: UIColor?,
+                                      font: UIFont?,
+                                      imageWidth: CGFloat) -> UILabel? {
+        // check title if not empty create title label
+        if title.isEmpty {
+            return nil
+        }
+        let titleLabel: UILabel
+        titleLabel = UILabel()
+        titleLabel.numberOfLines = Constants.ToastMaxTitleLines
+        titleLabel.font = UIFont.boldSystemFont(ofSize: Constants.ToastFontSize)
+        titleLabel.textAlignment = NSTextAlignment.center
+        titleLabel.textColor = titleColor != nil ? titleColor : UIColor.white
+        titleLabel.backgroundColor = UIColor.clear
+        titleLabel.alpha = 1.0
+        titleLabel.text = title
+        if font != nil {
+            titleLabel.font = font
+        }
+
+        // set size the title label according to the lenth of title text
+        let maxSizeTitle = CGSize(width: (self.bounds.size.width * Constants.ToastMaxWidth) - imageWidth, height: self.bounds.size.height * Constants.ToastMaxHeight)
+        let expectedSizeTitle: CGSize! = sizeForString(title as NSString, font: titleLabel.font, constrainedSize: maxSizeTitle, lineBreakMode: titleLabel.lineBreakMode)
+        titleLabel.frame = CGRect(x: 0.0, y: 0.0, width: expectedSizeTitle.width, height: expectedSizeTitle.height)
+        return titleLabel
+    }
+
     /**
       Creates toast view with given message, title and title
       - parameter message: Message Text
@@ -521,31 +549,12 @@ public extension UIView {
 
         // ui elements of toast
         var messageLabel: UILabel!
-        var titleLabel: UILabel!
+//        var titleLabel: UILabel!
 
         let toastView = createToastView(backgroundColor: backgroundColor)
         let imageView = createImageView(image: image)
         let (imageWidth, imageHeight, imageLeft) = createImageViewSpecs(imageView: imageView)
-
-        // check title if not empty create title label
-        if !title.isEmpty {
-            titleLabel = UILabel()
-            titleLabel.numberOfLines = Constants.ToastMaxTitleLines
-            titleLabel.font = UIFont.boldSystemFont(ofSize: Constants.ToastFontSize)
-            titleLabel.textAlignment = NSTextAlignment.center
-            titleLabel.textColor = titleColor != nil ? titleColor : UIColor.white
-            titleLabel.backgroundColor = UIColor.clear
-            titleLabel.alpha = 1.0
-            titleLabel.text = title
-            if font != nil {
-            	titleLabel.font = font
-            }
-
-            // set size the title label according to the lenth of title text
-            let maxSizeTitle = CGSize(width: (self.bounds.size.width * Constants.ToastMaxWidth) - imageWidth, height: self.bounds.size.height * Constants.ToastMaxHeight)
-            let expectedSizeTitle: CGSize! = sizeForString(title as NSString, font: titleLabel.font, constrainedSize: maxSizeTitle, lineBreakMode: titleLabel.lineBreakMode)
-            titleLabel.frame = CGRect(x: 0.0, y: 0.0, width: expectedSizeTitle.width, height: expectedSizeTitle.height)
-        }
+        let titleLabel = createTitleLabel(title: title, titleColor: titleColor, font: font, imageWidth: imageWidth)
 
         // check message string if not empty create message label
         if !message.isEmpty {
@@ -571,8 +580,8 @@ public extension UIView {
         var titleWidth, titleHeight, titleTop, titleLeft: CGFloat!
 
         if titleLabel != nil {
-            titleWidth = titleLabel.bounds.size.width
-            titleHeight = titleLabel.bounds.size.height
+            titleWidth = titleLabel!.bounds.size.width
+            titleHeight = titleLabel!.bounds.size.height
             titleTop = Constants.ToastVerticalPadding
             titleLeft = imageLeft + imageWidth + Constants.ToastHorizontalPadding
         } else {
@@ -607,8 +616,11 @@ public extension UIView {
         toastView.frame = CGRect(x: 0.0, y: 0.0, width: toastViewWidth, height: toastViewHeight)
 
         if titleLabel != nil {
-            titleLabel.frame = CGRect(x: titleLeft, y: titleTop, width: titleWidth, height: titleHeight)
-            toastView.addSubview(titleLabel)
+            titleLabel!.frame = CGRect(x: titleLeft,
+                                       y: titleTop,
+                                       width: titleWidth,
+                                       height: titleHeight)
+            toastView.addSubview(titleLabel!)
         }
 
         if messageLabel != nil {
