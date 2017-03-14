@@ -551,6 +551,23 @@ public extension UIView {
         return messageLabel
     }
 
+    fileprivate func createTitleLabelSpecs(titleLabel: UILabel?,
+                                           imageLeft: CGFloat,
+                                           imageWidth: CGFloat) -> (CGFloat, CGFloat, CGFloat, CGFloat) {
+        var titleWidth = CGFloat(0.0)
+        var titleHeight = CGFloat(0.0)
+        var titleTop = CGFloat(0.0)
+        var titleLeft = CGFloat(0.0)
+        if titleLabel == nil {
+            return (titleWidth, titleHeight, titleTop, titleLeft)
+        }
+        titleWidth = titleLabel!.bounds.size.width
+        titleHeight = titleLabel!.bounds.size.height
+        titleTop = Constants.ToastVerticalPadding
+        titleLeft = imageLeft + imageWidth + Constants.ToastHorizontalPadding
+        return (titleWidth, titleHeight, titleTop, titleLeft)
+    }
+
     /**
       Creates toast view with given message, title and title
       - parameter message: Message Text
@@ -587,19 +604,9 @@ public extension UIView {
                                               imageWidth: imageWidth)
 
         // title label frame values
-        var titleWidth, titleHeight, titleTop, titleLeft: CGFloat!
-
-        if titleLabel != nil {
-            titleWidth = titleLabel!.bounds.size.width
-            titleHeight = titleLabel!.bounds.size.height
-            titleTop = Constants.ToastVerticalPadding
-            titleLeft = imageLeft + imageWidth + Constants.ToastHorizontalPadding
-        } else {
-            titleWidth = 0.0
-            titleHeight = 0.0
-            titleTop = 0.0
-            titleLeft = 0.0
-        }
+        let (titleWidth, titleHeight, titleTop, titleLeft) = createTitleLabelSpecs(titleLabel: titleLabel,
+                                                                                   imageLeft: imageLeft,
+                                                                                   imageWidth: imageWidth)
 
         // message label frame values
         var messageWidth, messageHeight, messageLeft, messageTop: CGFloat!
