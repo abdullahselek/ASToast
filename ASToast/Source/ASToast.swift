@@ -568,6 +568,25 @@ public extension UIView {
         return (titleWidth, titleHeight, titleTop, titleLeft)
     }
 
+    fileprivate func createMessageLabelSpecs(messageLabel: UILabel?,
+                                             imageLeft: CGFloat,
+                                             imageWidth: CGFloat,
+                                             titleTop: CGFloat,
+                                             titleHeight: CGFloat) -> (CGFloat, CGFloat, CGFloat, CGFloat) {
+        var messageWidth = CGFloat(0.0)
+        var messageHeight = CGFloat(0.0)
+        var messageLeft = CGFloat(0.0)
+        var messageTop = CGFloat(0.0)
+        if messageLabel == nil {
+            return (messageWidth, messageHeight, messageLeft, messageTop)
+        }
+        messageWidth = messageLabel!.bounds.size.width
+        messageHeight = messageLabel!.bounds.size.height
+        messageLeft = imageLeft + imageWidth + Constants.ToastHorizontalPadding
+        messageTop = titleTop + titleHeight + Constants.ToastVerticalPadding
+        return (messageWidth, messageHeight, messageLeft, messageTop)
+    }
+
     /**
       Creates toast view with given message, title and title
       - parameter message: Message Text
@@ -602,34 +621,23 @@ public extension UIView {
                                               messageColor: messageColor,
                                               font: font,
                                               imageWidth: imageWidth)
-
         // title label frame values
         let (titleWidth, titleHeight, titleTop, titleLeft) = createTitleLabelSpecs(titleLabel: titleLabel,
                                                                                    imageLeft: imageLeft,
                                                                                    imageWidth: imageWidth)
 
         // message label frame values
-        var messageWidth, messageHeight, messageLeft, messageTop: CGFloat!
-
-        if messageLabel != nil {
-            messageWidth = messageLabel!.bounds.size.width
-            messageHeight = messageLabel!.bounds.size.height
-            messageLeft = imageLeft + imageWidth + Constants.ToastHorizontalPadding
-            messageTop = titleTop + titleHeight + Constants.ToastVerticalPadding
-        } else {
-            messageWidth = 0.0
-            messageHeight = 0.0
-            messageLeft = 0.0
-            messageTop = 0.0
-        }
-
+        let (messageWidth, messageHeight, messageLeft, messageTop) = createMessageLabelSpecs(messageLabel: messageLabel,
+                                                                                             imageLeft: imageLeft,
+                                                                                             imageWidth: imageWidth,
+                                                                                             titleTop: titleTop,
+                                                                                             titleHeight: titleHeight)
         let longerWidth = max(titleWidth, messageWidth)
         let longerLeft = max(titleLeft, messageLeft)
 
         // toastView frames
         let toastViewWidth = max(imageWidth + (Constants.ToastHorizontalPadding * 2), (longerLeft + longerWidth + Constants.ToastHorizontalPadding))
         let toastViewHeight = max(messageTop + messageHeight + Constants.ToastVerticalPadding, (imageHeight + (Constants.ToastVerticalPadding * 2)))
-
         toastView.frame = CGRect(x: 0.0, y: 0.0, width: toastViewWidth, height: toastViewHeight)
 
         if titleLabel != nil {
@@ -639,16 +647,13 @@ public extension UIView {
                                        height: titleHeight)
             toastView.addSubview(titleLabel!)
         }
-
         if messageLabel != nil {
             messageLabel!.frame = CGRect(x: messageLeft, y: messageTop, width: messageWidth, height: messageHeight)
             toastView.addSubview(messageLabel!)
         }
-
         if imageView != nil {
             toastView.addSubview(imageView!)
         }
-
         return toastView
     }
 
