@@ -194,13 +194,15 @@ public extension UIView {
                           titleColor: UIColor?,
                           messageColor: UIColor?,
                           font: UIFont?) {
-        let toastView = self.toastView(message: message,
-                                       title: title,
-                                       image: nil,
-                                       backgroundColor: backgroundColor,
-                                       titleColor: titleColor,
-                                       messageColor: messageColor,
-                                       font: font)
+        guard let toastView = self.toastView(message: message,
+                                             title: title,
+                                             image: nil,
+                                             backgroundColor: backgroundColor,
+                                             titleColor: titleColor,
+                                             messageColor: messageColor,
+                                             font: font) else {
+                                        return
+        }
         self.showToast(toastView: toastView,
                        duration: Constants.ToastDuration,
                        position: .bottom)
@@ -225,13 +227,15 @@ public extension UIView {
                           titleColor: UIColor?,
                           messageColor: UIColor?,
                           font: UIFont?) {
-        let toastView = self.toastView(message: message,
-                                       title: title,
-                                       image: nil,
-                                       backgroundColor: backgroundColor,
-                                       titleColor: titleColor,
-                                       messageColor: messageColor,
-                                       font: font)
+        guard let toastView = self.toastView(message: message,
+                                             title: title,
+                                             image: nil,
+                                             backgroundColor: backgroundColor,
+                                             titleColor: titleColor,
+                                             messageColor: messageColor,
+                                             font: font) else {
+                                                return
+        }
         self.showToast(toastView: toastView,
                        fadeIn: fadeIn,
                        duration: duration,
@@ -259,13 +263,15 @@ public extension UIView {
                           titleColor: UIColor?,
                           messageColor: UIColor?,
                           font: UIFont?) {
-        let toastView = self.toastView(message: message,
-                                       title: title,
-                                       image: nil,
-                                       backgroundColor: backgroundColor,
-                                       titleColor: titleColor,
-                                       messageColor: messageColor,
-                                       font: font)
+        guard let toastView = self.toastView(message: message,
+                                             title: title,
+                                             image: nil,
+                                             backgroundColor: backgroundColor,
+                                             titleColor: titleColor,
+                                             messageColor: messageColor,
+                                             font: font) else {
+                                        return
+        }
         self.showToast(toastView: toastView,
                        fadeIn: fadeIn,
                        duration: duration,
@@ -293,13 +299,15 @@ public extension UIView {
                           titleColor: UIColor?,
                           messageColor: UIColor?,
                           font: UIFont?) {
-        let toastView = self.toastView(message: message,
-                                       title: "",
-                                       image: image,
-                                       backgroundColor: backgroundColor,
-                                       titleColor: titleColor,
-                                       messageColor: messageColor,
-                                       font: font)
+        guard let toastView = self.toastView(message: message,
+                                             title: "",
+                                             image: image,
+                                             backgroundColor: backgroundColor,
+                                             titleColor: titleColor,
+                                             messageColor: messageColor,
+                                             font: font) else {
+                                        return
+        }
         self.showToast(toastView: toastView,
                        fadeIn: fadeIn,
                        duration: duration,
@@ -329,13 +337,15 @@ public extension UIView {
                           titleColor: UIColor?,
                           messageColor: UIColor?,
                           font: UIFont?) {
-        let toastView = self.toastView(message: message,
-                                       title: title,
-                                       image: image,
-                                       backgroundColor: backgroundColor,
-                                       titleColor: titleColor,
-                                       messageColor: messageColor,
-                                       font: font)
+        guard let toastView = self.toastView(message: message,
+                                             title: title,
+                                             image: image,
+                                             backgroundColor: backgroundColor,
+                                             titleColor: titleColor,
+                                             messageColor: messageColor,
+                                             font: font) else {
+                                        return
+        }
         self.showToast(toastView: toastView,
                        fadeIn: fadeIn,
                        duration: duration,
@@ -362,7 +372,7 @@ public extension UIView {
       - parameter duration: The time duration toast will displayed on the screen
       - parameter position: The position that toast will displayed
      */
-    public func showToast(toastView: UIView!,
+    public func showToast(toastView: UIView,
                           fadeIn: TimeInterval = Constants.ToastFadeDuration,
                           duration: TimeInterval!,
                           position: ToastPosition) {
@@ -378,7 +388,7 @@ public extension UIView {
       - parameter toastView: Toast view
       - parameter CGPoint: The position point that toast will displayed
      */
-    public func showToast(toastView: UIView!,
+    public func showToast(toastView: UIView,
                           point: CGPoint) {
         createAndShowToast(toastView: toastView,
                            fadeIn: Constants.ToastFadeDuration,
@@ -394,7 +404,7 @@ public extension UIView {
       - parameter duration: The time duration toast will displayed on the screen
       - parameter CGPoint: The position point that toast will displayed
      */
-    public func showToast(toastView: UIView!,
+    public func showToast(toastView: UIView,
                           fadeIn: TimeInterval = Constants.ToastFadeDuration,
                           duration: TimeInterval!,
                           point: CGPoint) {
@@ -412,14 +422,11 @@ public extension UIView {
       - parameter duration: The time duration toast will displayed on the screen
       - parameter position: The position that toast will displayed
      */
-    fileprivate func createAndShowToast(toastView: UIView!,
+    fileprivate func createAndShowToast(toastView: UIView,
                                         fadeIn: TimeInterval,
                                         duration: TimeInterval!,
                                         position: ToastPosition,
                                         point: CGPoint) {
-        if toastView == nil {
-            return
-        }
         toastView.center = point.equalTo(CGPoint.zero) ? centerPointForPosition(position: position, toastView: toastView) : point
         toastView.alpha = Constants.ToastViewAlpha
 
