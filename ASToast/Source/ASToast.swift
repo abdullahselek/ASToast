@@ -164,19 +164,19 @@ public extension UIView {
                           backgroundColor: UIColor?,
                           messageColor: UIColor?,
                           font: UIFont?) {
-        let toastView = self.toastView(message: message,
+        guard let toastView = self.toastView(message: message,
                                        title: "",
                                        image: nil,
                                        backgroundColor: backgroundColor,
                                        titleColor: nil,
                                        messageColor: messageColor,
-                                       font: font)
-        if toastView != nil {
-            self.showToast(toastView: toastView,
-                           fadeIn: fadeIn,
-                           duration: duration,
-                           position: position)
+                                       font: font) else {
+                                        return
         }
+        self.showToast(toastView: toastView,
+                       fadeIn: fadeIn,
+                       duration: duration,
+                       position: position)
     }
 
     /**
