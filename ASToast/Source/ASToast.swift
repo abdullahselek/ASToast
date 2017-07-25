@@ -611,23 +611,23 @@ public extension UIView {
 
         // ui elements of toast
         let toastView = createToastView(backgroundColor: backgroundColor)
-        let imageView = createImageView(image: image)
-        let (imageWidth, imageHeight, imageLeft) = createImageViewSpecs(imageView: imageView)
-        let titleLabel = createTitleLabel(title: title,
+        let imgView = createImageView(image: image)
+        let (imageWidth, imageHeight, imageLeft) = createImageViewSpecs(imageView: imgView)
+        let titleLbl = createTitleLabel(title: title,
                                           titleColor: titleColor,
                                           font: font,
                                           imageWidth: imageWidth)
-        let messageLabel = createMessageLabel(message: message,
+        let messageLbl = createMessageLabel(message: message,
                                               messageColor: messageColor,
                                               font: font,
                                               imageWidth: imageWidth)
         // title label frame values
-        let (titleWidth, titleHeight, titleTop, titleLeft) = createTitleLabelSpecs(titleLabel: titleLabel,
+        let (titleWidth, titleHeight, titleTop, titleLeft) = createTitleLabelSpecs(titleLabel: titleLbl,
                                                                                    imageLeft: imageLeft,
                                                                                    imageWidth: imageWidth)
 
         // message label frame values
-        let (messageWidth, messageHeight, messageLeft, messageTop) = createMessageLabelSpecs(messageLabel: messageLabel,
+        let (messageWidth, messageHeight, messageLeft, messageTop) = createMessageLabelSpecs(messageLabel: messageLbl,
                                                                                              imageLeft: imageLeft,
                                                                                              imageWidth: imageWidth,
                                                                                              titleTop: titleTop,
@@ -638,22 +638,28 @@ public extension UIView {
         // toastView frames
         let toastViewWidth = max(imageWidth + (Constants.ToastHorizontalPadding * 2), (longerLeft + longerWidth + Constants.ToastHorizontalPadding))
         let toastViewHeight = max(messageTop + messageHeight + Constants.ToastVerticalPadding, (imageHeight + (Constants.ToastVerticalPadding * 2)))
-        toastView.frame = CGRect(x: 0.0, y: 0.0, width: toastViewWidth, height: toastViewHeight)
+        toastView.frame = CGRect(x: 0.0,
+                                 y: 0.0,
+                                 width: toastViewWidth,
+                                 height: toastViewHeight)
 
-        if titleLabel != nil {
-            titleLabel!.frame = CGRect(x: titleLeft,
-                                       y: titleTop,
-                                       width: titleWidth,
-                                       height: titleHeight)
-            toastView.addSubview(titleLabel!)
+        guard let titleLabel = titleLbl else {
+            return toastView
         }
-        if messageLabel != nil {
-            messageLabel!.frame = CGRect(x: messageLeft, y: messageTop, width: messageWidth, height: messageHeight)
-            toastView.addSubview(messageLabel!)
+        titleLabel.frame = CGRect(x: titleLeft,
+                                  y: titleTop,
+                                  width: titleWidth,
+                                  height: titleHeight)
+        toastView.addSubview(titleLabel)
+        guard let messageLabel = messageLbl else {
+            return toastView
         }
-        if imageView != nil {
-            toastView.addSubview(imageView!)
+        messageLabel.frame = CGRect(x: messageLeft, y: messageTop, width: messageWidth, height: messageHeight)
+        toastView.addSubview(messageLabel)
+        guard let imageView = imgView else {
+            return toastView
         }
+        toastView.addSubview(imageView)
         return toastView
     }
 
