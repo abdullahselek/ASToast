@@ -20,7 +20,7 @@ file_length:
   warning: 700
   error: 1200
 type_name:
-  min_length: 4
+  min_length: 3
   max_length:
     warning: 40
     error: 50
@@ -30,10 +30,6 @@ large_tuple:
   warning: 5
   error: 6
 variable_name:
-  min_length:
-    error: 4
-  excluded:
-    - id
-    - URL
-    - GlobalAPIKey
+  min_length: 3
+excluded:
 reporter: "xcode"
