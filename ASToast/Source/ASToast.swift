@@ -649,19 +649,17 @@ public extension UIView {
                                  width: toastViewWidth,
                                  height: toastViewHeight)
 
-        guard let titleLabel = titleLbl else {
-            return toastView
+        if let titleLabel = titleLbl {
+            titleLabel.frame = CGRect(x: titleLeft,
+                                      y: titleTop,
+                                      width: titleWidth,
+                                      height: titleHeight)
+            toastView.addSubview(titleLabel)
         }
-        titleLabel.frame = CGRect(x: titleLeft,
-                                  y: titleTop,
-                                  width: titleWidth,
-                                  height: titleHeight)
-        toastView.addSubview(titleLabel)
-        guard let messageLabel = messageLbl else {
-            return toastView
+        if let messageLabel = messageLbl {
+            messageLabel.frame = CGRect(x: messageLeft, y: messageTop, width: messageWidth, height: messageHeight)
+            toastView.addSubview(messageLabel)
         }
-        messageLabel.frame = CGRect(x: messageLeft, y: messageTop, width: messageWidth, height: messageHeight)
-        toastView.addSubview(messageLabel)
         guard let imageView = imgView else {
             return toastView
         }
