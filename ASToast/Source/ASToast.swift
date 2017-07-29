@@ -430,7 +430,7 @@ public extension UIView {
         toastView.alpha = Constants.ToastViewAlpha
 
         if Constants.ToastHidesOnTap {
-            let tapRecognizer: UITapGestureRecognizer! = UITapGestureRecognizer(target: toastView, action: #selector(UIView.handleToastTapped(_:)))
+            let tapRecognizer = UITapGestureRecognizer(target: toastView, action: #selector(UIView.handleToastTapped(_:)))
             toastView.addGestureRecognizer(tapRecognizer)
             toastView.isUserInteractionEnabled = true
             toastView.isExclusiveTouch = true
