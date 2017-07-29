@@ -1,4 +1,4 @@
-![Build Status](https://travis-ci.org/abdullahselek/ASToast.svg?branch=master)
+[![Build Status](https://travis-ci.org/abdullahselek/ASToast.svg?branch=master)](https://travis-ci.org/abdullahselek/ASToast)
 ![CocoaPods Compatible](https://img.shields.io/cocoapods/v/ASToast.svg)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Coverage Status](https://coveralls.io/repos/github/abdullahselek/ASToast/badge.svg?branch=master)](https://coveralls.io/github/abdullahselek/ASToast?branch=master)
