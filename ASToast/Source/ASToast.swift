@@ -471,8 +471,8 @@ public extension UIView {
             toastView.layer.shadowOffset = Constants.ToastShadowOffset
         }
         // set toastView background color
-        if backgroundColor != nil {
-            toastView.backgroundColor = backgroundColor!.withAlphaComponent(Constants.ToastOpacity)
+        if let bgColor = backgroundColor {
+            toastView.backgroundColor = bgColor.withAlphaComponent(Constants.ToastOpacity)
         } else {
             toastView.backgroundColor = UIColor.black.withAlphaComponent(Constants.ToastOpacity)
         }
@@ -553,7 +553,7 @@ public extension UIView {
         }
         // set size the message label according to the lenth of message text
         let maxSizeMessage = CGSize(width: (self.bounds.size.width * Constants.ToastMaxWidth) - imageWidth, height: self.bounds.size.height * Constants.ToastMaxHeight)
-        let expectedSizeMessage: CGSize! = sizeForString(message as NSString, font: messageLabel.font, constrainedSize: maxSizeMessage, lineBreakMode: messageLabel.lineBreakMode)
+        let expectedSizeMessage = sizeForString(message as NSString, font: messageLabel.font, constrainedSize: maxSizeMessage, lineBreakMode: messageLabel.lineBreakMode)
         messageLabel.frame = CGRect(x: 0.0, y: 0.0, width: expectedSizeMessage.width, height: expectedSizeMessage.height)
         return messageLabel
     }
@@ -584,11 +584,11 @@ public extension UIView {
         var messageHeight = CGFloat(0.0)
         var messageLeft = CGFloat(0.0)
         var messageTop = CGFloat(0.0)
-        if messageLabel == nil {
+        guard let messageLbl = messageLabel else {
             return (messageWidth, messageHeight, messageLeft, messageTop)
         }
-        messageWidth = messageLabel!.bounds.size.width
-        messageHeight = messageLabel!.bounds.size.height
+        messageWidth = messageLbl.bounds.size.width
+        messageHeight = messageLbl.bounds.size.height
         messageLeft = imageLeft + imageWidth + Constants.ToastHorizontalPadding
         messageTop = titleTop + titleHeight + Constants.ToastVerticalPadding
         return (messageWidth, messageHeight, messageLeft, messageTop)
@@ -715,7 +715,7 @@ public extension UIView {
             activityView.layer.shadowOffset = Constants.ToastShadowOffset
         }
 
-        let activityIndicatorView: UIActivityIndicatorView! = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
+        let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
         activityIndicatorView.center = CGPoint(x: activityView.bounds.size.width / 2, y: activityView.bounds.size.height / 2)
         activityView.addSubview(activityIndicatorView)
         activityIndicatorView.startAnimating()
@@ -770,10 +770,10 @@ public extension UIView {
                                    constrainedSize: CGSize,
                                    lineBreakMode: NSLineBreakMode) -> CGSize {
         if text.responds(to: #selector(NSString.boundingRect(with:options:attributes:context:))) {
-            let paragraphStyle: NSMutableParagraphStyle! = NSMutableParagraphStyle()
+            let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.lineBreakMode = lineBreakMode
             let attributes: Dictionary = [NSFontAttributeName: font, NSParagraphStyleAttributeName: paragraphStyle] as [String : Any]
-            let boundingRect: CGRect! = text.boundingRect(with: constrainedSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: attributes, context: nil)
+            let boundingRect = text.boundingRect(with: constrainedSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: attributes, context: nil)
             return CGSize(width: boundingRect.size.width, height: boundingRect.size.height)
         }
 
