@@ -565,11 +565,11 @@ public extension UIView {
         var titleHeight = CGFloat(0.0)
         var titleTop = CGFloat(0.0)
         var titleLeft = CGFloat(0.0)
-        if titleLabel == nil {
+        guard let titleLbl = titleLabel else {
             return (titleWidth, titleHeight, titleTop, titleLeft)
         }
-        titleWidth = titleLabel!.bounds.size.width
-        titleHeight = titleLabel!.bounds.size.height
+        titleWidth = titleLbl.bounds.size.width
+        titleHeight = titleLbl.bounds.size.height
         titleTop = Constants.ToastVerticalPadding
         titleLeft = imageLeft + imageWidth + Constants.ToastHorizontalPadding
         return (titleWidth, titleHeight, titleTop, titleLeft)
