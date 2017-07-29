@@ -495,11 +495,12 @@ public extension UIView {
         var imageWidth = CGFloat(0.0)
         var imageLeft = CGFloat(0.0)
         var imageHeight = CGFloat(0.0)
-        if imageView != nil {
-            imageWidth = imageView!.bounds.size.width
-            imageHeight = imageView!.bounds.size.height
-            imageLeft = Constants.ToastHorizontalPadding
+        guard let view = imageView else {
+            return (imageWidth, imageHeight, imageLeft)
         }
+        imageWidth = view.bounds.size.width
+        imageHeight = view.bounds.size.height
+        imageLeft = Constants.ToastHorizontalPadding
         return (imageWidth, imageHeight, imageLeft)
     }
 
