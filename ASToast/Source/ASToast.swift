@@ -460,7 +460,7 @@ public extension UIView {
     }
 
     fileprivate func createToastView(backgroundColor: UIColor?) -> UIView {
-        let toastView: UIView! = UIView()
+        let toastView = UIView()
         toastView.autoresizingMask = [UIViewAutoresizing.flexibleLeftMargin, UIViewAutoresizing.flexibleRightMargin, UIViewAutoresizing.flexibleTopMargin, UIViewAutoresizing.flexibleBottomMargin]
         toastView.layer.cornerRadius = Constants.ToastCornerRadius
         // check if shadow needed
@@ -526,7 +526,7 @@ public extension UIView {
 
         // set size the title label according to the lenth of title text
         let maxSizeTitle = CGSize(width: (self.bounds.size.width * Constants.ToastMaxWidth) - imageWidth, height: self.bounds.size.height * Constants.ToastMaxHeight)
-        let expectedSizeTitle: CGSize! = sizeForString(title as NSString, font: titleLabel.font, constrainedSize: maxSizeTitle, lineBreakMode: titleLabel.lineBreakMode)
+        let expectedSizeTitle = sizeForString(title as NSString, font: titleLabel.font, constrainedSize: maxSizeTitle, lineBreakMode: titleLabel.lineBreakMode)
         titleLabel.frame = CGRect(x: 0.0, y: 0.0, width: expectedSizeTitle.width, height: expectedSizeTitle.height)
         return titleLabel
     }
