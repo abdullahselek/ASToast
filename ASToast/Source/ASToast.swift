@@ -33,42 +33,42 @@ import QuartzCore
 /**
   Default toast constants
  */
-struct Constants {
+public struct Constants {
     // duration of view on screen
-    static let ToastDuration = TimeInterval(3)
+    public static let ToastDuration = TimeInterval(3)
 
     // view appearance
-    static let ToastMaxWidth = CGFloat(0.8)
-    static let ToastMaxHeight = CGFloat(0.8)
-    static let ToastHorizontalPadding = CGFloat(10)
-    static let ToastVerticalPadding = CGFloat(10)
-    static let ToastCornerRadius = CGFloat(10)
-    static let ToastOpacity = CGFloat(0.8)
-    static let ToastFontSize = CGFloat(16)
-    static let ToastFadeDuration = TimeInterval(0.3)
-    static let ToastMaxTitleLines = 0
-    static let ToastMaxMessageLines = 0
+    public static let ToastMaxWidth = CGFloat(0.8)
+    public static let ToastMaxHeight = CGFloat(0.8)
+    public static let ToastHorizontalPadding = CGFloat(10)
+    public static let ToastVerticalPadding = CGFloat(10)
+    public static let ToastCornerRadius = CGFloat(10)
+    public static let ToastOpacity = CGFloat(0.8)
+    public static let ToastFontSize = CGFloat(16)
+    public static let ToastFadeDuration = TimeInterval(0.3)
+    public static let ToastMaxTitleLines = 0
+    public static let ToastMaxMessageLines = 0
 
     // value between 0.0 and 1.0
-    static let ToastViewAlpha = CGFloat(0.0)
+    public static let ToastViewAlpha = CGFloat(0.0)
 
     // shadow appearance
-    static let ToastDisplayShadow = true
-    static let ToastShadowOpacity = Float(0.8)
-    static let ToastShadowRadius = CGFloat(5.0)
-    static var ToastShadowOffset: CGSize = CGSize(width: 3.0, height: 3.0)
+    public static let ToastDisplayShadow = true
+    public static let ToastShadowOpacity = Float(0.8)
+    public static let ToastShadowRadius = CGFloat(5.0)
+    public static var ToastShadowOffset: CGSize = CGSize(width: 3.0, height: 3.0)
 
     // change visibility of view
-    static let ToastHidesOnTap = true
+    public static let ToastHidesOnTap = true
 
     // image view size
-    static let ToastImageViewWidth = CGFloat(80.0)
-    static let ToastImageViewHeight = CGFloat(80.0)
+    public static let ToastImageViewWidth = CGFloat(80.0)
+    public static let ToastImageViewHeight = CGFloat(80.0)
 
     // activity
-    static let ToastActivityWidth = CGFloat(100.0)
-    static let ToastActivityHeight = CGFloat(100.0)
-    static let ToastActivityDefaultPosition = ToastPosition.center
+    public static let ToastActivityWidth = CGFloat(100.0)
+    public static let ToastActivityHeight = CGFloat(100.0)
+    public static let ToastActivityDefaultPosition = ToastPosition.center
 }
 
 /**
@@ -674,7 +674,7 @@ public extension UIView {
       Finish event handler for timer
       - parameter timer: NSTimer
      */
-    func toastTimerDidFinish(_ timer: Timer) {
+    @objc func toastTimerDidFinish(_ timer: Timer) {
         self.hideToast(toastView: timer.userInfo as? UIView!)
     }
 
@@ -682,7 +682,7 @@ public extension UIView {
       Tap gesture handler
       - parameter recognizer: UITapGestureRecognizer
      */
-    func handleToastTapped(_ recognizer: UITapGestureRecognizer) {
+    @objc func handleToastTapped(_ recognizer: UITapGestureRecognizer) {
         timer.invalidate()
         hideToast(toastView: recognizer.view)
     }
@@ -772,7 +772,7 @@ public extension UIView {
         if text.responds(to: #selector(NSString.boundingRect(with:options:attributes:context:))) {
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.lineBreakMode = lineBreakMode
-            let attributes: Dictionary = [NSFontAttributeName: font, NSParagraphStyleAttributeName: paragraphStyle] as [String : Any]
+            let attributes = [NSAttributedStringKey.font: font, NSAttributedStringKey.paragraphStyle: paragraphStyle] as [NSAttributedStringKey : Any]
             let boundingRect = text.boundingRect(with: constrainedSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: attributes, context: nil)
             return CGSize(width: boundingRect.size.width, height: boundingRect.size.height)
         }
