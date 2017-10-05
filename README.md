@@ -15,6 +15,13 @@ A Swift extension for using Android style Toast notifications. You may call ASTo
 ![activity_toast](https://github.com/abdullahselek/ASToast/blob/master/images/astoast_activity.png)
 
 ## Requirements
+
+| ASToast Version | Minimum iOS Target  | Swift Version |
+|:--------------------:|:---------------------------:|:---------------------------:|
+| 1.1.1 | 9.0 | 4.0 |
+| 1.1.0 | 8.0 | 3.x |
+| 1.0.3 | 8.0 | 2.x |
+
 iOS 8.0+
 
 ## CocoaPods
@@ -24,15 +31,6 @@ CocoaPods is a dependency manager for Cocoa projects. You can install it with th
 $ gem install cocoapods
 ```
 
-### For Swift 3
-```
-You can use > 1.0.4
-```
-### For Swift 2.3
-```
-Please use 1.0.3
-```
-
 To integrate ASToast into your Xcode project using CocoaPods, specify it in your Podfile:
 ```
 source 'https://github.com/CocoaPods/Specs.git'
@@ -40,7 +38,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'ASToast', '~> 1.1.0'
+    pod 'ASToast', '~> 1.1.1'
 end
 ```
 Then, run the following command:
@@ -61,7 +59,7 @@ brew install carthage
 To integrate ASToast into your Xcode project using Carthage, specify it in your Cartfile:
 
 ```
-github "abdullahselek/ASToast" ~> 1.1.0
+github "abdullahselek/ASToast" ~> 1.1.1
 ```
 
 Run carthage update to build the framework and drag the built ASToast.framework into your Xcode project.
