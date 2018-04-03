@@ -18,6 +18,7 @@ A Swift extension for using Android style Toast notifications. You may call ASTo
 
 | ASToast Version | Minimum iOS Target  | Swift Version |
 |:--------------------:|:---------------------------:|:---------------------------:|
+| 1.1.2 | 9.0 | 4.1 |
 | 1.1.1 | 9.0 | 4.0 |
 | 1.1.0 | 8.0 | 3.x |
 | 1.0.3 | 8.0 | 2.x |
@@ -38,7 +39,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'ASToast', '~> 1.1.1'
+    pod 'ASToast', '~> 1.1.2'
 end
 ```
 Then, run the following command:
@@ -59,7 +60,7 @@ brew install carthage
 To integrate ASToast into your Xcode project using Carthage, specify it in your Cartfile:
 
 ```
-github "abdullahselek/ASToast" ~> 1.1.1
+github "abdullahselek/ASToast" ~> 1.1.2
 ```
 
 Run carthage update to build the framework and drag the built ASToast.framework into your Xcode project.
