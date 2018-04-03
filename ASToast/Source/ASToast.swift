@@ -675,7 +675,7 @@ public extension UIView {
       - parameter timer: NSTimer
      */
     @objc func toastTimerDidFinish(_ timer: Timer) {
-        self.hideToast(toastView: timer.userInfo as? UIView!)
+        self.hideToast(toastView: timer.userInfo as? UIView)
     }
 
     /**
