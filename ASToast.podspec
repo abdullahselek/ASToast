@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
     s.name                  = 'ASToast'
-    s.version               = '1.1.1'
+    s.version               = '1.1.2'
     s.summary               = 'A Swift extension for using Android style Toast notifications'
     s.homepage              = 'https://github.com/abdullahselek/ASToast'
     s.license               = {
