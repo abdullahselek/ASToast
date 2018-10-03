@@ -69,24 +69,29 @@ class ViewController: UIViewController {
         case 4:
             // Show a custom view as toast
             let customView: UIView! = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 200.0, height: 300.0))
-            customView.autoresizingMask = [UIViewAutoresizing.flexibleLeftMargin, UIViewAutoresizing.flexibleRightMargin, UIViewAutoresizing.flexibleTopMargin, UIViewAutoresizing.flexibleBottomMargin]
+            customView.autoresizingMask = [UIView.AutoresizingMask.flexibleLeftMargin,
+                                           UIView.AutoresizingMask.flexibleRightMargin,
+                                           UIView.AutoresizingMask.flexibleTopMargin,
+                                           UIView.AutoresizingMask.flexibleBottomMargin]
             customView.backgroundColor = UIColor.green
 
             self.view.showToast(toastView: customView, duration: TimeInterval(3.0), position: .center)
             break
         case 5:
             // Show an imageView as toast, on center at point (110,110)
-            let toastImageView: UIImageView! = UIImageView(image: UIImage(named: "apple_logo"))
+            let toastImageView = UIImageView(image: UIImage(named: "apple_logo"))
             self.view.showToast(toastView: toastImageView, duration: TimeInterval(3.0), point: CGPoint(x: 110, y: 110))
             break
         case 6:
-            let button: UIButton! = sender as! UIButton
+            guard let button = sender as? UIButton else {
+                return
+            }
             if !isShowingActivity {
                 self.view.makeToastActivity()
-                button.setTitle("Hide Activity", for: UIControlState())
+                button.setTitle("Hide Activity", for: UIControl.State())
             } else {
                 self.view.hideToastActivity()
-                button.setTitle("Show Activity", for: UIControlState())
+                button.setTitle("Show Activity", for: UIControl.State())
             }
 
             isShowingActivity = !isShowingActivity

@@ -440,7 +440,7 @@ public extension UIView {
 
         self.addSubview(toastView)
 
-        UIView.animate(withDuration: fadeIn, delay: 0.0, options: UIViewAnimationOptions.allowUserInteraction, animations: { () -> Void in
+        UIView.animate(withDuration: fadeIn, delay: 0.0, options: UIView.AnimationOptions.allowUserInteraction, animations: { () -> Void in
             toastView.alpha = 1.0
         }) { (_) -> Void in
 
@@ -452,7 +452,7 @@ public extension UIView {
       - parameter toastView: Toast view
      */
     fileprivate func hideToast(toastView: UIView!) {
-        UIView.animate(withDuration: Constants.ToastFadeDuration, delay: 0.0, options: [UIViewAnimationOptions.curveEaseIn, UIViewAnimationOptions.beginFromCurrentState], animations: { () -> Void in
+        UIView.animate(withDuration: Constants.ToastFadeDuration, delay: 0.0, options: [UIView.AnimationOptions.curveEaseIn, UIView.AnimationOptions.beginFromCurrentState], animations: { () -> Void in
             toastView.alpha = 0.0
         }) { (_) -> Void in
             toastView.removeFromSuperview()
@@ -461,7 +461,10 @@ public extension UIView {
 
     fileprivate func createToastView(backgroundColor: UIColor?) -> UIView {
         let toastView = UIView()
-        toastView.autoresizingMask = [UIViewAutoresizing.flexibleLeftMargin, UIViewAutoresizing.flexibleRightMargin, UIViewAutoresizing.flexibleTopMargin, UIViewAutoresizing.flexibleBottomMargin]
+        toastView.autoresizingMask = [UIView.AutoresizingMask.flexibleLeftMargin,
+                                      UIView.AutoresizingMask.flexibleRightMargin,
+                                      UIView.AutoresizingMask.flexibleTopMargin,
+                                      UIView.AutoresizingMask.flexibleBottomMargin]
         toastView.layer.cornerRadius = Constants.ToastCornerRadius
         // check if shadow needed
         if Constants.ToastDisplayShadow == true {
@@ -484,7 +487,7 @@ public extension UIView {
         // check image
         if image != nil {
             imageView = UIImageView(image: image)
-            imageView.contentMode = UIViewContentMode.scaleAspectFit
+            imageView.contentMode = UIView.ContentMode.scaleAspectFit
             imageView.frame = CGRect(x: Constants.ToastHorizontalPadding, y: Constants.ToastVerticalPadding, width: Constants.ToastImageViewWidth, height: Constants.ToastImageViewHeight)
             return imageView
         }
@@ -705,7 +708,10 @@ public extension UIView {
         activityView.center = centerPointForPosition(position: position, toastView: activityView)
         activityView.backgroundColor = UIColor.black.withAlphaComponent(Constants.ToastOpacity)
         activityView.alpha = Constants.ToastViewAlpha
-        activityView.autoresizingMask = [UIViewAutoresizing.flexibleLeftMargin, UIViewAutoresizing.flexibleRightMargin, UIViewAutoresizing.flexibleTopMargin, UIViewAutoresizing.flexibleBottomMargin]
+        activityView.autoresizingMask = [UIView.AutoresizingMask.flexibleLeftMargin,
+                                         UIView.AutoresizingMask.flexibleRightMargin,
+                                         UIView.AutoresizingMask.flexibleTopMargin,
+                                         UIView.AutoresizingMask.flexibleBottomMargin]
         activityView.layer.cornerRadius = Constants.ToastCornerRadius
 
         if Constants.ToastDisplayShadow {
@@ -715,14 +721,14 @@ public extension UIView {
             activityView.layer.shadowOffset = Constants.ToastShadowOffset
         }
 
-        let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
+        let activityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.whiteLarge)
         activityIndicatorView.center = CGPoint(x: activityView.bounds.size.width / 2, y: activityView.bounds.size.height / 2)
         activityView.addSubview(activityIndicatorView)
         activityIndicatorView.startAnimating()
 
         self.addSubview(activityView)
 
-        UIView.animate(withDuration: Constants.ToastFadeDuration, delay: 0.0, options: UIViewAnimationOptions(), animations: { () -> Void in
+        UIView.animate(withDuration: Constants.ToastFadeDuration, delay: 0.0, options: UIView.AnimationOptions(), animations: { () -> Void in
             activityView.alpha = 1.0
         }, completion: nil)
     }
@@ -732,7 +738,7 @@ public extension UIView {
      */
     public func hideToastActivity() {
         if activityView != nil {
-            UIView.animate(withDuration: Constants.ToastFadeDuration, delay: 0.0, options: [UIViewAnimationOptions.curveEaseIn, UIViewAnimationOptions.beginFromCurrentState], animations: { () -> Void in
+            UIView.animate(withDuration: Constants.ToastFadeDuration, delay: 0.0, options: [UIView.AnimationOptions.curveEaseIn, UIView.AnimationOptions.beginFromCurrentState], animations: { () -> Void in
                 activityView.alpha = 0.0
             }, completion: { (_) -> Void in
                 activityView.removeFromSuperview()
@@ -772,7 +778,8 @@ public extension UIView {
         if text.responds(to: #selector(NSString.boundingRect(with:options:attributes:context:))) {
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.lineBreakMode = lineBreakMode
-            let attributes = [NSAttributedStringKey.font: font, NSAttributedStringKey.paragraphStyle: paragraphStyle] as [NSAttributedStringKey : Any]
+            let attributes = [NSAttributedString.Key.font: font,
+                              NSAttributedString.Key.paragraphStyle: paragraphStyle] as [NSAttributedString.Key: Any]
             let boundingRect = text.boundingRect(with: constrainedSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: attributes, context: nil)
             return CGSize(width: boundingRect.size.width, height: boundingRect.size.height)
         }
